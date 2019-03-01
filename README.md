@@ -1,2 +1,2 @@
-# intimo-web
-Web de la tienda Íntimo (Lencería)
+# Tienda Íntimo :dress:
+### Web de lencería para ver los productos a la venta
