@@ -1,16 +1,29 @@
 const express = require("express");
-const fs = require("fs");
+const path = require('path');
 const app = express();
-const PORT = 3000;
 
-app.get("/", (req, res) => {
-    fs.readFile("./index.html", (err, data) => {
-        if(err) throw err;
-        return res.send(data);
-    });
-    res.close();
+const routes = require('./routes/index');
+
+//Settings
+app.set('port', process.env.PORT || 3000); //Declare a variable 'port' and asign it a configuration
+app.set('views', path.join(__dirname, 'views')); //define where's the views folder
+app.set('view engine', 'ejs'); //Configure the template engine
+
+//Middlewares
+app.use((req, res, next) => {
+    console.log(`${req.url} -${req.method}`);
+    next();
 });
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
-app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`)
+//Routes
+app.use(routes);//Use the routes of the routes folder
+
+//Static Files
+app.use(express.static(path.join(__dirname, 'public')));
+
+//Start the server
+app.listen(app.get('port'), () => {
+    console.log(`Server listening on port ${app.get('port')}`);
 });
