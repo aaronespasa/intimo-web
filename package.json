@@ -1,0 +1,28 @@
+{
+  "name": "intimo-web",
+  "version": "1.0.0",
+  "description": "Web de lencería para la exposición de sus productos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaronespasa/intimo-web.git"
+  },
+  "keywords": [
+    "tienda",
+    "lenceria"
+  ],
+  "author": "Aarón Adrián",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aaronespasa/intimo-web/issues"
+  },
+  "homepage": "https://github.com/aaronespasa/intimo-web#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.18.10"
+  }
+}
