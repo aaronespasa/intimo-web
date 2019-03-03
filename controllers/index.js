@@ -32,18 +32,17 @@ const contacto = (req, res, next) => {
     })
 }
 
-const newProduct = (req, res, next) => {
+/*const newProduct = (req, res, next) => {
     const { newItem } = req.body; //It's the same as: const newItem = req.body.newItem;
     items.push({
         id: items.length + 1,
         name: newItem
     });
     res.redirect('/productos');
-}
+}*/
 
 module.exports = {
     home, //Is the same as -> home: home
     productos,
-    contacto,
-    newProduct
+    contacto
 }

@@ -9,7 +9,7 @@ router.get('/productos', routesController.productos);
 
 router.get('/contacto', routesController.contacto);
 
-router.post('/new-product', routesController.newProduct);
+//router.post('/new-product', routesController.newProduct);
 
 module.exports = router;
 
