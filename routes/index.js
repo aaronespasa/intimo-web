@@ -5,7 +5,13 @@ const routesController = require('../controllers/index');
 
 router.get('/', routesController.home);
 
-router.get('/productos', routesController.productos);
+router.get('/productos/mujer', routesController.productosMujer);
+
+router.get('/productos/hombre', routesController.productosHombre);
+
+router.get('/productos/ninos', routesController.productosNinos);
+
+router.get('/productos/casa', routesController.productosCasa);
 
 router.get('/contacto', routesController.contacto);
 

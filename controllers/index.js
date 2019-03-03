@@ -19,8 +19,30 @@ const home = (req, res) => {
     }); //We've had said where is index.ejs in the settings
 }
 
-const productos = (req, res, next) => {
-    res.render('productos', {
+const productosMujer = (req, res, next) => {
+    res.render('productos-mujer', {
+        title: 'Íntimo: Productos',
+        items: items
+    })
+}
+
+const productosHombre = (req, res, next) => {
+    res.render('productos-hombre', {
+        title: 'Íntimo: Productos',
+        items: items
+    })
+}
+
+
+const productosNinos = (req, res, next) => {
+    res.render('productos-ninos', {
+        title: 'Íntimo: Productos',
+        items: items
+    })
+}
+
+const productosCasa = (req, res, next) => {
+    res.render('productos-casa', {
         title: 'Íntimo: Productos',
         items: items
     })
@@ -43,6 +65,9 @@ const contacto = (req, res, next) => {
 
 module.exports = {
     home, //Is the same as -> home: home
-    productos,
+    productosMujer,
+    productosHombre,
+    productosNinos,
+    productosCasa,
     contacto
 }
