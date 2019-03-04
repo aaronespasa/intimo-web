@@ -46,7 +46,3 @@
    80% { opacity:1; transform: translateY(4.5vh); }	
   100% { opacity:0; transform: translateY(5.3vh); }	
 }
-
-.contacto-home::before{
-    content: url(../images/location-point.svg) ' ';
-}

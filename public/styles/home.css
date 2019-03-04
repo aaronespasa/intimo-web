@@ -4,40 +4,59 @@
     background:url("../images/intimo-logo-background.jpg");
     background-size: cover;
 }
-.menu-home ul:nth-child(5n){
-    margin-left: 20em;
-}
-.menu-home a {
-    color: white;
-    font-weight: bold;
-}
 .menu-home ul{
+    display: flex;
     list-style-type: none;
     overflow: hidden;
     margin: 0;
     padding: 0;
 }
-.menu-home li {
-    float: left;
+.menu-home li{
+    margin-left: 0.5em;
+
+}
+.menu-home li:first-child a::before {
+    content: url(../images/female-dress.svg) " ";
+}
+.menu-home li:nth-child(2) a::before {
+    content: url(../images/boxers.svg) " ";
+}
+.menu-home li:nth-child(3) a::before {
+    content: url(../images/baby.svg) " ";
+}
+.menu-home li:nth-child(4) a::before {
+    content: url(../images/bed.svg) " ";
+}
+.menu-home a:last-child::before {
+    content: url(../images/location-point.svg) " ";
+}
+.menu-home li:last-child{
+    position: absolute;
+    right: 8%;
+}
+.menu-home a {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
 }
 .menu-home li a,
 .menu-home .products-btn {
     display: inline-block;
     text-align: center;
-    padding: 20px 35px;
+    padding: 1em 3em;
     text-decoration: none;
 }
 .menu-home .products-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 166px;
-    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+    min-width: 10.375em;
+    box-shadow: 0px 0.25em 0.63em 0px rgba(0, 0, 0, 0.3);
     z-index: 1;
 }
 .menu-home .products-content a {
     color: black;
-    padding: 12px 16px;
+    padding: 0.75em 1em;
     text-decoration: none;
     display: block;
     text-align: left;
@@ -45,7 +64,10 @@
 .menu-home .products-content a:hover {
     background-color: #ccc;
 }
-
 .menu-home .products:hover .products-content {
     display: block;
+}
+
+.first-section{
+    height: 100vh;
 }
