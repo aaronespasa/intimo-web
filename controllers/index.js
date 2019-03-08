@@ -74,7 +74,7 @@ const uploadProduct = async (req, res) => {
 
     await product.save();
 
-    res.send('Producto creado+');
+    res.send('/admin/nuevo');
 }
 
 module.exports = {
