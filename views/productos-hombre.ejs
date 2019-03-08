@@ -3,11 +3,11 @@
 
 <h1>Productos Hombre</h1>
 
-<ul>
+<div class="grid-content">
     <% for(let i=0; i < items.length; i++){ %>
-        <li><%= items[i].name %></li>
+        <div class="grid-item"><%= items[i].name%></div>
     <% } %>
-</ul>
+</div>
 
 <!--<form action="/new-Product" method="POST">
     <input type="text" name="newItem" id="newItem">
