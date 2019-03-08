@@ -1,0 +1,23 @@
+<form action="/new-product" method="POST" enctype="multipart/form-data">
+    <input type="text" name="name" placeholder="Nombre del Producto">
+    <textarea name="description" cols="30" rows="10" placeholder="Descripcion del producto"></textarea>
+    <select name="sex" data-style="btn-info">
+        <option value="chico">Chico</option>
+        <option value="chica">Chica</option>
+        <option value="unisex">Unisex</option>
+    </select>
+    <select name="age" data-style="btn-info">
+        <option value="niño">Niño</option>
+        <option value="adulto">Adulto</option>
+    </select>
+    <select name="type" data-style="btn-info">
+        <option value="pijama">Pijama</option>
+        <option value="interior">Interior</option>
+        <option value="bañador">Bañador</option>
+    </select>
+    <div>
+        <input type="file" name="image">
+        <label>Selecciona una imagen</label>
+    </div>
+    <button type="submit">Crear producto</button>
+</form>

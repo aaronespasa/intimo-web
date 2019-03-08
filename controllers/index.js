@@ -1,3 +1,5 @@
+const Product = require('../models/Products');
+
 const items = [
     {
         id: 1,
@@ -54,14 +56,26 @@ const contacto = (req, res, next) => {
     })
 }
 
-/*const newProduct = (req, res, next) => {
-    const { newItem } = req.body; //It's the same as: const newItem = req.body.newItem;
-    items.push({
-        id: items.length + 1,
-        name: newItem
-    });
-    res.redirect('/productos');
-}*/
+const newProduct = (req, res, next) => {
+    res.render('newProduct');
+}
+
+const uploadProduct = async (req, res) => {
+    const product = new Product();
+
+    product.name = req.body.name;
+    product.description = req.body.description;
+    product.sex = req.body.sex;
+    product.age = req.body.age;
+    product.type = req.body.type;
+    product.filename = req.file.filename;
+    product.path = '/img/products' + req.file.filename;
+    product.originalname = req.file.originalname;
+
+    await product.save();
+
+    res.send('Producto creado+');
+}
 
 module.exports = {
     home, //Is the same as -> home: home
@@ -69,5 +83,7 @@ module.exports = {
     productosHombre,
     productosNinos,
     productosCasa,
-    contacto
+    contacto,
+    newProduct,
+    uploadProduct
 }
