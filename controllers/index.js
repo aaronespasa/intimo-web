@@ -1,7 +1,8 @@
 const items = [
     {
         id: 1,
-        name: 'product1'
+        name: 'product1',
+        img: "<img src='images/intimo-logo.png'></img>"
     },
     {
         id: 2,
@@ -10,6 +11,10 @@ const items = [
     {
         id: 3,
         name: 'product3'
+    },
+    {
+        id: 4,
+        name: 'product4'
     }
 ];
 

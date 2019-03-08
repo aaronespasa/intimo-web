@@ -1,12 +1,14 @@
 <% include partials/head.ejs %>
 <% include partials/header.ejs %>
 
-<h1>Productos Mujer</h1>
+<h1 class="section-title">Productos Mujer</h1>
 
-<ul>
+<div class="grid-content">
     <% for(let i=0; i < items.length; i++){ %>
-        <li><%= items[i].name %></li>
+    <div class="grid-item">
+        <%= items[i].name%>
+    </div>
     <% } %>
-</ul>
+</div>
 
 <% include partials/footer.ejs%>

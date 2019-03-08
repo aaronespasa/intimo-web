@@ -1,0 +1,12 @@
+.footer-content{
+    position: relative;
+    bottom: 0%;
+    height: 3em;
+    width: 100vw;
+    background:black;
+}
+.footer-title{
+    text-align: center;
+    padding-top: 1em;    
+    color: white;
+}

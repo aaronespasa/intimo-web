@@ -1,13 +1,17 @@
 <% include partials/head.ejs %>
 <% include partials/header.ejs %>
 
-<h1>Productos Hombre</h1>
+<h1 class="section-title">Productos Hombre</h1>
 
-<div class="grid-content">
-    <% for(let i=0; i < items.length; i++){ %>
-        <div class="grid-item"><%= items[i].name%></div>
-    <% } %>
-</div>
+<section class="products-content">
+    <div class="grid-content">
+        <% for(let i=0; i < items.length; i++){ %>
+         <div class="grid-item">
+             <%= items[i].name%>
+         </div>
+        <% } %>
+    </div>
+</section>
 
 <!--<form action="/new-Product" method="POST">
     <input type="text" name="newItem" id="newItem">

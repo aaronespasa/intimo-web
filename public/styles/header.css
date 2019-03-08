@@ -1,7 +1,15 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
 .header {
     background-color: black;
     margin: 0;
     padding: 0;
+}
+.intimo-logo{
+    margin: 0;
 }
 .intimo-logo img{
     width: 13em;
