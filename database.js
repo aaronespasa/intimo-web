@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/intimo-app', {
-    useCreateIndex: true,
-    useNewUrlPasser:true,
-    useFindAndModify: false
+mongoose.set('useFindAndModify', false);
+mongoose.connect('mongodb://localhost/intimo-db-app', {
+  useCreateIndex: true,
+  useNewUrlParser: true
 })
-    .then(db => console.log('DB is connected'))
-    .catch(err => console.error(err));
-
+  .then(db => console.log('DB is connected'))
+  .catch(err => console.error(err));

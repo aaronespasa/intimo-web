@@ -1,5 +1,5 @@
-const express = require('express');
-const router = express.Router();
+const { Router } = require('express');
+const router = Router();
 
 const routesController = require('../controllers/index');
 
@@ -15,7 +15,9 @@ router.get('/productos/casa', routesController.productosCasa);
 
 router.get('/contacto', routesController.contacto);
 
-//router.post('/new-product', routesController.newProduct);
+router.get('/admin/nuevo', routesController.newProduct);
+
+router.post('/new-product', routesController.uploadProduct)
 
 module.exports = router;
 
