@@ -6,7 +6,7 @@ body {
 .main-background {
     width: 100vw;
     height: 100vh;
-    background:url("../images/intimo-logo-background.jpg");
+    background:url("../images/backgrounds/intimo-logo-background.jpg");
     background-size: cover;
 }
 .menu-home ul{
@@ -21,19 +21,19 @@ body {
 
 }
 .menu-home li:first-child a::before {
-    content: url(../images/female-dress.svg) " ";
+    content: url(../images/icons/female-dress.svg) " ";
 }
 .menu-home li:nth-child(2) a::before {
-    content: url(../images/boxers.svg) " ";
+    content: url(../images/icons/boxers.svg) " ";
 }
 .menu-home li:nth-child(3) a::before {
-    content: url(../images/baby.svg) " ";
+    content: url(../images/icons/baby.svg) " ";
 }
 .menu-home li:nth-child(4) a::before {
-    content: url(../images/bed.svg) " ";
+    content: url(../images/icons/bed.svg) " ";
 }
 .menu-home a:last-child::before {
-    content: url(../images/location-point.svg) " ";
+    content: url(../images/icons/location-point.svg) " ";
 }
 .menu-home li:last-child{
     position: absolute;

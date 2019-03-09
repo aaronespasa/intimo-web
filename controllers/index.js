@@ -3,8 +3,7 @@ const Product = require('../models/Products');
 const items = [
     {
         id: 1,
-        name: 'product1',
-        img: "<img src='images/intimo-logo.png'></img>"
+        name: 'product1'
     },
     {
         id: 2,
@@ -74,7 +73,7 @@ const uploadProduct = async (req, res) => {
     product.age = req.body.age;
     product.type = req.body.type;
     product.filename = req.file.filename;
-    product.path = '/img/products' + req.file.filename;
+    product.path = '/images/products' + req.file.filename;
     product.originalname = req.file.originalname;
 
     await product.save();
