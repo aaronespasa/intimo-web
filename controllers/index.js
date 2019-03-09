@@ -61,7 +61,9 @@ const contacto = (req, res, next) => {
 }
 
 const newProduct = (req, res, next) => {
-    res.render('newProduct');
+    res.render('newProduct', {
+        title: "Íntimo: Crear Producto"
+    });
 }
 
 const uploadProduct = async (req, res) => {

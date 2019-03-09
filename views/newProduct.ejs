@@ -1,3 +1,6 @@
+<% include partials/head.ejs %>
+<% include partials/header.ejs %>
+
 <form action="/new-product" method="POST" enctype="multipart/form-data">
     <input type="text" name="name" placeholder="Nombre del Producto">
     <textarea name="description" cols="30" rows="10" placeholder="Descripcion del producto"></textarea>
@@ -21,3 +24,5 @@
     </div>
     <button type="submit">Crear producto</button>
 </form>
+
+<% include partials/footer.ejs %>
