@@ -1,4 +1,21 @@
 <% include partials/head.ejs %>
-    <h1>Esto es el admin</h1>
+<h1 class="login-title">Admin Login</h1>
+<div class="form-container">
+        <figure class="form-icon">
+            <img src="/images/icons/user.svg" alt="User Logo">
+        </figure>
+        <form action="" method="POST" name="FormAdminEntrar">
+            <div class="input-box">
+                <span class="email-icon">a</span>
+                <input type="email" class="form-control" name="correo" placeholder="Correo" required>
+            </div>
+            <div class="input-box">
+                <span class="lock-icon">b</span>
+                <input type="password" class="form-control" name="contra" placeholder="*****" required>
+            </div>
+            <button class="btn-form" type="submit">Acceder</button>
+            <div class="return-home-opt"><a href="/">Regresar al home</a></div>
+        </form>
+    </div>
 </body>
 </html>
