@@ -25,7 +25,7 @@ const home = (req, res) => {
     }); //We've had said where is index.ejs in the settings
 }
 
-const productosMujer = (req, res, next) => {
+const productosMujer = (req, res) => {
     res.render('productos-mujer', {
         title: 'Íntimo: Productos',
         items: items
@@ -60,6 +60,12 @@ const contacto = (req, res, next) => {
     })
 }
 
+const admin = (req, res, next) => {
+    res.render('../views/admin.ejs', {
+        title: "Admin"
+    })
+}
+
 const newProduct = (req, res, next) => {
     res.render('newProduct', {
         title: "Íntimo: Crear Producto"
@@ -90,6 +96,7 @@ module.exports = {
     productosNinos,
     productosCasa,
     contacto,
+    admin,
     newProduct,
     uploadProduct
 }
