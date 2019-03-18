@@ -1,8 +1,9 @@
-.footer-content{
+.footer{
     position: relative;
     bottom: 0%;
     height: 3em;
     width: 100vw;
+    max-width: 100%;
     background:black;
 }
 .footer-title{
