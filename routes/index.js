@@ -15,6 +15,8 @@ router.get('/productos/casa', routesController.productosCasa);
 
 router.get('/contacto', routesController.contacto);
 
+router.get('/admin', routesController.admin);
+
 router.get('/admin/nuevo', routesController.newProduct);
 
 router.post('/new-product', routesController.uploadProduct)
