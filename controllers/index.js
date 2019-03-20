@@ -54,12 +54,6 @@ const productosCasa = (req, res, next) => {
     })
 }
 
-const contacto = (req, res, next) => {
-    res.render('../views/contacto.ejs', {
-        title: "Íntimo: Contacto"
-    })
-}
-
 const admin = (req, res, next) => {
     res.render('../views/admin.ejs', {
         title: "Admin"
@@ -95,7 +89,6 @@ module.exports = {
     productosHombre,
     productosNinos,
     productosCasa,
-    contacto,
     admin,
     newProduct,
     uploadProduct

@@ -2,27 +2,48 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Lato', sans-serif;
-    max-width: 100%; /*Avoid an horizontal overflow*/
+    max-width: 100%;
+    /*Avoid an horizontal overflow*/
 }
+
+.bold {
+    font-weight: 700;
+}
+
 .main-background {
     width: 100vw;
     max-width: 100%;
     height: 100vh;
-    background:url("../images/backgrounds/intimo-logo-background.jpg");
-    background-size: cover;
+    background: black;
+    /*background:url("../images/backgrounds/intimo-logo-background.jpg");
+    background-size: cover;*/
 }
-.menu-home ul{
+
+.menu-home ul {
+    position: fixed;
+    background-color: rgb(0, 0, 0, .7);
     display: flex;
     list-style-type: none;
     overflow: hidden;
     margin: 0;
     padding: 0;
+    width: 100vw;
+    max-width: 100%;
 }
-.menu-home li{
-    margin-left: 0.5em;
 
+.menu-home li {
+    margin: 1em 0.5em 0 0;
 }
-.menu-home li:first-child a::before {
+
+.menu-home li:first-child {
+    margin-left: 30em;
+}
+
+.menu-home li:last-child {
+    margin-left: 13em;
+}
+
+/*.menu-home li:first-child a::before {
     content: url(../images/icons/female-dress.svg) " ";
 }
 .menu-home li:nth-child(2) a::before {
@@ -36,23 +57,25 @@ body {
 }
 .menu-home a:last-child::before {
     content: url(../images/icons/location-point.svg) " ";
-}
-.menu-home li:last-child{
-    position: absolute;
-    right: 8%;
-}
+}*/
+
 .menu-home a {
     color: white;
     font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1.5em;
 }
-.menu-home li a,
-.menu-home .products-btn {
+
+.menu-home a:hover {
+    color: aqua;
+}
+
+.menu-home li a, .menu-home .products-btn {
     display: inline-block;
     text-align: center;
     padding: 1em 3em;
     text-decoration: none;
 }
+
 .menu-home .products-content {
     display: none;
     position: absolute;
@@ -61,6 +84,7 @@ body {
     box-shadow: 0px 0.25em 0.63em 0px rgba(0, 0, 0, 0.3);
     z-index: 1;
 }
+
 .menu-home .products-content a {
     color: black;
     padding: 0.75em 1em;
@@ -68,15 +92,89 @@ body {
     display: block;
     text-align: left;
 }
+
 .menu-home .products-content a:hover {
     background-color: #ccc;
 }
+
 .menu-home .products:hover .products-content {
     display: block;
 }
 
-.first-section{
+.main-title {
+    padding-top: .7em;
+    color: white;
+    font-size: 20em;
+    height: 340px;
+    margin: 0;
+    font-family: 'Tinos', serif;
+    font-weight: 500;
+    text-align: center;
+}
+
+.main-title::before {
+    content: '';
+    position: absolute;
+    right: 1.23em;
+    top: .9em;
+    width: 1.52em;
+    height: 7px;
+    background-color: white;
+}
+
+.main-description {
+    color: white;
+    font-size: 6em;
+    margin: 0;
+    font-family: 'Tinos', serif;
+    font-weight: 400;
+    text-align: center;
+}
+
+.first-section {
     height: 100vh;
     width: 100vw;
     max-width: 100%;
+}
+
+.title-first-section {
+    font-weight: 100;
+    text-align: center;
+    padding-top: 4em;
+    margin: 0;
+    font-size: 2.5em;
+    color: black;
+}
+
+.grid-first-section {
+    display: grid;
+    grid-template: 1fr / 1fr 1fr;
+}
+
+/*.map {
+    margin: 3em 0 0 10em;
+    border: none;
+}*/
+
+.mapouter {
+    position: relative;
+    text-align: right;
+    height: 500px;
+    width: 800px;
+    margin: 3em 0 0 5em;
+    border: none;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    height: 500px;
+    width: 800px;
+    border-radius: 2.5em;
+}
+
+.text-first-section {
+    margin: 3em 0 0 0;
+    font-size: 1.2em;
+    width: 40em;
 }
