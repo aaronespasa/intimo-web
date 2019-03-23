@@ -9,14 +9,15 @@ body {
 .menu-admin {
     margin: 2em;
     padding: 0;
+    max-width: 100%;
+    width: 100vw;
+    list-style: none;
+    display: inline-block;
 }
 
 .menu-admin li {
     width: 150px;
-}
-
-.menu-admin products {
-    text-decoration: none;
+    display: inline-block;
 }
 
 .products-button {
@@ -26,10 +27,7 @@ body {
     font-size: 16px;
     background: black;
     color: white;
-}
-
-.products-button {
-    color: white;
+    font-family: "Lato", sans-serif;
     font-weight: bold;
 }
 
@@ -39,6 +37,7 @@ body {
 }
 
 .products-list a {
+    font-family: "Lato", sans-serif;
     background: black;
     color: white;
     text-decoration: none;
@@ -56,14 +55,23 @@ body {
     flex-direction: column;
 }
 
+.logout {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+}
+
 .logout-button {
+    font-family: "Lato", sans-serif;
     border: 1px solid black;
+    font-weight: bold;
     border-radius: 1em;
+    padding: .5em .3em;
     background-color: white;
     color: black;
     width: 100px;
 }
 
-.logout {
+.logout-button a {
     text-decoration: none;
 }
