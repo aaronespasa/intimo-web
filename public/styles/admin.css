@@ -1,0 +1,71 @@
+body {
+    background-color: #1F3B50;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    max-width: 100%;
+}
+
+.menu-admin {
+    margin: 2em;
+    padding: 0;
+}
+
+.menu-admin li {
+    width: 150px;
+}
+
+.menu-admin products {}
+
+.products-button {
+    width: inherit;
+    border: 1px solid black;
+    padding: 1em;
+    font-size: 16px;
+    background: black;
+    color: white;
+}
+
+.products-button {
+    color: white;
+    font-weight: bold;
+}
+
+.products-button:hover {
+    color: aqua;
+}
+
+.products-list {
+    display: none;
+    width: inherit;
+}
+
+.products-list a {
+    background: black;
+    color: white;
+    text-decoration: none;
+    padding: 0 0 1em 0;
+    width: inherit;
+    text-align: center;
+}
+
+.products-list a:hover {
+    color: orange;
+}
+
+.menu-admin:hover .products-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.logout-button {
+    border: 1px solid black;
+    border-radius: 1em;
+    background-color: white;
+    color: black;
+    width: 100px;
+}
+
+.logout {
+    text-decoration: none;
+}
