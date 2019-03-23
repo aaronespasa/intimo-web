@@ -2,32 +2,30 @@
 <html lang="es" dir="ltr">
 
 <head>
-    <meta charset="utf-8">
     <title>
         <%= title %>
     </title>
+
+    <meta charset="utf-8">
+    <!--Meta Viewport para Responsive-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="/styles/admin.css">
 </head>
 
 <body>
-<h1 class="login-title">Admin Login</h1>
-<div class="form-container">
-        <figure class="form-icon">
-            <img src="/images/icons/user.svg" alt="User Logo">
-        </figure>
-        <form action="" method="POST" name="FormAdminEntrar">
-            <div class="input-box">
-                <span class="email-icon"><img src="/images/icons/email.svg" alt="Cerradura"></span>
-                <input type="email" class="form-control" name="correo" placeholder="Correo" required>
-            </div>
-            <div class="input-box">
-                <span class="lock-icon"><img src="/images/icons/lock.svg" alt="User"></span>
-                <input type="password" class="form-control" name="contra" placeholder="Contraseña" required>
-            </div>
-            <button class="btn-form" type="submit">Acceder</button>
-            <div class="return-home-opt"><a href="/">Regresar al home</a></div>
-        </form>
-    </div>
-</body>
-</html>
+    <nav>
+    <ul class="menu-admin">
+        <li class="products">
+        <button class="products-button">Productos</button>
+        <div class="products-list">
+            <a href="/admin/new">Crear</a>
+            <a href="">Editar</a>
+            <a href="">Borrar</a>
+        </div>
+      </li>
+    </ul>
+</nav>
+
+<button class="logout-button"><a class="logout" href="/admin/logout">Logout</a></button>

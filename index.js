@@ -3,6 +3,8 @@ const path = require('path');
 const morgan = require('morgan');
 const multer = require('multer');
 const uuid = require('uuid/v4');
+const session = require('express-session');
+const bodyParser = require('body-parser');
 
 const routes = require('./routes/index');
 //Inicializations
@@ -13,6 +15,14 @@ require('./database');
 app.set('port', process.env.PORT || 3000); //Declare a variable 'port' and asign it a configuration
 app.set('views', path.join(__dirname, 'views')); //define where's the views folder
 app.set('view engine', 'ejs'); //Configure the template engine
+const TIME = 1000*60*2;
+const {
+    NODE_ENV = 'development',
+    SESS_LIFETIME = TIME,
+    SESS_NAME = 'sid',
+    SESS_SECRET = 'ssh!quiet, it\'asecret',
+} = process.env;
+const IN_PROD = NODE_ENV === 'production';
 
 //Middlewares
 app.use(morgan('dev'));
@@ -29,6 +39,21 @@ const storage = multer.diskStorage({
     }
 })
 app.use(multer({ storage: storage }).single('image'));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(session({
+    name: SESS_NAME,
+    resave: false,
+    saveUninitialized: false,
+    secret: SESS_SECRET,
+    cookie: {
+        maxAge: SESS_LIFETIME,
+        sameSite: true,
+        secure: IN_PROD
+    }
+}))
+
 //Routes
 app.use(routes);//Use the routes of the routes folder
 

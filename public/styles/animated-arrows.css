@@ -1,9 +1,9 @@
 #arrowAnim {
   width: 1vw;
   height: 1vh;
-  position: absolute;
+  position: relative;
   left: 48%;
-  bottom: 10%;
+  bottom: 0;
 }
 
 .arrow {

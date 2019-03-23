@@ -13,9 +13,15 @@ router.get('/productos/ninos', routesController.productosNinos);
 
 router.get('/productos/casa', routesController.productosCasa);
 
-router.get('/admin', routesController.admin);
+router.get('/admin' , routesController.admin);
 
-router.get('/admin/nuevo', routesController.newProduct);
+router.get('/admin/new', routesController.newProduct);
+
+router.get('/admin/signin', routesController.signin);
+
+router.post('/admin/signin', routesController.login);
+
+router.post('/admin/logout', routesController.logout);
 
 router.post('/new-product', routesController.uploadProduct)
 

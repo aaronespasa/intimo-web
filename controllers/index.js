@@ -1,4 +1,11 @@
+const bodyParser = require('body-parser');
 const Product = require('../models/Products');
+
+const users = [
+    { id: 1, email: 'adri@adri.com', password: '1234' },
+    { id: 2, email: 'aaron@aaron.com', password: '2345' },
+    { id: 3, email: 'monica@monica.com', password: '3456' }
+]
 
 const items = [
     {
@@ -18,6 +25,10 @@ const items = [
         name: 'product4'
     }
 ];
+
+//*****************************
+//HOME && PRODUCTS
+//*****************************
 
 const home = (req, res) => {
     res.render('index.ejs', {
@@ -54,17 +65,69 @@ const productosCasa = (req, res, next) => {
     })
 }
 
+//*****************************
+//ADMIN
+//*****************************
+
 const admin = (req, res, next) => {
-    res.render('../views/admin.ejs', {
-        title: "Admin"
+    if (!req.session.userId) {
+        res.redirect('/admin/signin');
+    } else {
+        res.render('admin', {
+            title: 'Admin'
+        });
+    }
+    
+}
+
+const signin = (req, res, next) => {
+    if (req.session.userId) {
+        res.redirect('/admin/signin');
+    } else {
+        res.render('signin', {
+            title: 'Login'
+        })
+    }    
+}
+    
+
+const login = (req, res, next) => {
+    const { email, password } = req.body;
+    if (email && password) {
+        const user = users.find(
+            user => user.email === email && user.password === password
+        );
+
+        if (user) {
+            req.session.userId = user.id;
+            res.redirect('/admin');
+        }
+    }
+}
+
+const logout = () => {
+    req.session.destroy(err => {
+        if (err) {
+            return res.redirect('/admin');
+        }
+        res.clearCookie(SESS_NAME);
+        res.redirect('/');
     })
 }
 
+//https://youtu.be/OH6Z0dJ_Huk?t=1852
+
 const newProduct = (req, res, next) => {
-    res.render('newProduct', {
-        title: "Íntimo: Crear Producto"
-    });
+    if (!req.session.userId) {
+        res.redirect('/admin/signin');
+    } else {
+        res.render('newProduct', {
+            title: "Íntimo: Crear Producto"
+        });
+    }
 }
+    
+    
 
 const uploadProduct = async (req, res) => {
     const product = new Product();
@@ -90,6 +153,9 @@ module.exports = {
     productosNinos,
     productosCasa,
     admin,
+    signin,
+    login,
+    logout,
     newProduct,
     uploadProduct
 }
