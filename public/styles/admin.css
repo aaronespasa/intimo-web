@@ -15,7 +15,9 @@ body {
     width: 150px;
 }
 
-.menu-admin products {}
+.menu-admin products {
+    text-decoration: none;
+}
 
 .products-button {
     width: inherit;
@@ -29,10 +31,6 @@ body {
 .products-button {
     color: white;
     font-weight: bold;
-}
-
-.products-button:hover {
-    color: aqua;
 }
 
 .products-list {
@@ -53,7 +51,7 @@ body {
     color: orange;
 }
 
-.menu-admin:hover .products-list {
+.menu-admin .products:hover .products-list {
     display: flex;
     flex-direction: column;
 }
