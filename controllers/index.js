@@ -1,6 +1,6 @@
 const bodyParser = require('body-parser');
 const Product = require('../models/Products');
-
+const SESS_NAME = require('../index').SESS_NAME;
 const users = [
     { id: 1, email: 'adri@adri.com', password: '1234' },
     { id: 2, email: 'aaron@aaron.com', password: '2345' },
@@ -105,7 +105,7 @@ const login = (req, res, next) => {
     }
 }
 
-const logout = () => {
+const logout = (req, res, next) => {
     req.session.destroy(err => {
         if (err) {
             return res.redirect('/admin');
@@ -114,8 +114,6 @@ const logout = () => {
         res.redirect('/');
     })
 }
-
-//https://youtu.be/OH6Z0dJ_Huk?t=1852
 
 const newProduct = (req, res, next) => {
     if (!req.session.userId) {
