@@ -31,7 +31,7 @@ const items = [
 //*****************************
 
 const home = (req, res) => {
-    res.render('index.ejs', {
+    res.render('index', {
         title: "Íntimo"
     }); //We've had said where is index.ejs in the settings
 }

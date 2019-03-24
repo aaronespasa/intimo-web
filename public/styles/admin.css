@@ -10,7 +10,6 @@ body {
     margin: 2em;
     padding: 0;
     max-width: 100%;
-    width: 100vw;
     list-style: none;
     display: inline-block;
 }
@@ -58,10 +57,12 @@ body {
 .logout {
     display: inline-block;
     position: absolute;
+    top: 0;
     right: 0;
+    margin: 2em;
 }
 
-.logout-button {
+.logout input {
     font-family: "Lato", sans-serif;
     border: 1px solid black;
     font-weight: bold;
@@ -70,8 +71,5 @@ body {
     background-color: white;
     color: black;
     width: 100px;
-}
-
-.logout-button a {
-    text-decoration: none;
+    cursor: pointer;
 }

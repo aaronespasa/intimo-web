@@ -8,69 +8,51 @@
                 <label><input type="checkbox" onclick="checkWoman()" id="woman">Señora</label>
                 <label><input type="checkbox" onclick="checkUni()" id="unisex">Unisex</label>
             </div>
-            <label><input type="button" onclick="makeUrl()" id="filter">Filtrar</label>
+            <label><input type="button" onclick="makeUrl()" id="filter" value="Filtrar"></label>
         </form>
         
     </nav>
 </section>
 <script>
-    
-    var woman = document.getElementById('woman');
-    var unisex = document.getElementById('unisex');
+    const urlBase = 'http://localhost:3000';
 
-    var filter = document.getElementById('filter');
+    var man = document.getElementById('man'),
+        woman = document.getElementById('woman'),
+        unisex = document.getElementById('unisex'),
+
+        filter = document.getElementById('filter'),
     
-    var urlBase = 'http://localhost:3000';
-    
-    var botones = {
+        botones = {
         man: false,
         woman: false,
         unisex: false
-    }
+        };
 
-    function checkMan() {
-        var man = document.getElementById('man');
-        if (man.checked) {
-            botones.man = true;
-        } else {
-            botones.man = false;
-        }
+    function checkMan() {   
+        man.checked = true ? botones.man = true : botones.man = false;
     }
     
     function checkWoman() {
-        var woman = document.getElementById('woman');
-        if (woman.checked) {
-            botones.woman = true;
-        } else {
-            botones.woman = false;
-        }
+        woman.checked = true ? botones.woman = true : botones.woman = false;
     }
 
     function checkUni() {
-        var unisex = document.getElementById('unisex');
-        if (unisex.checked) {
-            botones.unisex = true;
-        } else {
-            botones.unisex = false;
-        }
+        unisex.checked = true ? botones.unisex = true : botones.unisex = false;
     }
 
     function makeUrl() {
         let url = '/productos';
+
         if (botones.man){
             url += '/hombre'
         }
-
         if (botones.woman){
             url += '/mujer'
         }
-
         if (botones.unisex){
             url += '/unisex'
         }
 
-        console.log(urlBase + url);
+        console.log(`${urlBase}${url}`);
     }
-
-
 </script>

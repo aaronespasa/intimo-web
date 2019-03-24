@@ -15,22 +15,19 @@
 </head>
 
 <body>
-    <nav>
-    <ul class="menu-admin">
-        <li class="products">
-        <button class="products-button">Productos</button>
-        <div class="products-list">
-            <a href="/admin/new">Crear</a>
-            <a href="">Editar</a>
-            <a href="">Borrar</a>
-        </div>
-      </li>
-      <li class="logout">
-        <button class="logout-button"><a href="/admin/logout">Logout</a></button>
-      </li>
-    </ul>
-</nav>
-
-<form action="/admin/logout" method="POST">
-    <button><input type="submit">Logout</button>
-</form>
+        <nav>
+        <ul class="menu-admin">
+            <li class="products">
+            <button class="products-button">Productos</button>
+            <div class="products-list">
+                <a href="/admin/new">Crear</a>
+                <a href="">Editar</a>
+                <a href="">Borrar</a>
+            </div>
+          </li>
+        </ul>
+    </nav>
+    
+    <form action="/admin/logout" method="POST" class="logout">
+        <input type="submit" value="Logout">
+    </form>
