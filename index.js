@@ -15,7 +15,7 @@ require('./database');
 app.set('port', process.env.PORT || 3000); //Declare a variable 'port' and asign it a configuration
 app.set('views', path.join(__dirname, 'views')); //define where's the views folder
 app.set('view engine', 'ejs'); //Configure the template engine
-const TIME = 1000*60*2;
+const TIME = 1000*60*60*2;
 const {
     NODE_ENV = 'development',
     SESS_LIFETIME = TIME,
@@ -44,8 +44,9 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(session({
     name: SESS_NAME,
-    resave: false,
+    resave: true,
     saveUninitialized: false,
+    
     secret: SESS_SECRET,
     cookie: {
         maxAge: SESS_LIFETIME,

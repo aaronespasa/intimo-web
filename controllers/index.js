@@ -36,33 +36,12 @@ const home = (req, res) => {
     }); //We've had said where is index.ejs in the settings
 }
 
-const productosMujer = (req, res) => {
-    res.render('productos-mujer', {
+const productos = (req, res) => {
+    res.render('productos', {
         title: 'Íntimo: Productos',
         items: items
     })
-}
-
-const productosHombre = (req, res, next) => {
-    res.render('productos-hombre', {
-        title: 'Íntimo: Productos',
-        items: items
-    })
-}
-
-
-const productosNinos = (req, res, next) => {
-    res.render('productos-ninos', {
-        title: 'Íntimo: Productos',
-        items: items
-    })
-}
-
-const productosCasa = (req, res, next) => {
-    res.render('productos-casa', {
-        title: 'Íntimo: Productos',
-        items: items
-    })
+    console.log();
 }
 
 //*****************************
@@ -124,6 +103,10 @@ const newProduct = (req, res, next) => {
         });
     }
 }
+
+const deleteProduct = (req, res, next) => {
+
+}
     
     
 
@@ -146,14 +129,12 @@ const uploadProduct = async (req, res) => {
 
 module.exports = {
     home, //Is the same as -> home: home
-    productosMujer,
-    productosHombre,
-    productosNinos,
-    productosCasa,
+    productos,
     admin,
     signin,
     login,
     logout,
     newProduct,
+    deleteProduct,
     uploadProduct
 }
