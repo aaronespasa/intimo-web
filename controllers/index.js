@@ -102,7 +102,7 @@ const uploadProduct = async (req, res) => {
     product.age = req.body.age;
     product.type = req.body.type;
     product.filename = req.file.filename;
-    product.path = '/images/products' + req.file.filename;
+    product.path = '/images/products/' + req.file.filename;
     product.originalname = req.file.originalname;
 
     await product.save();
