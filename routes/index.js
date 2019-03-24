@@ -5,7 +5,7 @@ const routesController = require('../controllers/index');
 
 router.get('/', routesController.home);
 
-router.get('/productos/:filter', routesController.productos);
+router.get('/productos', routesController.productos);
 
 router.get('/admin' , routesController.admin);
 

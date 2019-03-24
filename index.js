@@ -42,7 +42,6 @@ app.use(session({
     name: SESS_NAME,
     resave: true,
     saveUninitialized: false,
-    
     secret: SESS_SECRET,
     cookie: {
         maxAge: SESS_LIFETIME,

@@ -1,13 +1,18 @@
 <% include partials/head.ejs %>
 <% include partials/header.ejs %>
-<% include partials/filter.ejs %>
-<h1 class="section-title">Productos Hombre</h1>
+<!--<% include partials/filter.ejs %>-->
+<h1 class="section-title">Productos</h1>
 
 <section class="products-content">
     <div class="grid-content">
         <% for(let i=0; i < items.length; i++){ %>
          <div class="grid-item">
-             <%= items[i].name%>
+             <h3><%= items[i].name%></h3> <br>
+             <%= items[i].description%> <br>
+             <%= items[i].sex%> <br>
+             <%= items[i].age%> <br>
+             <%= items[i].type%> <br>
+            <img src="<%= items[i].path%>" alt="<%= items[i].name%>">
          </div>
         <% } %>
     </div>
