@@ -21,84 +21,56 @@ body {
 
 .menu-home ul {
     position: fixed;
-    background-color: rgb(0, 0, 0, .7);
+    background-color: rgb(0, 0, 0, .8);
     display: flex;
     list-style-type: none;
     overflow: hidden;
     margin: 0;
     width: 100vw;
     max-width: 100%;
-    padding: 1em 1em 1em 10em;
-}
-
-.menu-home li {
-    margin: 1em 2em 0 0;
-}
-
-.menu-home li:first-child {
-    justify-content: flex-start;
-}
-
-.menu-home li:last-child {
-    justify-content: flex-end;
-}
-
-/*.menu-home li:first-child a::before {
-    content: url(../images/icons/female-dress.svg) " ";
-}
-.menu-home li:nth-child(2) a::before {
-    content: url(../images/icons/boxers.svg) " ";
-}
-.menu-home li:nth-child(3) a::before {
-    content: url(../images/icons/baby.svg) " ";
-}
-.menu-home li:nth-child(4) a::before {
-    content: url(../images/icons/bed.svg) " ";
-}
-.menu-home a:last-child::before {
-    content: url(../images/icons/location-point.svg) " ";
-}*/
-
-.menu-home a {
-    color: white;
-    font-weight: bold;
-    font-size: 1.5em;
-}
-
-.menu-home a:hover {
-    color: aqua;
-}
-
-.menu-home li a, .menu-home .products-btn {
-    display: inline-block;
-    text-align: center;
-    padding: 1em 0 1em 0;
-    text-decoration: none;
-}
-
-.menu-home .products-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 10.375em;
-    box-shadow: 0px 0.25em 0.63em 0px rgba(0, 0, 0, 0.3);
+    justify-content: space-around;
     z-index: 1;
 }
 
-.menu-home .products-content a {
-    color: black;
-    padding: 0.75em 1em;
+.menu-home li {
+    margin: 1em 0 1em 0;
+}
+
+.products-btn {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
     text-decoration: none;
-    display: block;
-    text-align: left;
 }
 
-.menu-home .products-content a:hover {
-    background-color: #ccc;
+.contacto-btn:hover {
+    color: aqua;
 }
 
-.menu-home .products:hover .products-content {
-    display: block;
+.products-content {
+    display: none;
+    background-color: rgb(0, 0, 0, 0.7);
+    font-weight: bold;
+    width: inherit;
+    margin-top: .5em;
+    border-radius: 0 0 1em 1em;
+}
+
+.products-content a {
+    text-decoration: none;
+    color: white;
+    margin-bottom: .5em;
+}
+
+.products:hover .products-content {
+    padding: .75em 1em 0 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.products:hover .products-content a:hover {
+    color: aqua;
 }
 
 .main-title {
@@ -132,7 +104,6 @@ body {
 }
 
 .first-section {
-    height: 100vh;
     width: 100vw;
     max-width: 100%;
     position: relative;
@@ -141,19 +112,19 @@ body {
 .title-first-section {
     font-weight: 100;
     text-align: center;
-    padding-top: 4em;
+    padding-top: 2.2em;
     margin: 0;
     font-size: 2.5em;
     color: black;
 }
 
 .grid-first-section {
-    border: 1px solid red;
-    margin-bottom: 3em;
+    margin: 1.5em 0 3em 0;
     max-width: 100%;
-    padding: 0 1em;
+    padding: 0 5%;
     display: grid;
-    grid-template: 1fr / repeat(auto-fill, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+    grid-column-gap: 2em;
 }
 
 /*.map {
@@ -166,8 +137,9 @@ body {
     text-align: right;
     height: 500px;
     width: 800px;
-    margin: 3em 0 0 5em;
     border: none;
+    display: flex;
+    justify-self: center;
 }
 
 .gmap_canvas {
@@ -179,17 +151,153 @@ body {
 }
 
 .text-first-section {
-    margin: 3em 0 0 0;
+    text-align: center;
+    display: flex;
+    align-items: center;
     font-size: 1.2em;
-    width: 40em;
+    padding: 0 4% 0 15%;
+    margin: 0;
 }
 
-@media screen and (max-width:2000px) {}
+@media screen and (max-width:2000px) {
+    .grid-first-section {
+        padding: 0 3em;
+        margin-top: 3em;
+    }
+}
 
-@media screen and (max-width:1024px) {}
+@media screen and (max-width:1024px) {
+    .main-title {
+        padding-top: 1em;
+        font-size: 15em;
+        height: 270px;
+    }
+    .main-title::before {
+        right: .4em;
+        top: 1.18em;
+    }
+    .main-description {
+        font-size: 4.5em;
+    }
+    .mapouter {
+        width: 500px;
+    }
+    .gmap_canvas {
+        width: 500px;
+    }
+}
 
-@media screen and (max-width:768px) {}
+@media screen and (max-width:768px) {
+    .main-title {
+        padding-top: 1.2em;
+        font-size: 12em;
+        height: 210px;
+    }
+    .main-title::before {
+        right: .26em;
+        top: 1.35em;
+        height: 6px;
+    }
+    .main-description {
+        font-size: 4em;
+    }
+    .grid-first-section {
+        grid-column-gap: 1em;
+        padding: 0 3%;
+    }
+    .mapouter {
+        width: 370px;
+    }
+    .gmap_canvas {
+        width: 370px;
+    }
+    .text-first-section {
+        font-size: 1.2em;
+    }
+}
 
-@media screen and (max-width:480px) {}
+@media screen and (max-width:480px) {
+    .menu-home ul {
+        padding: 0;
+    }
+    .menu-home li {
+        margin: .6em 0;
+    }
+    .products-btn {
+        font-size: 1.5em;
+    }
+    .main-title {
+        padding-top: 2.1em;
+        font-size: 5.8em;
+        height: 150px;
+    }
+    .main-title::before {
+        right: .2em;
+        top: 2.25em;
+        height: 3.5px;
+    }
+    .main-description {
+        font-size: 2.5em;
+    }
+    .grid-first-section {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    .title-first-section {
+        font-size: 1.85em;
+    }
+    .mapouter {
+        width: 330px;
+        height: 300px;
+    }
+    .gmap_canvas {
+        width: 330px;
+        height: 300px;
+    }
+    .text-first-section {
+        margin: 1.5em 0;
+        padding: 0 1em;
+        font-size: 1.1em;
+    }
+}
 
-@media screen and (max-width:320px) {}
+@media screen and (max-width:320px) {
+    .menu-home ul {
+        padding: 0;
+    }
+    .menu-home li {
+        margin: .5em 0;
+    }
+    .products-btn {
+        font-size: 1.3em;
+    }
+    .main-title {
+        padding-top: 2.6em;
+        font-size: 5em;
+        height: 90px;
+    }
+    .main-title::before {
+        right: .25em;
+        top: 2.75em;
+        height: 3px;
+    }
+    .main-description {
+        font-size: 1.9em;
+    }
+    .grid-first-section {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        margin-top: 1em;
+    }
+    .mapouter {
+        width: 300px;
+        height: 200px;
+    }
+    .gmap_canvas {
+        width: 300px;
+        height: 200px;
+    }
+    .text-first-section {
+        margin: 1.5em 0;
+        padding: 0 1em;
+        font-size: 1em;
+    }
+}

@@ -27,7 +27,8 @@
         woman: false,
         unisex: false
         };
-
+    
+    //Check if the checkbox is selected and assign a boolean to botones
     function checkMan() {   
         man.checked == true ? botones.man = true : botones.man = false;
     }
@@ -52,7 +53,8 @@
         if (botones.unisex){
             url += '/unisex'
         }
-
+        
+        window.location = `${urlBase}${url}`;
         console.log(`${urlBase}${url}`);
     }
 </script>
