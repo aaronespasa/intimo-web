@@ -80,6 +80,8 @@ const login = (req, res, next) => {
         if (user) {
             req.session.userId = user.id;
             res.redirect('/admin');
+        } else {
+            res.redirect('/admin/signin');
         }
     }
 }
