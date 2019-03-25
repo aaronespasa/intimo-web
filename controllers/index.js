@@ -41,7 +41,6 @@ const productos = (req, res) => {
         title: 'Íntimo: Productos',
         items: items
     })
-    console.log();
 }
 
 //*****************************
