@@ -11,7 +11,7 @@ require('./database');
 
 //Settings
 const routes = require('./routes/index');
-app.set('port', process.env.PORT || 4000); //Find if there is a variable 'PORT', else the port is 3000
+app.set('port', process.env.PORT || 3000); //Find if there is a variable 'PORT', else the port is 3000
 app.set('views', path.join(__dirname, 'views')); //Define where's the views folder
 app.set('view engine', 'ejs'); //Configure the template engine
 const TIME = 1000*60*60*2;

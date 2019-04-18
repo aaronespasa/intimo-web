@@ -20,4 +20,12 @@ ctrl.products = async (req, res) => {
     })
 }
 
+ctrl.viewProduct = async (req, res) => {
+    const item = await Product.findById(req.params.id);
+    res.render('viewProduct', {
+        title: 'Íntimo: Producto',
+        item: item
+    })
+}
+
 module.exports = ctrl;

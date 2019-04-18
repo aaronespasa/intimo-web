@@ -12,13 +12,15 @@ const ctrl = {}
 //ADMIN
 //*****************************
 
-ctrl.admin = (req, res, next) => {
+ctrl.admin = async (req, res, next) => {
     if (!req.session.userId) {
         res.redirect('/admin/signin');
     } else {
+        const items = await Product.find();
         res.render('admin', {
-            title: 'Admin'
-        });
+            title: 'Íntimo: Admin',
+            items: items
+        })
     }
     
 }
@@ -70,8 +72,26 @@ ctrl.newProduct = (req, res, next) => {
     }
 }
 
-ctrl.deleteProduct = (req, res, next) => {
+ctrl.editProduct = async (req, res) => {
+    if (!req.session.userId) {
+        res.redirect('/admin/signin');
+    } else {
+        const item = await Product.findById(req.params.id);
+        res.render('editProduct', {
+            title: 'Íntimo: Editar Producto',
+            item: item
+        });
+    }
+}
 
+ctrl.deleteProduct = async (req, res, next) => {
+    if (!req.session.userId) {
+        res.redirect('/admin/signin');
+    } else {
+        const id = req.params.id;
+        await Product.findByIdAndDelete(id);
+        res.redirect('/admin');
+    }
 }
     
 ctrl.uploadProduct = async (req, res) => {
@@ -88,6 +108,21 @@ ctrl.uploadProduct = async (req, res) => {
 
     await product.save();
 
+    res.redirect('/admin');
+}
+
+ctrl.updateProduct = async (req, res) => {
+    const product = req.body;
+    await Product.findByIdAndUpdate(req.params.id, {
+        name: product.name,
+        description: product.description,
+        sex: product.sex,
+        age: product.age,
+        type: product.type,
+        filename: req.file.filename,
+        path: '/images/products/' + req.file.filename,
+        originalname: req.file.originalname
+    });
     res.redirect('/admin');
 }
 
