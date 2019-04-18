@@ -1,4 +1,3 @@
-const bodyParser = require('body-parser');
 const Product = require('../models/Products');
 const SESS_NAME = require('../index').SESS_NAME;
 const users = [
@@ -7,29 +6,13 @@ const users = [
     { id: 3, email: 'monica@monica.com', password: '3456' }
 ]
 
-//*****************************
-//HOME && PRODUCTS
-//*****************************
-
-const home = (req, res) => {
-    res.render('index', {
-        title: "Íntimo"
-    }); //We've had said where is index.ejs in the settings
-}
-
-const productos = async (req, res) => {
-    const items = await Product.find();
-    res.render('productos', {
-        title: 'Íntimo: Productos',
-        items: items
-    })
-}
+const ctrl = {}
 
 //*****************************
 //ADMIN
 //*****************************
 
-const admin = (req, res, next) => {
+ctrl.admin = (req, res, next) => {
     if (!req.session.userId) {
         res.redirect('/admin/signin');
     } else {
@@ -40,9 +23,9 @@ const admin = (req, res, next) => {
     
 }
 
-const signin = (req, res, next) => {
+ctrl.signin = (req, res, next) => {
     if (req.session.userId) {
-        res.redirect('/admin/signin');
+        res.redirect('/admin');
     } else {
         res.render('signin', {
             title: 'Login'
@@ -51,7 +34,7 @@ const signin = (req, res, next) => {
 }
     
 
-const login = (req, res, next) => {
+ctrl.login = (req, res, next) => {
     const { email, password } = req.body;
     if (email && password) {
         const user = users.find(
@@ -67,17 +50,17 @@ const login = (req, res, next) => {
     }
 }
 
-const logout = (req, res, next) => {
+ctrl.logout = (req, res, next) => {
     req.session.destroy(err => {
         if (err) {
             return res.redirect('/admin');
         }
         res.clearCookie(SESS_NAME);
         res.redirect('/');
-    })
+    });
 }
 
-const newProduct = (req, res, next) => {
+ctrl.newProduct = (req, res, next) => {
     if (!req.session.userId) {
         res.redirect('/admin/signin');
     } else {
@@ -87,13 +70,11 @@ const newProduct = (req, res, next) => {
     }
 }
 
-const deleteProduct = (req, res, next) => {
+ctrl.deleteProduct = (req, res, next) => {
 
 }
     
-    
-
-const uploadProduct = async (req, res) => {
+ctrl.uploadProduct = async (req, res) => {
     const product = new Product();
 
     product.name = req.body.name;
@@ -110,14 +91,4 @@ const uploadProduct = async (req, res) => {
     res.redirect('/admin');
 }
 
-module.exports = {
-    home, //Is the same as -> home: home
-    productos,
-    admin,
-    signin,
-    login,
-    logout,
-    newProduct,
-    deleteProduct,
-    uploadProduct
-}
+module.exports = ctrl;

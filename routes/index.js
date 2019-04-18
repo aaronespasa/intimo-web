@@ -1,25 +1,26 @@
 const { Router } = require('express');
 const router = Router();
 
-const routesController = require('../controllers/index');
+const main = require('../controllers/main');
+const admin = require('../controllers/admin');
 
-router.get('/', routesController.home);
+router.get('/', main.home);
 
-router.get('/productos', routesController.productos);
+router.get('/productos', main.products);
 
-router.get('/admin' , routesController.admin);
+router.get('/admin' , admin.admin);
 
-router.get('/admin/new', routesController.newProduct);
+router.get('/admin/new', admin.newProduct);
 
-router.get('/admin/delete', routesController.admin);
+router.get('/admin/delete', admin.admin);
 
-router.get('/admin/signin', routesController.signin);
+router.get('/admin/signin', admin.signin);
 
-router.post('/admin/signin', routesController.login);
+router.post('/admin/signin', admin.login);
 
-router.post('/admin/logout', routesController.logout);
+router.post('/admin/logout', admin.logout);
 
-router.post('/new-product', routesController.uploadProduct)
+router.post('/new-product', admin.uploadProduct)
 
 module.exports = router;
 

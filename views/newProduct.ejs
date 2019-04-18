@@ -1,30 +1,41 @@
-<% include partials/head.ejs %>
-<% include partials/header.ejs %>
-
-<form action="/new-product" method="POST" enctype="multipart/form-data">
-    <input type="text" name="name" placeholder="Nombre del Producto">
-    <textarea name="description" cols="30" rows="10" placeholder="Descripcion del producto"></textarea>
-    <select name="sex" data-style="btn-info">
-        <option value="chico">Caballero/Niño</option>
-        <option value="chica">Señora/Niña</option>
-        <option value="unisex">Unisex</option>
-    </select>
-    <select name="age" data-style="btn-info">
-        <option value="niño">Niño</option>
-        <option value="adulto">Adulto</option>
-    </select>
-    <select name="type" data-style="btn-info">
-        <option value="pijama">Pijama</option>
-        <option value="medias">Medias</option>
-        <option value="lenceria">Lenceria</option>
-        <option value="baño">Baño</option>
-        <option value="conjuntos">Conjuntos de playa</option>
-    </select>
-    <div>
-        <input type="file" name="image">
-        <label>Selecciona una imagen</label>
-    </div>
-    <button type="submit">Crear producto</button>
-</form>
-
-<% include partials/footer.ejs %>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title><%= title%></title>
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link rel="stylesheet" href="/styles/admin.css">
+        <link rel="stylesheet" href="/styles/new-product.css">
+    </head>
+    <body>
+        <% include partials/admin-menu.ejs %>
+        <div class="form-group">
+            <form action="/new-product" method="POST" enctype="multipart/form-data">
+                <input type="text" name="name" placeholder="Nombre del Producto" class="name">
+                <textarea name="description" rows="5" placeholder="Descripcion del producto" class="description"></textarea>
+                <select name="sex" data-style="btn-info" class="selects">
+                    <option value="chico">Caballero/Niño</option>
+                    <option value="chica">Señora/Niña</option>
+                    <option value="unisex">Unisex</option>
+                </select>
+                <select name="age" data-style="btn-info" class="selects">
+                    <option value="niño">Niño</option>
+                    <option value="adulto">Adulto</option>
+                </select>
+                <select name="type" data-style="btn-info" class="selects">
+                    <option value="pijama">Pijama</option>
+                    <option value="medias">Medias</option>
+                    <option value="lenceria">Lenceria</option>
+                    <option value="baño">Baño</option>
+                    <option value="conjuntos">Conjuntos de playa</option>
+                </select>
+                <div class="file">
+                    <input type="file" name="image">
+                    <label>Selecciona una imagen</label>
+                </div>
+                <button type="submit" class="submit">Crear producto</button>
+            </form>
+        </div>
+        <% include partials/footer.ejs %>
+    </body>
+</html>
