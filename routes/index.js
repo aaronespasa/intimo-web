@@ -7,8 +7,6 @@ router.get('/', routesController.home);
 
 router.get('/productos', routesController.productos);
 
-router.get('/productos/:filter', routesController.productos);
-
 router.get('/admin' , routesController.admin);
 
 router.get('/admin/new', routesController.newProduct);

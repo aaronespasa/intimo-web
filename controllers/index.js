@@ -7,25 +7,6 @@ const users = [
     { id: 3, email: 'monica@monica.com', password: '3456' }
 ]
 
-const items = [
-    {
-        id: 1,
-        name: 'product1'
-    },
-    {
-        id: 2,
-        name: 'product2'
-    },
-    {
-        id: 3,
-        name: 'product3'
-    },
-    {
-        id: 4,
-        name: 'product4'
-    }
-];
-
 //*****************************
 //HOME && PRODUCTS
 //*****************************
@@ -36,7 +17,8 @@ const home = (req, res) => {
     }); //We've had said where is index.ejs in the settings
 }
 
-const productos = (req, res) => {
+const productos = async (req, res) => {
+    const items = await Product.find();
     res.render('productos', {
         title: 'Íntimo: Productos',
         items: items
@@ -79,6 +61,8 @@ const login = (req, res, next) => {
         if (user) {
             req.session.userId = user.id;
             res.redirect('/admin');
+        } else {
+            res.redirect('/admin/signin');
         }
     }
 }
@@ -118,12 +102,12 @@ const uploadProduct = async (req, res) => {
     product.age = req.body.age;
     product.type = req.body.type;
     product.filename = req.file.filename;
-    product.path = '/images/products' + req.file.filename;
+    product.path = '/images/products/' + req.file.filename;
     product.originalname = req.file.originalname;
 
     await product.save();
 
-    res.send('/admin/nuevo');
+    res.redirect('/admin');
 }
 
 module.exports = {

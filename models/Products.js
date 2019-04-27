@@ -14,4 +14,4 @@ const productSchema = new Schema({
     //sizes: { type: Array, require: true },
 });
 
-module.exports = model('Image', productSchema);
+module.exports = model('Products', productSchema);
