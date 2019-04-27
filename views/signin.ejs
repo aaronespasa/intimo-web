@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+
+    <meta charset="utf-8">
+    <!--Meta Viewport para Responsive-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/signin.css">
+</head>
+
+<body>
+<h1 class="login-title">Admin Login</h1>
+<div class="form-container">
+        <figure class="form-icon">
+            <img src="/images/icons/user.svg" alt="User Logo">
+        </figure>
+        <form action="/admin/signin" method="POST" name="FormAdminEntrar">
+            <div class="input-box">
+                <span class="email-icon"><img src="/images/icons/email.svg" alt="Cerradura"></span>
+                <input type="email" class="form-control" name="email" placeholder="Correo" required>
+            </div>
+            <div class="input-box">
+                <span class="lock-icon"><img src="/images/icons/lock.svg" alt="User"></span>
+                <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
+            </div>
+            <button class="btn-form" type="submit">Acceder</button>
+            <div class="return-home-opt"><a href="/">Regresar a Inicio</a></div>
+        </form>
+    </div>
+</body>
+</html>

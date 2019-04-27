@@ -1,0 +1,60 @@
+
+<section>
+    <nav>
+        <form action="" method="GET" id="form">
+            <div>
+                <h4>Sexo</h4>
+                <label><input type="checkbox" onclick="checkMan()" id="man">Caballero</label>
+                <label><input type="checkbox" onclick="checkWoman()" id="woman">Señora</label>
+                <label><input type="checkbox" onclick="checkUni()" id="unisex">Unisex</label>
+            </div>
+            <label><input type="button" onclick="makeUrl()" id="filter" value="Filtrar"></label>
+        </form>
+        
+    </nav>
+</section>
+<script>
+    const urlBase = 'http://localhost:3000';
+
+    var man = document.getElementById('man'),
+        woman = document.getElementById('woman'),
+        unisex = document.getElementById('unisex'),
+
+        filter = document.getElementById('filter'),
+    
+        botones = {
+        man: false,
+        woman: false,
+        unisex: false
+        };
+    
+    //Check if the checkbox is selected and assign a boolean to botones
+    function checkMan() {   
+        man.checked == true ? botones.man = true : botones.man = false;
+    }
+    
+    function checkWoman() {
+        woman.checked == true ? botones.woman = true : botones.woman = false;
+    }
+
+    function checkUni() {
+        unisex.checked == true ? botones.unisex = true : botones.unisex = false;
+    }
+
+    function makeUrl() {
+        let url = '/productos';
+
+        if (botones.man){
+            url += '/hombre'
+        }
+        if (botones.woman){
+            url += '/mujer'
+        }
+        if (botones.unisex){
+            url += '/unisex'
+        }
+        
+        window.location = `${urlBase}${url}`;
+        console.log(`${urlBase}${url}`);
+    }
+</script>

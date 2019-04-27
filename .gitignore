@@ -1,0 +1,9 @@
+#Photoshop Files
+*.psd
+
+# Logs
+logs
+*.log
+
+# Dependency directories
+node_modules/

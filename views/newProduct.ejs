@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title><%= title%></title>
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link rel="stylesheet" href="/styles/admin.css">
+        <link rel="stylesheet" href="/styles/new-product.css">
+    </head>
+    <body>
+        <% include partials/admin-menu.ejs %>
+        <h1>Crear Producto</h1>
+        <div class="form-group">
+            <form action="/new-product" method="POST" enctype="multipart/form-data">
+                <input type="text" name="name" placeholder="Nombre del Producto" class="name" required>
+                <textarea name="description" rows="5" placeholder="Descripcion del producto" class="description" required></textarea>
+                <select name="sex" data-style="btn-info" class="selects" required>
+                    <option selected="true" disabled>Selecciona el sexo</option>
+                    <option value="chico">Caballero/Niño</option>
+                    <option value="chica">Señora/Niña</option>
+                    <option value="unisex">Unisex</option>
+                </select>
+                <select name="age" data-style="btn-info" class="selects" required>
+                    <option selected="true" disabled>Selecciona la edad</option>
+                    <option value="niño">Niño</option>
+                    <option value="adulto">Adulto</option>
+                </select>
+                <select name="type" data-style="btn-info" class="selects" required>
+                    <option selected="true" disabled>Selecciona el tipo</option>
+                    <option value="pijama">Pijama</option>
+                    <option value="medias">Medias</option>
+                    <option value="lenceria">Lenceria</option>
+                    <option value="baño">Baño</option>
+                    <option value="conjuntos">Conjuntos de playa</option>
+                </select>
+                <div class="file">
+                    <input type="file" name="image" required>
+                    <label>Selecciona una imagen</label>
+                </div>
+                <button type="submit" class="submit">Crear producto</button>
+            </form>
+        </div>
+    </body>
+</html>

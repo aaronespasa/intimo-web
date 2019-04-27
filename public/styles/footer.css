@@ -1,0 +1,13 @@
+.footer {
+    position: relative;
+    bottom: 0%;
+    height: 3em;
+    width: 100%;
+    max-width: 100%;
+    background: black;
+}
+
+.footer-title {
+    text-align: center;
+    color: white;
+}

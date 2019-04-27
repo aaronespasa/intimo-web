@@ -1,0 +1,303 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    max-width: 100%;
+    /*Avoid an horizontal overflow*/
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.main-background {
+    width: 100vw;
+    max-width: 100%;
+    height: 100vh;
+    background: black;
+    /*background:url("../images/backgrounds/intimo-logo-background.jpg");
+    background-size: cover;*/
+}
+
+.menu-home ul {
+    position: fixed;
+    background-color: rgb(0, 0, 0, .8);
+    display: flex;
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0;
+    width: 100vw;
+    max-width: 100%;
+    justify-content: space-around;
+    z-index: 1;
+}
+
+.menu-home li {
+    margin: 1em 0 1em 0;
+}
+
+.products-btn {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+
+.contacto-btn:hover {
+    color: aqua;
+}
+
+.products-content {
+    display: none;
+    background-color: rgb(0, 0, 0, 0.7);
+    font-weight: bold;
+    width: inherit;
+    margin-top: .5em;
+    border-radius: 0 0 1em 1em;
+}
+
+.products-content a {
+    text-decoration: none;
+    color: white;
+    margin-bottom: .5em;
+}
+
+.products:hover .products-content {
+    padding: .75em 1em 0 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.products:hover .products-content a:hover {
+    color: aqua;
+}
+
+.main-title {
+    padding-top: .7em;
+    color: white;
+    font-size: 20em;
+    height: 340px;
+    margin: 0;
+    font-family: 'Tinos', serif;
+    font-weight: 500;
+    text-align: center;
+}
+
+.main-title::before {
+    content: '';
+    position: absolute;
+    right: 1.23em;
+    top: .9em;
+    width: 1.52em;
+    height: 7px;
+    background-color: white;
+}
+
+.main-description {
+    color: white;
+    font-size: 6em;
+    margin: 0;
+    font-family: 'Tinos', serif;
+    font-weight: 400;
+    text-align: center;
+}
+
+.first-section {
+    width: 100vw;
+    max-width: 100%;
+    position: relative;
+}
+
+.title-first-section {
+    font-weight: 100;
+    text-align: center;
+    padding-top: 2.2em;
+    margin: 0;
+    font-size: 2.5em;
+    color: black;
+}
+
+.grid-first-section {
+    margin: 1.5em 0 3em 0;
+    max-width: 100%;
+    padding: 0 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
+    grid-column-gap: 2em;
+}
+
+/*.map {
+    margin: 3em 0 0 10em;
+    border: none;
+}*/
+
+.mapouter {
+    position: relative;
+    text-align: right;
+    height: 500px;
+    width: 800px;
+    border: none;
+    display: flex;
+    justify-self: center;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    height: 500px;
+    width: 800px;
+    border-radius: 2.5em;
+}
+
+.text-first-section {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+    padding: 0 4% 0 15%;
+    margin: 0;
+}
+
+@media screen and (max-width:2000px) {
+    .grid-first-section {
+        padding: 0 3em;
+        margin-top: 3em;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .main-title {
+        padding-top: 1em;
+        font-size: 15em;
+        height: 270px;
+    }
+    .main-title::before {
+        right: .4em;
+        top: 1.18em;
+    }
+    .main-description {
+        font-size: 4.5em;
+    }
+    .mapouter {
+        width: 500px;
+    }
+    .gmap_canvas {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .main-title {
+        padding-top: 1.2em;
+        font-size: 12em;
+        height: 210px;
+    }
+    .main-title::before {
+        right: .26em;
+        top: 1.35em;
+        height: 6px;
+    }
+    .main-description {
+        font-size: 4em;
+    }
+    .grid-first-section {
+        grid-column-gap: 1em;
+        padding: 0 3%;
+    }
+    .mapouter {
+        width: 370px;
+    }
+    .gmap_canvas {
+        width: 370px;
+    }
+    .text-first-section {
+        font-size: 1.2em;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .menu-home ul {
+        padding: 0;
+    }
+    .menu-home li {
+        margin: .6em 0;
+    }
+    .products-btn {
+        font-size: 1.5em;
+    }
+    .main-title {
+        padding-top: 2.1em;
+        font-size: 5.8em;
+        height: 150px;
+    }
+    .main-title::before {
+        right: .2em;
+        top: 2.25em;
+        height: 3.5px;
+    }
+    .main-description {
+        font-size: 2.5em;
+    }
+    .grid-first-section {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    .title-first-section {
+        font-size: 1.85em;
+    }
+    .mapouter {
+        width: 330px;
+        height: 300px;
+    }
+    .gmap_canvas {
+        width: 330px;
+        height: 300px;
+    }
+    .text-first-section {
+        margin: 1.5em 0;
+        padding: 0 1em;
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .menu-home ul {
+        padding: 0;
+    }
+    .menu-home li {
+        margin: .5em 0;
+    }
+    .products-btn {
+        font-size: 1.3em;
+    }
+    .main-title {
+        padding-top: 2.6em;
+        font-size: 5em;
+        height: 90px;
+    }
+    .main-title::before {
+        right: .25em;
+        top: 2.75em;
+        height: 3px;
+    }
+    .main-description {
+        font-size: 1.9em;
+    }
+    .grid-first-section {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        margin-top: 1em;
+    }
+    .mapouter {
+        width: 300px;
+        height: 200px;
+    }
+    .gmap_canvas {
+        width: 300px;
+        height: 200px;
+    }
+    .text-first-section {
+        margin: 1.5em 0;
+        padding: 0 1em;
+        font-size: 1em;
+    }
+}

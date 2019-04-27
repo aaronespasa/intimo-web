@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+}
+.header {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+}
+.intimo-logo{
+    margin: 0;
+}
+.intimo-logo img{
+    width: 13em;
+    height: 10em;
+}
+.menu ul{
+    list-style-type: none;
+    background-color: #1b1b1b;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    float: left;
+}
+
+.menu li a,
+.menu .products-btn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 20px 35px;
+    text-decoration: none;
+}
+
+.menu li a:hover,
+.menu .products:hover .products-btn {
+    background-color: #ff7300;
+}
+
+.menu li .products {
+    display: inline-block;
+}
+
+.menu .products-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 166px;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.menu .products-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.menu .products-content a:hover {
+    background-color: #ccc;
+}
+
+.menu .products:hover .products-content {
+    display: block;
+}
