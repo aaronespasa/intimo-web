@@ -1,25 +1,35 @@
 const { Router } = require('express');
 const router = Router();
 
-const routesController = require('../controllers/index');
+const main = require('../controllers/main');
+const admin = require('../controllers/admin');
 
-router.get('/', routesController.home);
+//PUBLIC VIEWS
+router.get('/', main.home);
 
-router.get('/productos', routesController.productos);
+router.get('/productos', main.products);
 
-router.get('/admin' , routesController.admin);
+router.get('/products/:id', main.viewProduct);
 
-router.get('/admin/new', routesController.newProduct);
+//ADMIN VIEWS
+router.get('/admin' , admin.admin);
 
-router.get('/admin/delete', routesController.admin);
+router.get('/admin/signin', admin.signin);
 
-router.get('/admin/signin', routesController.signin);
+router.post('/admin/signin', admin.login);
 
-router.post('/admin/signin', routesController.login);
+router.post('/admin/logout', admin.logout);
 
-router.post('/admin/logout', routesController.logout);
+//PRODUCTS MANAGEMENT VIEWS
+router.get('/admin/new', admin.newProduct);
 
-router.post('/new-product', routesController.uploadProduct)
+router.get('/admin/update/:id', admin.editProduct);
+
+router.get('/admin/delete/:id', admin.deleteProduct);
+
+router.post('/new-product', admin.uploadProduct);
+
+router.post('/update/:id', admin.updateProduct);
 
 module.exports = router;
 

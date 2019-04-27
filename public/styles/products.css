@@ -7,5 +7,17 @@
 .grid-item{
     border: 1px solid red;
     text-align: center;
-    height: 320px;
+    height: 20em;
 }
+.product {
+    color: black;
+    text-decoration: none;
+}
+.image {
+    height: 150px;
+    width: 150px;
+    margin: 10px;
+}
+/*.grid-item:nth-child(1){
+    
+}*/

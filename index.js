@@ -4,10 +4,9 @@ const express = require("express"), //Makes easier to create a server
       multer = require('multer'), //Multer is a middleware which is primarily used for uploading files
       uuid = require('uuid/v4'), //Fast-generation of Universally Unique IDentifier (UUID)
       session = require('express-session'), //Simple session middleware for Express
-      bodyParser = require('body-parser'); //Middleware to extract the entire body portion of an incoming request stream and exposes it on req.body
-
+      
 //Inicializations
-const app = express();
+ app = express();
 require('./database');
 
 //Settings
@@ -23,7 +22,6 @@ const {
     SESS_SECRET = 'ssh!quiet, it\'asecret',
 } = process.env;
 const IN_PROD = NODE_ENV === 'production';
-
 //Middlewares
 app.use(morgan('dev'));//:status token -> Red: server error codes, Yellow: client error codes, Cyan: redirection codes
 app.use(express.json());
