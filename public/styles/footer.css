@@ -1,13 +1,46 @@
 .footer {
+    margin: auto;
     position: relative;
     bottom: 0%;
-    height: 3em;
+    height: 100%;
     width: 100%;
     max-width: 100%;
     background: black;
+    color: white;
+}
+
+.footer-content {
+    display: table-row;
+    width: 50%;
+    font-size: 16px;
+    padding-bottom: 15px;
+}
+
+.footer-content#rrss {
+    float: left;
+    background: inherit;
+    text-align: center;
+    display: block;
+}
+
+.footer-content#address {
+    float: left;
+    background: inherit;
+    font-size: inherit;
+    text-align: center;
+    display: block;
 }
 
 .footer-title {
     text-align: center;
     color: white;
+    font-size: 24px
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
 }

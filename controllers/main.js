@@ -7,24 +7,33 @@ const ctrl = {}
 //*****************************
 
 ctrl.home = (req, res) => {
-    res.render('index', {
-        title: "Íntimo"
-    }); //We've had said where is index.ejs in the settings
+    res.render('main/home', {
+        title: "Íntimo",
+        admin: false
+    }); //We've had said where is index.hbs in the settings
 }
 
 ctrl.products = async (req, res) => {
-    const items = await Product.find();
-    res.render('productos', {
+    var items;
+    if (req.params.filter === 'all') {
+        items = await Product.find().sort({ created_at: -1 });
+    }
+    else {
+        items = await Product.find({ sex: req.params.filter || 'unisex' }).sort({ created_at: -1 });
+    }
+    res.render('main/productos', {
         title: 'Íntimo: Productos',
-        items: items
+        items: items,
+        admin: false
     })
 }
 
 ctrl.viewProduct = async (req, res) => {
     const item = await Product.findById(req.params.id);
-    res.render('viewProduct', {
+    res.render('main/viewProduct', {
         title: 'Íntimo: Producto',
-        item: item
+        item: item,
+        admin: false
     })
 }
 

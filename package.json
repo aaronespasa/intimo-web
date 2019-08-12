@@ -16,15 +16,15 @@
     "tienda",
     "lenceria"
   ],
-  "author": "Aarón Adrián",
+  "author": "Aarón, Adrián",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/aaronespasa/intimo-web/issues"
   },
   "homepage": "https://github.com/aaronespasa/intimo-web#readme",
   "dependencies": {
-    "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "express-handlebars": "^3.1.0",
     "express-session": "^1.15.6",
     "fs-extra": "^7.0.1",
     "mongoose": "^5.4.18",

@@ -1,5 +1,4 @@
-const { Router } = require('express');
-const router = Router();
+const router = require('express').Router();
 
 const main = require('../controllers/main');
 const admin = require('../controllers/admin');
@@ -7,9 +6,9 @@ const admin = require('../controllers/admin');
 //PUBLIC VIEWS
 router.get('/', main.home);
 
-router.get('/productos', main.products);
+router.get('/products/:filter', main.products);
 
-router.get('/products/:id', main.viewProduct);
+router.get('/products/view/:id', main.viewProduct);
 
 //ADMIN VIEWS
 router.get('/admin' , admin.admin);

@@ -16,10 +16,11 @@ ctrl.admin = async (req, res, next) => {
     if (!req.session.userId) {
         res.redirect('/admin/signin');
     } else {
-        const items = await Product.find();
-        res.render('admin', {
+        const items = await Product.find().sort({ created_at: -1 });
+        res.render('admin/admin', {
             title: 'Íntimo: Admin',
-            items: items
+            items: items,
+            admin: true
         })
     }
     
@@ -29,8 +30,9 @@ ctrl.signin = (req, res, next) => {
     if (req.session.userId) {
         res.redirect('/admin');
     } else {
-        res.render('signin', {
-            title: 'Login'
+        res.render('admin/signin', {
+            title: 'Login',
+            admin: true
         })
     }    
 }
@@ -66,8 +68,9 @@ ctrl.newProduct = (req, res, next) => {
     if (!req.session.userId) {
         res.redirect('/admin/signin');
     } else {
-        res.render('newProduct', {
-            title: "Íntimo: Crear Producto"
+        res.render('admin/newProduct', {
+            title: "Íntimo: Crear Producto",
+            admin: true
         });
     }
 }
@@ -77,9 +80,10 @@ ctrl.editProduct = async (req, res) => {
         res.redirect('/admin/signin');
     } else {
         const item = await Product.findById(req.params.id);
-        res.render('editProduct', {
+        res.render('admin/editProduct', {
             title: 'Íntimo: Editar Producto',
-            item: item
+            item: item,
+            admin: true
         });
     }
 }

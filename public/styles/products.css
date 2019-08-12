@@ -1,19 +1,21 @@
 .grid-content{
     display: grid;
-    margin: 0 1em 0 1em;
-    grid-template-columns: 1fr 1fr 1fr;
+    margin: 1em 1em 0 1em;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 1em;
 }
 .grid-item{
-    border: 1px solid red;
     text-align: center;
     height: 20em;
 }
 .product {
+    background-color: #f2f3f5;
     color: black;
     text-decoration: none;
+    border-radius: 2%;
 }
 .image {
+    border-radius: 3%;
     height: 150px;
     width: 150px;
     margin: 10px;

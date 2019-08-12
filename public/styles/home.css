@@ -15,12 +15,15 @@ body {
     max-width: 100%;
     height: 100vh;
     background: black;
+    display: flex;
+    align-items: center
     /*background:url("../images/backgrounds/intimo-logo-background.jpg");
     background-size: cover;*/
 }
 
 .menu-home ul {
     position: fixed;
+    top: 0;
     background-color: rgb(0, 0, 0, .8);
     display: flex;
     list-style-type: none;
@@ -41,6 +44,10 @@ body {
     font-weight: bold;
     font-size: 1.5em;
     text-decoration: none;
+}
+
+.products-btn:hover {
+    color: aqua;
 }
 
 .contacto-btn:hover {
@@ -73,7 +80,7 @@ body {
     color: aqua;
 }
 
-.main-title {
+/* .main-title {
     padding-top: .7em;
     color: white;
     font-size: 20em;
@@ -101,6 +108,13 @@ body {
     font-family: 'Tinos', serif;
     font-weight: 400;
     text-align: center;
+} */
+
+.logo{
+    width: 75%;
+    display: block;
+    margin: auto;
+    margin-bottom: 275px;
 }
 
 .first-section {

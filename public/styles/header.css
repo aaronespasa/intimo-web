@@ -17,7 +17,7 @@ body {
 }
 .menu ul{
     list-style-type: none;
-    background-color: #1b1b1b;
+    background-color: #000;
     overflow: hidden;
     margin: 0;
     padding: 0;
@@ -38,7 +38,7 @@ body {
 
 .menu li a:hover,
 .menu .products:hover .products-btn {
-    background-color: #ff7300;
+    color: aqua;
 }
 
 .menu li .products {

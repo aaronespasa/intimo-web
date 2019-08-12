@@ -1,0 +1,30 @@
+<header class="header">
+    <a href="/">
+        <figure class="intimo-logo">
+            <img src="/images/backgrounds/intimo-logo.jpg" alt="Logo Intimo">
+        </figure>
+    </a>
+    <nav class="menu">
+        <ul>
+                <li class="child-products">
+                    <a href="/products/all" class="products-btn">Productos</a>
+                </li>
+            <li><a href="/#contacto" class="products-btn">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+<section>
+    <div class="grid-content">
+        {{#each items}}
+         <a href="/products/view/{{ id }}" class="product">
+            <div class="grid-item">
+                <h3>{{ name }}</h3> <br>
+               <img src="{{ path }}" alt="{{ name }}" class="image">
+            </div>
+        </a>
+        {{/each}}
+    </div>
+</section>
+<footer class="footer">
+    <p class="footer-title">Esto es el footer</p>
+</footer>

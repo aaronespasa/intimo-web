@@ -1,22 +1,19 @@
-<% include partials/head.ejs %>
-
 <section class="main-background">
     <nav class="menu-home">
             <ul>
                     <li class="products">
-                        <a href="/productos" class="products-btn">Productos</a>
+                        <a href="/products/all" class="products-btn">Productos</a>
                         <div class="products-content">
-                            <a href="/productos/hombre">Hombre</a>
-                            <a href="/productos/mujer">Mujer</a>
-                            <a href="/productos/unisex">Niños</a>
+                            <a href="/products/man">Hombre</a>
+                            <a href="/products/woman">Mujer</a>
                         </div>
                     </li>
                     <li class="contacto"><a href="#contacto" class="contacto-btn products-btn">Contacto</a></li>
             </ul>
     </nav>
-    <h1 class="main-title">ÌNTIMO</h1>
-    <h2 class="main-description">MODA INTERIOR</h2>
-
+    {{!-- <h1 class="main-title">ÌNTIMO</h1>
+    <h2 class="main-description">MODA INTERIOR</h2> --}}
+    <img class="logo" src="/images/backgrounds/Logo.svg" alt="Logo">
     <div id="arrowAnim">
         <div class="arrowSliding">
             <div class="arrow"></div>
@@ -55,4 +52,3 @@
         </p>
     </div>
 </section>
-<% include partials/footer.ejs %>

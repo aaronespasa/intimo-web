@@ -4,6 +4,7 @@ const express = require("express"), //Makes easier to create a server
       multer = require('multer'), //Multer is a middleware which is primarily used for uploading files
       uuid = require('uuid/v4'), //Fast-generation of Universally Unique IDentifier (UUID)
       session = require('express-session'), //Simple session middleware for Express
+      exphbs = require('express-handlebars'); //Template engine middleware
       
 //Inicializations
  app = express();
@@ -13,13 +14,20 @@ require('./database');
 const routes = require('./routes/index');
 app.set('port', process.env.PORT || 3000); //Find if there is a variable 'PORT', else the port is 3000
 app.set('views', path.join(__dirname, 'views')); //Define where's the views folder
-app.set('view engine', 'ejs'); //Configure the template engine
+app.engine('.hbs', exphbs({
+    defaultLayout: 'main',
+    layoutsDir: path.join(app.get('views'), 'layouts'),
+    partialsDir: path.join(app.get('views'), 'partials'),
+    extname: '.hbs',
+    helpers: require('./helpers/handlebars')
+  }));
+app.set('view engine', '.hbs'); //Configure the template engine
 const TIME = 1000*60*60*2;
 const {
     NODE_ENV = 'development',
     SESS_LIFETIME = TIME,
     SESS_NAME = 'sid',
-    SESS_SECRET = 'ssh!quiet, it\'asecret',
+    SESS_SECRET = 'ssh!quiet, it\'a secret',
 } = process.env;
 const IN_PROD = NODE_ENV === 'production';
 //Middlewares
