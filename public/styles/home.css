@@ -1,94 +1,8 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Lato', sans-serif;
-    max-width: 100%;
-    /*Avoid an horizontal overflow*/
-}
-
 .bold {
     font-weight: 700;
 }
 
-.main-background {
-    width: 100vw;
-    max-width: 100%;
-    height: 100vh;
-    background: black;
-    display: flex;
-    align-items: center
-    /*background:url("../images/backgrounds/intimo-logo-background.jpg");
-    background-size: cover;*/
-}
-
-.menu-home ul {
-    position: fixed;
-    top: 0;
-    background-color: rgb(0, 0, 0, .8);
-    display: flex;
-    list-style-type: none;
-    overflow: hidden;
-    margin: 0;
-    width: 100vw;
-    max-width: 100%;
-    justify-content: space-around;
-    z-index: 1;
-}
-
-.menu-home li {
-    margin: 1em 0 1em 0;
-}
-
-.products-btn {
-    color: white;
-    font-weight: bold;
-    font-size: 1.5em;
-    text-decoration: none;
-}
-
-.products-btn:hover {
-    color: aqua;
-}
-
-.contacto-btn:hover {
-    color: aqua;
-}
-
-.products-content {
-    display: none;
-    background-color: rgb(0, 0, 0, 0.7);
-    font-weight: bold;
-    width: inherit;
-    margin-top: .5em;
-    border-radius: 0 0 1em 1em;
-}
-
-.products-content a {
-    text-decoration: none;
-    color: white;
-    margin-bottom: .5em;
-}
-
-.products:hover .products-content {
-    padding: .75em 1em 0 1em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.products:hover .products-content a:hover {
-    color: aqua;
-}
-
-.logo{
-    width: 75%;
-    display: block;
-    margin: auto;
-    margin-bottom: 275px;
-}
-
 .first-section {
-    width: 100vw;
     max-width: 100%;
     position: relative;
 }
@@ -103,12 +17,10 @@ body {
 }
 
 .grid-first-section {
-    margin: 1.5em 0 3em 0;
     max-width: 100%;
-    padding: 0 5%;
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
-    grid-column-gap: 2em;
+    grid-column-gap: 2em; */
 }
 
 /*.map {
@@ -117,10 +29,10 @@ body {
 }*/
 
 .mapouter {
-    position: relative;
-    text-align: right;
-    height: 500px;
-    width: 800px;
+    width: 300px;
+    height: 200px;
+    margin: auto;
+    padding: 1em 0;
     border: none;
     display: flex;
     justify-self: center;
@@ -129,9 +41,9 @@ body {
 .gmap_canvas {
     overflow: hidden;
     background: none !important;
-    height: 500px;
-    width: 800px;
-    border-radius: 2.5em;
+    width: 300px;
+    height: 200px;
+    border-radius: 2em;
 }
 
 .text-first-section {
@@ -139,11 +51,11 @@ body {
     display: flex;
     align-items: center;
     font-size: 1.2em;
-    padding: 0 4% 0 15%;
-    margin: 0;
+    padding: 2em 1em;
+    margin: auto;
 }
 
-@media screen and (max-width:2000px) {
+/* @media screen and (max-width:2000px) {
     .grid-first-section {
         padding: 0 3em;
         margin-top: 3em;
@@ -284,4 +196,4 @@ body {
         padding: 0 1em;
         font-size: 1em;
     }
-}
+} */

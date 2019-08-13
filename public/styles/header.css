@@ -1,72 +1,160 @@
+:root {
+    --header-bg-color: rgb(29, 29, 29);
+    --header-ul-bg-color: rgb(29,29,29);
+    --menu-btn-hover: rgb(34, 34, 34);
+    --navicon: #f4f4f4;
+    --menu-li-a: #f4f4f4;
+}
+
 body {
     margin: 0;
-    padding: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: Lato, sans-serif;
+    background-color: #f4f4f4;
 }
-.header {
-    background-color: black;
+
+/* header */
+
+header {
+    background-color: var(--header-bg-color);
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .1);
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
+
+header ul {
     margin: 0;
     padding: 0;
-}
-.intimo-logo{
-    margin: 0;
-}
-.intimo-logo img{
-    width: 13em;
-    height: 10em;
-}
-.menu ul{
-    list-style-type: none;
-    background-color: #000;
+    list-style: none;
     overflow: hidden;
-    margin: 0;
-    padding: 0;
+    background-color: var(--header-ul-bg-color);
 }
 
-.menu li {
+header li a {
+    display: block;
+    padding: 20px 20px;
+    border-right: 1px solid var(--menu-btn-hover);
+    text-decoration: none;
+}
+
+header li a:hover,
+header .menu-btn:hover {
+    background-color: var(--menu-btn-hover);
+}
+
+/* Logo */
+header .logo {
+    display: block;
     float: left;
+    padding: 10px 20px 10px 40px;
 }
 
-.menu li a,
-.menu .products-btn {
+header .logo-img {
+    height: 36px;
+    width: auto;
+}
+
+/* menu */
+
+header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+}
+
+header .menu a {
+    color: var(--menu-li-a);
+}
+
+/* menu icon */
+
+header .menu-icon {
+    cursor: pointer;
     display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 20px 35px;
-    text-decoration: none;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
 }
 
-.menu li a:hover,
-.menu .products:hover .products-btn {
-    color: aqua;
+header .menu-icon .navicon {
+    background: var(--navicon);
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 26px;
 }
 
-.menu li .products {
-    display: inline-block;
-}
-
-.menu .products-content {
-    display: none;
+header .menu-icon .navicon:before,
+header .menu-icon .navicon:after {
+    background: var(--navicon);
+    content: '';
+    display: block;
+    height: 100%;
     position: absolute;
-    background-color: #f9f9f9;
-    min-width: 166px;
-    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.3);
-    z-index: 1;
+    transition: all .2s ease-out;
+    width: 100%;
 }
 
-.menu .products-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
+header .menu-icon .navicon:before {
+    top: 7px;
 }
 
-.menu .products-content a:hover {
-    background-color: #ccc;
+header .menu-icon .navicon:after {
+    top: -7px;
 }
 
-.menu .products:hover .products-content {
-    display: block;
+/* menu btn */
+
+header .menu-btn {
+    display: none;
 }
 
+header .menu-btn:checked~.menu {
+    max-height: 240px;
+}
+
+header .menu-btn:checked~.menu-icon .navicon {
+    background: transparent;
+}
+
+header .menu-btn:checked~.menu-icon .navicon:before {
+    transform: rotate(-45deg);
+}
+
+header .menu-btn:checked~.menu-icon .navicon:after {
+    transform: rotate(45deg);
+}
+
+header .menu-btn:checked~.menu-icon:not(.steps) .navicon:before,
+header .menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
+    top: 0;
+}
+
+@media (min-width: 768px) {
+    header li {
+        float: left;
+    }
+
+    header li a {
+        padding: 20px 30px;
+    }
+
+    header .menu {
+        clear: none;
+        float: right;
+        max-height: none;
+    }
+
+    header .menu-icon {
+        display: none;
+    }
+}
+
+
+/* <i class="fas fa-bars"></i> */
+
+@media screen and (max-width: 480px) {
+
+}

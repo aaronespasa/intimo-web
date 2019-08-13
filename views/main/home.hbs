@@ -1,50 +1,20 @@
-<section class="main-background">
-    <nav class="menu-home">
-            <ul>
-                    <li class="products">
-                        <a href="/products/all" class="products-btn">Productos</a>
-                        <div class="products-content">
-                            <a href="/products/man">Hombre</a>
-                            <a href="/products/woman">Mujer</a>
-                        </div>
-                    </li>
-                    <li class="contacto"><a href="#contacto" class="contacto-btn products-btn">Contacto</a></li>
-            </ul>
-    </nav>
-    {{!-- <h1 class="main-title">ÌNTIMO</h1>
-    <h2 class="main-description">MODA INTERIOR</h2> --}}
-    <img class="logo" src="/images/backgrounds/Logo.svg" alt="Logo">
-    <div id="arrowAnim">
-        <div class="arrowSliding">
-            <div class="arrow"></div>
-        </div>
-        <div class="arrowSliding delay1">
-            <div class="arrow"></div>
-        </div>
-        <div class="arrowSliding delay2">
-            <div class="arrow"></div>
-        </div>
-        <div class="arrowSliding delay3">
-            <div class="arrow"></div>
-        </div>
-    </div>
-</section>
+{{> header }}
+
 <section class="first-section" id="contacto">
-    <h3 class="title-first-section">Tienda lider en <span class="bold">Lencería</span> de <span class="bold">Gijón</span></h3>
+    <h3 class="title-first-section">Tienda lider en <strong>Lencería</strong> de <strong>Gijón</strong></h3>
     <div class="grid-first-section">
         <!--<iframe class="map" src="https://www.google.com/maps/d/embed?mid=10BgH65tDv5aEb5aZxBneBurB1NgWHCd9"
         width="640" height="480"></iframe>-->
         <div class="mapouter">
             <div class="gmap_canvas">
-                <iframe width="800" height="500" class="gmap_canvas"
+                <iframe width="300px" height="200px" class="gmap_canvas"
                     src="https://maps.google.com/maps?q=INTIMO%20-%20MODA%20INTERIOR&t=&z=13&ie=UTF8&iwloc=&output=embed"
                     frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                 </div>
         </div>
-        <p class="text-first-section">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vel ligula quam. Ut sit amet nisi et neque fermentum
-        molestie sed eget est. Sed suscipit iaculis purus quis mattis. Aenean odio ligula, suscipit non dapibus et, cursus
-        sagittis tortor.<br/><br />
-        </p>
+        <p class="text-first-section">La ropa interior es súper importante: por más que no sea lo primero que se ve, es lo primero que nos
+        viste. Para que te veas divina y los encantes sin sacarte la ropa, una experta nos da algunas pistas. ¡Déjalos sin
+        aliento y sentite bien a través de cada detalle que te acompaña!</p>
     </div>
 </section>
 {{> footer}}
