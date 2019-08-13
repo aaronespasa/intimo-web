@@ -1,13 +1,4 @@
-<nav>
-    <ul class="menu-admin">
-        <li class="products">
-            <button class="products-button"><a href="/admin">Productos</a></button>
-        </li>
-    </ul>
-</nav>
-<form action="/admin/logout" method="POST" class="logout">
-    <input type="submit" value="Logout">
-</form>
+{{> admin-nav}}
 <h1>Crear Producto</h1>
 <div class="form-group">
     <form action="/new-product" method="POST" enctype="multipart/form-data">

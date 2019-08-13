@@ -5,5 +5,8 @@
 logs
 *.log
 
+#Product icons
+public/products/
+
 # Dependency directories
 node_modules/

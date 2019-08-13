@@ -1,17 +1,8 @@
-<nav>
-    <ul class="menu-admin">
-        <li class="products">
-            <button class="products-button"><a href="/admin/new">Crear Producto</a></button>
-        </li>
-    </ul>
-</nav>
-<form action="/admin/logout" method="POST" class="logout">
-    <input type="submit" value="Salir">
-</form>
+{{> admin-nav}}
 <section class="products-content">
-    <div class="grid-content">
+    <div class="products-list">
         {{#each items}}
-            <div class="grid-item">
+            <div class="product">
                 <h3>{{ name }}</h3> <br>
                     {{ description }} <br>
                     {{ sex }} <br>

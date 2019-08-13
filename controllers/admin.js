@@ -1,5 +1,7 @@
 const Product = require('../models/Products');
 const SESS_NAME = require('../index').SESS_NAME;
+const { join } = require('path')
+const { unlinkSync } = require('fs')
 const users = [
     { id: 1, email: 'adri@adri.com', password: '1234' },
     { id: 2, email: 'aaron@aaron.com', password: '2345' },
@@ -93,7 +95,11 @@ ctrl.deleteProduct = async (req, res, next) => {
         res.redirect('/admin/signin');
     } else {
         const id = req.params.id;
-        await Product.findByIdAndDelete(id);
+        const { path } = await Product.findByIdAndDelete(id);
+        const fullPath = join( __dirname + '/../public/' + path)
+        unlinkSync(fullPath, (err) => {
+          err && console.error(err)
+        });
         res.redirect('/admin');
     }
 }
