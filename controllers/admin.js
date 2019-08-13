@@ -115,9 +115,10 @@ ctrl.uploadProduct = async (req, res) => {
     product.filename = req.file.filename;
     product.path = '/images/products/' + req.file.filename;
     product.originalname = req.file.originalname;
-
+    console.log(product);
+    
     await product.save();
-
+    
     res.redirect('/admin');
 }
 
