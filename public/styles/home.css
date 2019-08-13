@@ -80,36 +80,6 @@ body {
     color: aqua;
 }
 
-/* .main-title {
-    padding-top: .7em;
-    color: white;
-    font-size: 20em;
-    height: 340px;
-    margin: 0;
-    font-family: 'Tinos', serif;
-    font-weight: 500;
-    text-align: center;
-}
-
-.main-title::before {
-    content: '';
-    position: absolute;
-    right: 1.23em;
-    top: .9em;
-    width: 1.52em;
-    height: 7px;
-    background-color: white;
-}
-
-.main-description {
-    color: white;
-    font-size: 6em;
-    margin: 0;
-    font-family: 'Tinos', serif;
-    font-weight: 400;
-    text-align: center;
-} */
-
 .logo{
     width: 75%;
     display: block;

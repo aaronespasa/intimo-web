@@ -1,40 +1,41 @@
 .footer {
-    margin: auto;
     position: relative;
-    bottom: 0%;
+    bottom: 0;
     height: 100%;
     width: 100%;
     max-width: 100%;
-    background: black;
+    background: #1D1D1D;
     color: white;
+    display: flex;
+    justify-content: row;
 }
 
 .footer-content {
-    display: table-row;
+    float: left;
+    background: inherit;
+    text-align: center;
     width: 50%;
-    font-size: 16px;
-    padding-bottom: 15px;
+    padding: 2.5em 1em;
 }
 
-.footer-content#rrss {
-    float: left;
-    background: inherit;
-    text-align: center;
-    display: block;
+.footer-direction {
+    font-size: 1.2em;
+    margin: 0;
 }
 
-.footer-content#address {
-    float: left;
-    background: inherit;
-    font-size: inherit;
-    text-align: center;
-    display: block;
+.rrss {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.footer-title {
-    text-align: center;
-    color: white;
-    font-size: 24px
+.fa-instagram {
+    margin-right: .75em;
+}
+
+.fa-instagram,
+.fa-facebook {
+    font-size: 3em;
 }
 
 a {
