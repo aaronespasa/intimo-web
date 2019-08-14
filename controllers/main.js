@@ -45,6 +45,7 @@ const products = [
 ctrl.home = (req, res) => {
     res.render('main/home', {
         title: "Íntimo",
+        items: products,
         admin: false
     }); //We've had said where is index.hbs in the settings
 }

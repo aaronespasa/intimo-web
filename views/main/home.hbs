@@ -11,10 +11,17 @@
         Por eso, te invitamos a que visites Ìntimo donde <b>los complejos por tu moda privada se han acabado</b><br><br>
     </section>
     <section class="section parallax bg2 static2">
-        <p class="bg2-text">La ropa interior es súper importante: <b>por más que no sea lo primero que se ve, es lo
-                primero que nos viste.</b><br><br>Para que te veas divina y los encantes sin sacarte la ropa, una experta nos da
-            algunas pistas.<br><br>¡Déjalos sin
-            aliento y <b>siéntete bien a través de cada detalle que te acompaña!</b></p>
+        <div class="bg2-container">
+            {{#each items}}
+            <a href="/products/view/{{ _id }}" class="product">
+                <div>
+                    <h3>{{ name }}</h3> <br>
+                    <img src="{{ path }}" alt="{{ name }}" class="image">
+                    <button>Ver más</button>
+                </div>
+            </a>
+            {{/each}}
+        </div> 
     </section>
     <section class="section static static3">
         <h3 class="leader-shop">Tienda lider en <strong>Lencería</strong> de <strong>Gijón</strong></h3>
@@ -27,7 +34,10 @@
         </div>
     </section>
     <section class="section parallax bg3">
-        <p class="bg3-text"><b>Expermienta nuevas sensaciones</b> con nuestras selecciones más detacadas</p>
+        <p class="bg3-text">La ropa interior es súper importante: <b>por más que no sea lo primero que se ve, es lo
+                primero que nos viste.</b><br><br>Para que te veas divina y los encantes sin sacarte la ropa, una experta nos da
+            algunas pistas.<br><br>¡Déjalos sin
+            aliento y <b>siéntete bien a través de cada detalle que te acompaña!</b></p>
     </section>
     <section class="section static">
         <ul class="proofs-flex">
