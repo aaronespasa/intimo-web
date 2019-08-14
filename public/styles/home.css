@@ -94,6 +94,7 @@
     color: black;
     text-decoration: none;
     border-radius: 2%;
+    margin-right: 1em;
 }
 
 .bg2-container div {
@@ -124,7 +125,7 @@
     background: inherit;
     display: block;
     border: 1px solid black;
-    margin: auto;
+    margin: 1em auto;
 }
 
 .bg2::after {
