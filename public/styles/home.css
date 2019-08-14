@@ -1,32 +1,107 @@
-.bold {
-    font-weight: 700;
+:root {
+    --snd-section-bg: #1d1d1dfd;
+    --dark-section-font-color: #dddddd;
 }
 
-.first-section {
+.wrapper {
+    padding-top: 3.7em;
     max-width: 100%;
-    position: relative;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective: 2px;
 }
 
-.title-first-section {
+.section {
+    position: relative;
+    height: 100vh;
+}
+
+.parallax::after {
+    /* Display and position the pseudo-element */
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    /* Move the pseudo-element back away from the camera,
+   * then scale it back up to fill the viewport.
+   * Because the pseudo-element is further away, it appears to move more slowly, like in real life. */
+    transform: translateZ(-1px) scale(1.5);
+    /* Force the background image to fill the whole element. */
+    background-size: cover;
+    /* Keep the image from overlapping sibling elements. */
+    z-index: -1;
+}
+
+.static {
+    height: 60vh;
+    background: var(--snd-section-bg);
+    color: var(--dark-section-font-color);
+    padding: 1em 2em;
+}
+
+.bg1 {
+    display: flex;
+    align-items: center;
+}
+
+.bg1::after {
+    background-image: url("/images/backgrounds/bg-1.jpg");
+}
+
+.slogan {
+    padding: 10px 30px;
+    text-align: center;
+    font-size: 3.5em;
+    color: black;
+    height: 400px;
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.75);
+}
+
+.static1 {
+    height: 70vh;
+}
+
+.static1 h2 {
+    font-size: 2.5em;
+    text-align: center;
+    font-weight: 100;
+
+}
+
+.static .storytelling {
+    font-size: 1.3em;
+}
+
+.bg2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg2::after {
+    background-image: url("/images/backgrounds/bg-2.jpg");
+}
+
+.bg2-text {
+    background: #ffffffd3;
+    width: 60%;
+    font-size: 1.5em;
+    color: black;
+    font-weight: 100;
+    padding: 1em;
+}
+
+.leader-shop {
     font-weight: 100;
     text-align: center;
-    padding-top: 2.2em;
-    margin: 0;
+    margin: 1em 0;
     font-size: 2.5em;
-    color: black;
+    color: white;
 }
-
-.grid-first-section {
-    max-width: 100%;
-    /* display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
-    grid-column-gap: 2em; */
-}
-
-/*.map {
-    margin: 3em 0 0 10em;
-    border: none;
-}*/
 
 .mapouter {
     width: 300px;
@@ -46,154 +121,55 @@
     border-radius: 2em;
 }
 
-.text-first-section {
-    text-align: center;
+.bg3 {
     display: flex;
+    justify-content: center;
     align-items: center;
-    font-size: 1.2em;
-    padding: 2em 1em;
+}
+
+.bg3::after {
+    background-image: url("/images/backgrounds/bg-3.jpg");
+}
+
+.bg3-text {
+    background: #ffffffd3;
+    width: 60%;
+    font-size: 1.5em;
+    color: black;
+    font-weight: 100;
+    padding: 1em;
+}
+
+.proofs-flex {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.proofs-flex li:nth-child(odd) {
+    padding-right: 1em;
+}
+
+.proofs-flex li{
+    width: 7em;
+    padding: 0 0 1.5em 0;
+}
+
+.proofs-flex img{
+    display: block;
     margin: auto;
+    text-align: center;
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
 }
 
-/* @media screen and (max-width:2000px) {
-    .grid-first-section {
-        padding: 0 3em;
-        margin-top: 3em;
-    }
+.proofs-flex q {
+    display: block;
+    margin-top: .8em;
+    font-size: .9em;
+    color: white;
+    text-align: center;
 }
-
-@media screen and (max-width:1024px) {
-    .main-title {
-        padding-top: 1em;
-        font-size: 15em;
-        height: 270px;
-    }
-    .main-title::before {
-        right: .4em;
-        top: 1.18em;
-    }
-    .main-description {
-        font-size: 4.5em;
-    }
-    .mapouter {
-        width: 500px;
-    }
-    .gmap_canvas {
-        width: 500px;
-    }
-}
-
-@media screen and (max-width:768px) {
-    .main-title {
-        padding-top: 1.2em;
-        font-size: 12em;
-        height: 210px;
-    }
-    .main-title::before {
-        right: .26em;
-        top: 1.35em;
-        height: 6px;
-    }
-    .main-description {
-        font-size: 4em;
-    }
-    .grid-first-section {
-        grid-column-gap: 1em;
-        padding: 0 3%;
-    }
-    .mapouter {
-        width: 370px;
-    }
-    .gmap_canvas {
-        width: 370px;
-    }
-    .text-first-section {
-        font-size: 1.2em;
-    }
-}
-
-@media screen and (max-width:480px) {
-    .menu-home ul {
-        padding: 0;
-    }
-    .menu-home li {
-        margin: .6em 0;
-    }
-    .products-btn {
-        font-size: 1.5em;
-    }
-    .main-title {
-        padding-top: 2.1em;
-        font-size: 5.8em;
-        height: 150px;
-    }
-    .main-title::before {
-        right: .2em;
-        top: 2.25em;
-        height: 3.5px;
-    }
-    .main-description {
-        font-size: 2.5em;
-    }
-    .grid-first-section {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    }
-    .title-first-section {
-        font-size: 1.85em;
-    }
-    .mapouter {
-        width: 330px;
-        height: 300px;
-    }
-    .gmap_canvas {
-        width: 330px;
-        height: 300px;
-    }
-    .text-first-section {
-        margin: 1.5em 0;
-        padding: 0 1em;
-        font-size: 1.1em;
-    }
-}
-
-@media screen and (max-width:320px) {
-    .menu-home ul {
-        padding: 0;
-    }
-    .menu-home li {
-        margin: .5em 0;
-    }
-    .products-btn {
-        font-size: 1.3em;
-    }
-    .main-title {
-        padding-top: 2.6em;
-        font-size: 5em;
-        height: 90px;
-    }
-    .main-title::before {
-        right: .25em;
-        top: 2.75em;
-        height: 3px;
-    }
-    .main-description {
-        font-size: 1.9em;
-    }
-    .grid-first-section {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        margin-top: 1em;
-    }
-    .mapouter {
-        width: 300px;
-        height: 200px;
-    }
-    .gmap_canvas {
-        width: 300px;
-        height: 200px;
-    }
-    .text-first-section {
-        margin: 1.5em 0;
-        padding: 0 1em;
-        font-size: 1em;
-    }
-} */

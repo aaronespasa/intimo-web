@@ -6,14 +6,19 @@ const express = require("express"), //Makes easier to create a server
       session = require('express-session'), //Simple session middleware for Express
       exphbs = require('express-handlebars'); //Template engine middleware
       
-//Inicializations
+/*
+ * Inicializations
+ */
  app = express();
 require('./database');
 
-//Settings
+/*
+ * Settings
+*/
 const routes = require('./routes/index');
-app.set('port', process.env.PORT || 3000); //Find if there is a variable 'PORT', else the port is 3000
-app.set('views', path.join(__dirname, 'views')); //Define where's the views folder
+app.set('port', process.env.PORT || 3000);
+// Define where's the views folder
+app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', exphbs({
     defaultLayout: 'main',
     layoutsDir: path.join(app.get('views'), 'layouts'),
@@ -30,20 +35,24 @@ const {
     SESS_SECRET = 'ssh!quiet, it\'a secret',
 } = process.env;
 const IN_PROD = NODE_ENV === 'production';
-//Middlewares
+
+/*
+ * Middlewars
+ */
 app.use(morgan('dev'));//:status token -> Red: server error codes, Yellow: client error codes, Cyan: redirection codes
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//Destination defines where the file should be stored
-//Filename is composed of a generated uuid and the extension of the original file
+// @destination defines where the file should be stored
+// @filename is composed of a generated uuid and the extension of the original file
 const storage = multer.diskStorage({
     destination: path.join(__dirname, 'public/images/products'),
     filename: (req, file, cb, filename) => {
         cb(null, uuid() + path.extname(file.originalname));
     }
 })
-app.use(multer({ storage: storage }).single('image'));//Storage: Where to store the files; .single: Only allows 'image'
+// Only store images
+app.use(multer({ storage: storage }).single('image'));
 app.use(session({
     name: SESS_NAME,
     resave: true,
