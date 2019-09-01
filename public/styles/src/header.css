@@ -204,7 +204,7 @@ header .menu-btn {
 }
 
 header .menu-btn:checked~.menu {
-    max-height: 300px;
+    max-height: 260px;
 }
 
 header .menu-btn:checked~.menu-icon .navicon {
@@ -251,12 +251,26 @@ header .menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
         justify-content: center;
     }
     
-    header li a,
-    header .search,
     header li {
-        padding: 7px 0;
+        padding: 15px 0;
         text-align: center;
         border-right: none;
+        display: flex;
+        align-items: center;
+    }
+
+    header li:last-child {
+        margin-bottom: 10px;
+    }
+
+    header li a {
+        padding: 0;
+        width: 110px;
+        margin: auto;
+    }
+
+    header .search {
+        padding: 0;
     }
 }
 
