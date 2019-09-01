@@ -1,0 +1,15 @@
+/**
+ * Custom Properties
+ * aka CSS variables.
+ *
+ * @link: https://developer.mozilla.org/en-US/docs/Web/CSS/--*
+ **/
+
+ :root {
+    
+}
+
+.main-bg {
+    height: 300vh;
+    padding-top: 59px;
+}

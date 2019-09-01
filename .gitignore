@@ -10,3 +10,6 @@ logs
 
 # Dependency directories
 node_modules/
+
+# EsLint
+.eslintrc.json

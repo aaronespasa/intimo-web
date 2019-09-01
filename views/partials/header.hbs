@@ -1,6 +1,28 @@
-<header>
+<header id="header">
     <a href="/" class="logo">
-        <img class="logo-img" src="/images/backgrounds/logo.svg" alt="Logo">
+        <svg id="intimo-logo" xmlns="http://www.w3.org/2000/svg" width="162.915" height="36"
+            viewBox="0 0 331.614 73.278">
+            <path id="Trazado_1" data-name="Trazado 1"
+                d="M20.53,70.124l-10.592-7.4a6.219,6.219,0,0,1-2.431-2.689A7.637,7.637,0,0,1,7,57.35h7.482l7.224,12.774ZM9.938,129.784v-1.34l6.872-3.367V79.032L9.938,75.665v-1.34H32.376v1.34l-6.8,3.367v46.044l6.8,3.367v1.34Z"
+                transform="translate(-7 -57.35)" fill="#ebebeb" />
+            <path id="Trazado_2" data-name="Trazado 2"
+                d="M60.968,92.478v35.5l8.659,3.282v1.34H48.28v-1.34l6.8-3.367.6-50.6L93.74,116.72V81.732L85.09,78.45V77.11h21.261v1.34l-6.726,3.282V132.99Z"
+                transform="translate(-12.819 -60.135)" fill="#ebebeb" />
+            <path id="Trazado_3" data-name="Trazado 3"
+                d="M137.655,132.569v-1.34l8.487-3.367V81.732H132.87l-5.97,3.7h-1.34V77.11h49.91v8.324h-1.34l-5.884-3.7H154.888v46.13l8.59,3.367v1.34Z"
+                transform="translate(-23.713 -60.135)" fill="#ebebeb" />
+            <path id="Trazado_4" data-name="Trazado 4"
+                d="M194.13,132.569v-1.34L201,127.862V81.818L194.13,78.45V77.11h22.438v1.34l-6.8,3.367v46.044l6.8,3.367v1.34Z"
+                transform="translate(-33.378 -60.135)" fill="#ebebeb" />
+            <path id="Trazado_5" data-name="Trazado 5"
+                d="M297.871,127.026l6.013,3.367v1.34h-20.72v-1.34l7.731-2.371-.859-41.1-21.1,44.945h-2.328L245.1,86.488l-1.074,40.624,6.967,3.282v1.34H232v-1.34l6.718-3.367,3.943-55.262,24.508,47.848,27.42-48.433Z"
+                transform="translate(-38.717 -59.3)" fill="#ebebeb" />
+            <path id="Trazado_6" data-name="Trazado 6"
+                d="M355.376,133.273a29.1,29.1,0,0,1-11.167-2.139,27.411,27.411,0,0,1-8.986-5.97,26.784,26.784,0,0,1-5.927-9.028,32.214,32.214,0,0,1,0-22.859,26.733,26.733,0,0,1,5.927-9.037,27.248,27.248,0,0,1,8.986-5.962,30.376,30.376,0,0,1,22.438,0,27.1,27.1,0,0,1,14.964,15,31.6,31.6,0,0,1,0,22.859,27.171,27.171,0,0,1-14.964,15A29.035,29.035,0,0,1,355.376,133.273Zm1.718-4.2a15.334,15.334,0,0,0,8.994-2.689,17.851,17.851,0,0,0,6.013-7.568,27.861,27.861,0,0,0,2.182-11.511A35,35,0,0,0,371.6,93.062a22.653,22.653,0,0,0-7.31-9.449,16.992,16.992,0,0,0-10.248-3.359,15.858,15.858,0,0,0-9.046,2.637,17.481,17.481,0,0,0-6.176,7.517,27.488,27.488,0,0,0-2.233,11.511,34.826,34.826,0,0,0,2.732,14.286,22.825,22.825,0,0,0,7.4,9.5,17.318,17.318,0,0,0,10.386,3.367Z"
+                transform="translate(-52.136 -59.997)" fill="#ebebeb" />
+            <line id="Línea_1" data-name="Línea 1" x2="127.215" transform="translate(203.935 5.463)" fill="#fff"
+                stroke="#ebebeb" stroke-miterlimit="10" stroke-width="1.5" />
+        </svg>
     </a>
 
     <input class="menu-btn" type="checkbox" id="menu-btn" />
@@ -8,9 +30,18 @@
         <span class="navicon"></span>
     </label>
     <ul class="menu">
-        <li><a href="/products/all">Mujer</a></li>
-        <li><a href="/products/all">Hombre</a></li>
-        <li><a href="">Sobre nosotros</a></li>
-        <li><a href="#contacto">Contacto</a></li>
+        <li class="search">
+            <form>
+                <input type="text" name="search" placeholder="Buscar...">
+            </form>
+        </li>
+        <li class="woman"><a href="/products/all">Mujer</a></li>
+        <li class="man"><a href="/products/all">Hombre</a></li>
+        <li class="wishes-list"><a href=""><i class="fas fa-heart"></i>
+                <p>Lista de deseos</p>
+            </a></li>
+        <li class="location"><a href=""><i class="fas fa-map-marker-alt"></i>
+                <p>Contacto</p>
+            </a></li>
     </ul>
 </header>
