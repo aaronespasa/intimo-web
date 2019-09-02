@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/aaronespasa/intimo-web#readme",
   "dependencies": {
+    "bcrypt": "^3.0.6",
     "express": "^4.16.4",
     "express-handlebars": "^3.1.0",
     "express-session": "^1.15.6",

@@ -10,6 +10,12 @@ router.get('/products/:filter', main.products);
 
 router.get('/products/view/:id', main.viewProduct);
 
+router.post('/signin', main.signin);
+
+router.post('/login', main.login);
+
+router.post('/logout', main.logout);
+
 //ADMIN VIEWS
 router.get('/admin' , admin.admin);
 
