@@ -5,9 +5,9 @@ const UserModel = require("../models/User");
 
 const ctrl = {};
 
-//*****************************
-//HOME && PRODUCTS
-//*****************************
+//* ****************************
+// HOME && PRODUCTS
+//* ****************************
 
 // const products = [
 //     { _id: '5d52ef178a194e3398ed4258',

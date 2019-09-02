@@ -1,0 +1,285 @@
+/**
+ * Custom Properties
+ * aka CSS variables.
+ *
+ * @link: https://developer.mozilla.org/en-US/docs/Web/CSS/--*
+ **/
+
+ :root {
+    --header-bg-color: #00021D;
+    --header-color: #EBEBEB;
+    --header-woman-color: rgb(230, 185, 211);
+    --header-man-color: rgb(182, 182, 231);
+    --whishes-list-hover: rgb(255, 88, 88);
+    --location-hover: rgb(255, 214, 137);
+    --navicon: #f4f4f4;
+    --menu-li-a: #f4f4f4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    /* background-color: #f4f4f4; */
+}
+
+/* header */
+
+header {
+    background-color: var(--header-bg-color);
+    box-shadow: 0px -4px 30px 0px rgba(0,0,0,0.75);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+    transition: top 0.4s;
+}
+
+.vanish-header {
+    top: -59px;
+    box-shadow: none;
+}
+
+header ul {
+    list-style: none;
+    overflow: hidden;
+}
+
+header li a,
+header .search {
+    display: block;
+    padding: 20px 20px;
+    border-right: 1px solid var(--menu-btn-hover);
+    text-decoration: none;
+}
+
+/* logo */
+header .logo {
+    display: block;
+    float: left;
+    padding: 10px 20px 10px 40px;
+}
+
+/* menu */
+
+header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .5s ease-out;
+}
+
+header .menu a {
+    color: var(--menu-li-a);
+}
+
+header .search input {
+    width: 25px;
+    height: 25px;
+    background-image: url('/images/icons/search.svg');
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    transition: all 0.4s ease-in-out;
+    border: none;
+    cursor: pointer;
+}
+
+header .search input::placeholder {
+    color: transparent;
+}
+
+header .search input:focus {
+    border: 1px solid var(--header-color);
+    border-radius: 4px;
+    font-size: 16px;
+    padding: 6px 23px 6px 25px;
+    color: var(--header-color);
+    width: 200px;
+    background-size: 15px;
+    background-position: 5px 2px;
+    cursor: text;
+    outline: none;
+}
+
+header .search input:focus::placeholder {
+    color: var(--header-color);
+}
+
+header .search,
+header .wishes-list,
+header .location {
+    height: 40px;
+    margin: auto;
+    color: var(--header-color);
+}
+
+header .wishes-list a,
+header .location a {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+header .wishes-list a p,
+header .location a p {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+header .woman a {
+    color: var(--header-woman-color);
+    font-weight: 600;
+}
+
+header .man a {
+    color: var(--header-man-color);
+    font-weight: 600;
+}
+
+header .man a:hover,
+header .woman a:hover {
+    color: var(--header-color);
+}
+
+header .wishes-list a:hover {
+    color: var(--whishes-list-hover);
+}
+
+header .location a:hover {
+    color: var(--location-hover);
+}
+
+header .wishes-list a:hover p,
+header .location a:hover p {
+    opacity: 1;
+}
+
+/* menu icon */
+
+header .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    padding: 28px 20px;
+    position: absolute;
+    right: 0;
+    user-select: none;
+}
+
+header .menu-icon .navicon {
+    background: var(--navicon);
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 26px;
+}
+
+header .menu-icon .navicon:before,
+header .menu-icon .navicon:after {
+    background: var(--navicon);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+
+header .menu-icon .navicon:before {
+    top: 7px;
+}
+
+header .menu-icon .navicon:after {
+    top: -7px;
+}
+
+/* menu btn */
+
+header .menu-btn {
+    display: none;
+}
+
+header .menu-btn:checked~.menu {
+    max-height: 260px;
+}
+
+header .menu-btn:checked~.menu-icon .navicon {
+    background: transparent;
+}
+
+header .menu-btn:checked~.menu-icon .navicon:before {
+    transform: rotate(-45deg);
+}
+
+header .menu-btn:checked~.menu-icon .navicon:after {
+    transform: rotate(45deg);
+}
+
+header .menu-btn:checked~.menu-icon:not(.steps) .navicon:before,
+header .menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
+    top: 0;
+}
+
+@media (min-width: 1024px) {
+    header li {
+        float: left;
+    }
+
+    header li a {
+        padding: 20px 30px;
+    }
+
+    header .menu {
+        clear: none;
+        float: right;
+        max-height: none;
+    }
+
+    header .menu-icon {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    header .menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    header li {
+        padding: 15px 0;
+        text-align: center;
+        border-right: none;
+        display: flex;
+        align-items: center;
+    }
+
+    header li:first-child {
+        margin-top: 15px;
+    }
+
+    header li:last-child {
+        margin-bottom: 10px;
+    }
+
+    header li a {
+        padding: 0;
+        width: 110px;
+        margin: auto;
+    }
+
+    header .search {
+        padding: 0;
+    }
+}
+
+/* <i class="fas fa-bars"></i> */
+
+@media screen and (max-width: 480px) {
+
+}
