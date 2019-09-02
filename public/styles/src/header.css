@@ -259,6 +259,10 @@ header .menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
         align-items: center;
     }
 
+    header li:first-child {
+        margin-top: 15px;
+    }
+
     header li:last-child {
         margin-bottom: 10px;
     }
