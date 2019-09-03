@@ -22,11 +22,6 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Lato', sans-serif;
-    /* background-color: #f4f4f4; */
-}
-
 /* header */
 
 header {
@@ -37,10 +32,11 @@ header {
     width: 100%;
     z-index: 3;
     transition: top 0.4s;
+    font-family: 'Poppins', sans-serif;
 }
 
 .vanish-header {
-    top: -59px;
+    top: -65px;
     box-shadow: none;
 }
 
@@ -132,12 +128,12 @@ header .location a p {
 
 header .woman a {
     color: var(--header-woman-color);
-    font-weight: 600;
+    font-weight: 500;
 }
 
 header .man a {
     color: var(--header-man-color);
-    font-weight: 600;
+    font-weight: 500;
 }
 
 header .man a:hover,
