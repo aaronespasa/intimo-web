@@ -1,5 +1,4 @@
 {{> header }}
-
 <section class="main-bg">
     <h1 class="slogan">Dale a tu cuerpo el cariño que necesita</h1>
     <button class="cta-btn">Comprar Lencería</button>
@@ -14,42 +13,139 @@
         <img src="/images/icons/main-bg-photo.png" alt="Hero principal">
     </figure>
 </section>
+<div class="container">
+    <section class="features">
+        <h3>Queremos lo mejor para tí</h3>
+        <ul class="features-list">
+            <li>
+                <img src="/images/icons/ok-hand.png" alt="Mano de OK">
+                <h4>Comfort y estética</h4>
+                <p>
+                    Nuestra lencería y ropa de baño está diseñada y fabricada por grandes <b>marcas españolas</b> con el
+                    fin
+                    de <b>lucirte y darte el
+                        comfort que deseas</b>.
+                </p>
+            </li>
+            <li>
+                <img src="/images/icons/shop.jpg" alt="Tienda">
+                <h4>Venta en físico</h4>
+                <p>
+                    Para orientarte en qué producto elegir, disponemos de tiendas en físico donde atenderte <b>de 9:00 a
+                        22:00</b>.
+                </p>
+            </li>
+            <li>
+                <img src="/images/icons/family.png" alt="Familia">
+                <h4>Todas las edades</h4>
+                <p>
+                    También buscamos <b>que toda la familia se sienta a gusto</b> y para conseguirlo ofrecemos lencería
+                    para
+                    todas las edades.
+                </p>
+            </li>
 
-{{!-- {{#each items}}
-            <a href="/products/view/{{ _id }}" class="product">
-                <div>
-                    <h3>{{ name }}</h3> <br>
-                    <img src="{{ path }}" alt="{{ name }}" class="image">
-                    <button>Ver más</button>
-                </div>
+        </ul>
+    </section>
+
+    <section class="novelties">
+        <h3 class="novelties-title">Novedades</h3>
+        <div class="products-container">
+            {{#each items}}
+            <a href="/products/view/{{ _id }}" class="products">
+                <img src="{{ path }}" alt="{{ name }}">
+                <h3>{{ name }}</h3> <br>
             </a>
-            {{/each}} --}}
+            {{/each}}
+        </div>
+    </section>
+</div>
 
-{{!-- <div class="mapouter">
+<section class="movie">
+    <video controls>
+        <source src="/videos/intimo.mp4" type="video/mp4">
+    </video>
+</section>
+
+<div class="container">
+    <section class="buy-product">
+        <div class="select-product">
+            <img class="selected-product" src="/images/products/product3.jpg" alt="Sujetador ej1">
+            <img src="/images/products/product3.jpg" alt="Sujetador ej2">
+        </div>
+        <figure class="main-product">
+            <img src="/images/products/product3.jpg" alt="Sujetador principal">
+        </figure>
+        <div class="product-details">
+            <h3>sans complexe lift up gorge classique rojo</h3>
+            <div class="product-price">
+                <p class="onsale">Oferta</p>
+                <p class="current-price">26'99€</p>
+                <p class="prev-price">30€</p>
+            </div>
+            <hr class="separator-line">
+            <form class="product-options-form" action="/listadeseos/add" method="POST" accept-charset="UTF-8"
+                enctype="multipart/form-data">
+                <label class="size">talla</label>
+                <select name="size" id="size-selector" class="size-selector">
+                    <option value="35cm" selected="selected">35cm</option>
+                </select>
+                <p class="size-status">¡Tenemos disponible esta talla!</p>
+                <button class="add-to-whishes-btn" type="submit">añadir a la lista de deseos</button>
+                <button class="reserve-btn" type="submit">reservar durante 2 días</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="proofs">
+        <h3>¿Qué opinan nuestros clientes?</h3>
+        <ul class="proofs-list">
+            <li>
+                <img src="/images/profiles/profile-1.jpg" alt="Maricarmen">
+                <p class="client-name">Manolo</p>
+                <p class="client-proof">"Desde el primer momento el servicio ha sido excelente. El local era muy
+                    acogedor y hay gran variedad de productos"</p>
+            </li>
+            <li>
+                <img src="/images/profiles/profile-2.png" alt="Tienda">
+                <p class="client-name">Carmen</p>
+                <p class="client-proof">"Me han encantado los nuevos sujetadores. Me siento muy cómoda con ellos y no me
+                    hacen daño en la espalda"</p>
+            </li>
+            <li>
+                <img src="/images/profiles/profile-3.jpg" alt="Familia">
+                <p class="client-name">María</p>
+                <p class="client-proof">"Muy buen servicio, like"</p>
+            </li>
+
+        </ul>
+    </section>
+
+    <section class="location">
+        <h3>¿Dónde encontrarnos?</h3>
+        <div class="map-container">
             <div class="gmap_canvas">
                 <iframe width="300px" height="200px" class="gmap_canvas"
                     src="https://maps.google.com/maps?q=INTIMO%20-%20MODA%20INTERIOR&t=&z=13&ie=UTF8&iwloc=&output=embed"
                     frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
             </div>
-        </div> --}}
+            <div class="map-details">
+                <a class="location-text">Calle Ezcurdia 71, Gijón</a>
+                <p class="phone">650 04 59 54</p>
+                <ul class="rrss">
+                    <li>
+                        <a href="https://www.instagram.com/modaintimo/" target="_blank">
+                            <i class="fab fa-instagram"></i></a><br>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/pg/Intimo-Moda-Interior-1636562006617362/about/?ref=page_internal"
+                            target="_blank">
+                            <i class="fab fa-facebook"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-{{!-- <p class="bg3-text">La ropa interior es súper importante: <b>por más que no sea lo primero que se ve, es lo
-                primero que nos viste.</b><br><br>Para que te veas divina y los encantes sin sacarte la ropa, una experta nos da
-            algunas pistas.<br><br>¡Déjalos sin
-            aliento y <b>siéntete bien a través de cada detalle que te acompaña!</b></p> --}}
-
-{{!-- <ul class="proofs">
-            <li>
-                <img src="/images/profile-1.jpg" alt="Profile 1">
-                <q>El ambiente y la atención de los dependientes es increíble. Nada que ver con el resto de tiendas</q>
-            </li>
-            <li>
-                <img src="/images/profile-2.jpeg" alt="Profile 2">
-                <q>Me siento muy agusto desde que entro a la tienda.</q>
-            </li>
-            <li>
-                <img src="/images/profile-3.jpeg" alt="Profile 3">
-                <q>Amo la tela de los boxers, son lo más cómodo que he probado nunca</q>
-            </li>
-        </ul> --}}
+</div>
 {{> footer}}

@@ -1,12 +1,10 @@
 {{> header}}
 <section>
-    <div class="grid-content">
+    <div class="products-container">
         {{#each items}}
-         <a href="/products/view/{{ _id }}" class="product">
-            <div class="grid-item">
-                <h3>{{ name }}</h3> <br>
-               <img src="{{ path }}" alt="{{ name }}" class="image">
-            </div>
+        <a href="/products/view/{{ _id }}" class="products">
+            <h3>{{ name }}</h3> <br>
+            <img src="{{ path }}" alt="{{ name }}">
         </a>
         {{/each}}
     </div>

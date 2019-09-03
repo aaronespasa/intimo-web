@@ -5,13 +5,16 @@
  * @link: https://developer.mozilla.org/en-US/docs/Web/CSS/--*
  **/
 
- :root {
+ /* :root {
     
-}
+} */
 
+/*
+ * Main section 
+ */
 .main-bg {
     height: 100vh;
-    padding: 59px 2% 2% 5%;
+    padding: 65px 2% 2% 5%;
     width: 100%;
     background: url("/images/backgrounds/gradientbg3.png");
     background-position-y: -70px;
@@ -29,9 +32,9 @@
     grid-area: slogan;
     color: #E6E6E6;
     font-family: 'Spectral', serif;
-    font-size: 55px;
+    font-size: 3.4375em; /* 55px */
     font-weight: 500;
-    text-shadow: 2px 2px 6px rgba(150, 150, 150, 1);
+    text-shadow: 1px 1px 6px rgba(150, 150, 150, 1);
     width: 600px;
     text-align: center;
     align-self: flex-end;
@@ -43,7 +46,7 @@
     grid-area: cta;
     color: #FFF;
     font-family: 'Poppins', sans-serif;
-    font-size: 33px;
+    font-size: 2.06em;
     font-weight: 500;
     border: 3px solid #FFF;
     background-color: rgba(105, 97, 198, 0.6);
@@ -65,6 +68,7 @@
 .brands {
     grid-area: brands;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     list-style: none;
     align-content: center;
@@ -72,7 +76,7 @@
 
 .brands li img {
     width: 110px;
-    height: 55px;
+    height: 30%;
 }
 
 .hero {
@@ -86,4 +90,363 @@
 
 .hero img {
     width: 90%;
+}
+
+@media screen and (max-width:768px) {
+    .main-bg {
+        grid-template-areas: "slogan"
+                             "hero"
+                             "brands"
+                             "cta";
+    }
+
+    .hero {
+        justify-self: center;
+    }
+
+    .hero img {
+        width: 60%;
+    }
+
+    .slogan {
+        font-size: 2em;
+        width: 300px;
+    }
+}
+
+/*
+ * Features section
+ */
+ .container {
+    width: 90%;
+    margin: auto;
+}
+
+.features {
+    position: relative;
+    top: -50px;
+    margin-bottom: 5%;
+}
+
+.features h3 {
+    text-align: center;
+    font-family: 'Spectral', serif;
+    font-size: 50px;
+    font-weight: 500;
+    color: #1B1B56;
+    margin-bottom: 5%;
+}
+
+.features-list {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.features-list li {
+    text-align: center;
+    width: 28%;
+}
+
+.features-list li img {
+    width: 30%;
+    height: 30%;
+}
+
+.features-list li h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1F184E;
+    margin: 5% 0;
+}
+
+.features-list li p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+}
+
+/*
+ * Novelties section
+ */
+ .novelties {
+     margin-bottom: 5%;
+ }
+
+ .novelties-title {
+    text-align: center;
+    font-family: 'Spectral', serif;
+    font-size: 3.125em; /* 50px */
+    font-weight: 500;
+    color: #1B1B56;
+    margin-bottom: 5%;
+}
+
+/*
+ * Movie section
+ */
+ .movie {
+     background: #00021D;
+     height: 39vh;
+     box-shadow: 0px 0px 3.125em 0px rgba(0,0,0,0.75);
+     text-align: center;
+     margin-bottom: 10%;
+}
+
+ .movie video {
+     width: 100%;
+     height: 100%; 
+     outline: none;
+ }
+
+ /*
+ * Buy product section
+ */
+ .buy-product {
+     display: grid;
+     grid-template-columns: 1fr 3fr 4fr;
+     grid-gap: 5%;
+     padding: 0 15%;
+     margin-bottom: 15%;
+ }
+
+ .select-product {
+    align-self: center;
+    position: relative;
+    top: -4em;
+ }
+
+ .select-product > img{
+    width: 50%;
+    padding-bottom: 10%;
+ }
+
+ .selected-product {
+     border: 3px solid #7A9DFF;
+     padding: 5px;
+ }
+
+ .main-product {
+     width: 80%;
+     align-self: center;
+     position: relative;
+     top: -2em;
+ }
+
+ .main-product img {
+     width: 80%;
+ }
+
+ .product-details {
+     text-align: center;
+     font-family: 'Poppins', sans-serif;
+ }
+
+ .product-details h3 {
+    text-transform: capitalize;
+    color: #1B1B56;
+    font-size: 2em;
+    margin-bottom: 0.3em;
+ }
+
+ .product-price {
+     display: flex;
+     align-items: center;
+ }
+
+ .onsale {
+     background: #006EFF;
+     font-weight: 700;
+     color: #FFF;
+     font-size: 0.8em;
+     padding: 0.3em;
+     margin-left: 1.5em;
+ }
+
+ .current-price {
+     color: #666;
+     font-size: 1em;
+     font-weight: 700;
+     margin: 0 0.4em 0 0.8em;
+ }
+
+ .prev-price {
+     color: #666;
+     font-size: 0.9em;
+     font-weight: 700;
+     position: relative;
+     top: -0.2em;
+     text-decoration: line-through
+ }
+
+ .product-details hr {
+     border: 1px solid rgb(240, 240, 240);
+     margin: 2.5em 0 1em 0;
+ }
+
+ .product-options-form {
+     display: flex;
+     flex-direction: column;
+ }
+
+ .size {
+     text-transform: uppercase;
+     font-size: 1em;
+ }
+
+ .size-selector {
+     width: 70%;
+     padding: 0.5em 1em;
+     color: #333333;
+     font-size: 1em;
+     background: #F4F4F4;
+     margin: auto;
+     outline: none;
+     border: none;
+ }
+
+ .size-status {
+     margin: 1em 0 2em 0;
+ }
+
+ .add-to-whishes-btn {
+     color: #006EFF;
+     background: transparent;
+     border: 1px solid #006EFF;
+     border-radius: 2px;
+     text-transform: uppercase;
+     font-size: 1em;
+     padding: 0.6em 1em;
+     margin-bottom: 1em;
+     outline: none;
+     transition: transform 0.6s ease-in-out;
+     transition: background 0.4s ease-in-out;
+     cursor: pointer;
+ }
+
+ .add-to-whishes-btn:hover {
+     background: rgb(216, 236, 255);
+ }
+
+ .add-to-whishes-btn:active {
+     transform: scale(0.9);
+ }
+
+ .reserve-btn {
+     color: #FFF;
+     background: #006EFF;
+     border: none;
+     border-radius: 2px;
+     text-transform: uppercase;
+     font-size: 1em;
+     padding: 0.6em 1em;
+     margin-bottom: 1em;
+     transition: transform 0.6s ease-in-out;
+     transition: background 0.4s ease-in-out;
+     outline: none;
+     cursor: pointer;
+ }
+
+ .reserve-btn:hover {
+     background: rgb(50, 139, 255);
+ }
+
+ .reserve-btn:active {
+     transform: scale(0.9);
+ }
+
+ /**
+   * Proofs section
+   */
+.proofs {
+    margin-bottom: 10%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.proofs h3 {
+    text-align: center;
+    font-family: 'Spectral', serif;
+    font-size: 50px;
+    font-weight: 500;
+    color: #1B1B56;
+    margin-bottom: 5%;
+}
+
+.proofs-list {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.proofs-list li {
+    text-align: center;
+    width: 250px;
+    height: 200px;
+}
+
+.proofs-list li img {
+    height: 50%;
+    width: auto;
+}
+
+.proofs-list .client-name {
+    margin: 0.3em 0 0.6em 0;
+    font-size: 0.8em;
+}
+
+.proofs-list .client-proof {
+    font-size: 1em;
+}
+
+@media screen and (max-width:768px) { }
+ /**
+   * Location section
+   */
+.location {
+    margin-bottom: 5%;
+}
+
+.location h3 {
+    text-align: center;
+    font-family: 'Spectral', serif;
+    font-size: 50px;
+    font-weight: 500;
+    color: #1B1B56;
+    margin-bottom: 5%;
+}
+
+.map-container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.map-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 3%;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+}
+
+.map-details .location-text {
+    text-decoration: none;
+    color: #1B1B56;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.map-details .phone {
+    margin: 1em 0;
+}
+
+.map-details .rrss {
+    list-style: none;
+}
+
+.map-details .rrss a {
+    color: #1B1B56;
 }
