@@ -59,7 +59,7 @@ ctrl.home = async (req, res) => {
     items.push(item);
   }
   // const items = products
-  res.render("main/home", {
+  res.render("main/frontpage", {
     logged,
     title: "Íntimo",
     items: items,
@@ -72,6 +72,7 @@ ctrl.products = async (req, res) => {
   if (req.session.userId) {
     logged = true;
   }
+  console.log(req.query.search);
   var items;
   if (req.params.filter === "all") {
     items = await ProductModel.find().sort({ created_at: -1 });
@@ -83,7 +84,24 @@ ctrl.products = async (req, res) => {
   res.render("main/productos", {
     title: "Íntimo | Productos",
     items: items,
-    admin: false
+    admin: false,
+    logged
+  });
+};
+
+ctrl.productSearch = async (req, res) => {
+  var logged = false;
+  if (req.session.userId) {
+    logged = true;
+  }
+  const search = req.query.search;
+  const items = await ProductModel.find({ name: { $regex: search, $options: "i" } })
+  console.log(items)
+  res.render("main/productos", {
+    title: "Íntimo | Productos",
+    items: items,
+    admin: false,
+    logged
   });
 };
 
@@ -102,7 +120,8 @@ ctrl.viewProduct = async (req, res) => {
   res.render("main/viewProduct", {
     title: `Íntimo | ${item.name}`,
     item: item,
-    admin: false
+    admin: false,
+    logged
   });
 };
 

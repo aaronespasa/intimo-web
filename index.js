@@ -1,6 +1,6 @@
 const express = require("express")
 const { json, urlencoded, static } = require("express")
-const { join } = require("path")
+const { join, extname } = require("path")
 const morgan = require("morgan")
 const multer = require("multer");
 const { diskStorage } = require("multer") 
@@ -54,7 +54,7 @@ app.use(urlencoded({ extended: true }));
 const storage = diskStorage({
   destination: join(__dirname, "public/images/products"),
   filename: (req, file, cb) => {
-    cb(null, uuid() + _extname(file.originalname));
+    cb(null, uuid() + extname(file.originalname));
   }
 });
 // Only store images

@@ -8,6 +8,8 @@ router.get('/', main.home)
 
 router.get('/products/:filter', main.products)
 
+router.get('/products?:search', main.productSearch)
+
 router.get('/products/view/:id', main.viewProduct)
 
 router.post('/signin', main.signin);
