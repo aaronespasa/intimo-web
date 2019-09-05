@@ -1,9 +1,10 @@
-{{> admin-nav}}
+{{> dashboard-layout}}
 <h1>Crear Producto</h1>
 <div class="form-group">
     <form action="/new-product" method="POST" enctype="multipart/form-data">
         <input type="text" name="name" placeholder="Nombre del Producto" class="name" required>
-        <textarea name="description" rows="5" placeholder="Descripcion del producto" class="description" required></textarea>
+        <textarea name="description" rows="5" placeholder="Descripcion del producto" class="description"
+            required></textarea>
         <select name="sex" data-style="btn-info" class="selects" required>
             <option selected="true" disabled>Selecciona el sexo</option>
             <option value="man">Caballero/Niño</option>

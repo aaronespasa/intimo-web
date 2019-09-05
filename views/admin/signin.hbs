@@ -1,18 +1,20 @@
-<h1 class="login-title">Admin Login</h1>
-<div class="form-container">
-    <figure class="form-icon">
-        <img src="/images/icons/user.svg" alt="User Logo">
-    </figure>
-    <form action="/admin/signin" method="POST" name="FormAdminEntrar">
-        <div class="input-box">
-            <span class="email-icon"><img src="/images/icons/email.svg" alt="Cerradura"></span>
-            <input type="email" class="form-control" name="email" placeholder="Correo" required>
-        </div>
-        <div class="input-box">
-            <span class="lock-icon"><img src="/images/icons/lock.svg" alt="User"></span>
-            <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
-        </div>
-        <button class="btn-form" type="submit">Acceder</button>
-        <div class="return-home-opt"><a href="/">Regresar a Inicio</a></div>
-    </form>
+<div class="signin-container">
+    <h1 class="login-title">admin login</h1>
+    <div class="form-container">
+        <figure class="form-icon">
+            <img src="/images/icons/user.svg" alt="User Logo" width="70px">
+        </figure>
+        <form action="/admin/signin" method="POST" name="FormAdminEntrar">
+            <div class="input-box">
+                <span class="email-icon"><img src="/images/icons/email.svg" alt="Cerradura" width="20px"></span>
+                <input type="email" class="form-control" name="email" placeholder="Correo" required>
+            </div>
+            <div class="input-box">
+                <span class="lock-icon"><img src="/images/icons/lock.svg" alt="User" width="20px"></span>
+                <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
+            </div>
+            <button class="btn-form" type="submit">Acceder</button>
+            <div class="return-home-opt"><a href="/">Regresar a Inicio</a></div>
+        </form>
+    </div>
 </div>

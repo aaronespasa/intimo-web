@@ -9,9 +9,7 @@
     
 } */
 
-/*
- * Main section 
- */
+/* === MAIN === */
 .main-bg {
     height: 100vh;
     padding: 65px 2% 2% 5%;
@@ -114,9 +112,7 @@
     }
 }
 
-/*
- * Features section
- */
+/* === FEATURES === */
  .container {
     width: 90%;
     margin: auto;
@@ -166,9 +162,7 @@
     font-size: 20px;
 }
 
-/*
- * Novelties section
- */
+/* === NOVELTIES === */
  .novelties {
      margin-bottom: 5%;
  }
@@ -182,9 +176,7 @@
     margin-bottom: 5%;
 }
 
-/*
- * Movie section
- */
+/* === MOVIE === */
  .movie {
      background: #00021D;
      height: 39vh;
@@ -199,9 +191,7 @@
      outline: none;
  }
 
- /*
- * Buy product section
- */
+/* === VIEW PRODUCT === */
  .buy-product {
      display: grid;
      grid-template-columns: 1fr 3fr 4fr;
@@ -355,9 +345,7 @@
      transform: scale(0.9);
  }
 
- /**
-   * Proofs section
-   */
+/* === PROOFS === */
 .proofs {
     margin-bottom: 10%;
     font-family: 'Poppins', sans-serif;
@@ -400,9 +388,7 @@
 }
 
 @media screen and (max-width:768px) { }
- /**
-   * Location section
-   */
+ /* === LOCATION === */
 .location {
     margin-bottom: 5%;
 }

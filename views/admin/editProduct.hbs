@@ -1,9 +1,10 @@
-{{> admin-nav}}
+{{> dashboard-layout}}
 <h1>Actualizar Producto</h1>
 <div class="form-group">
     <form action="/update/<%= item.id%>" method="POST" enctype="multipart/form-data">
         <input type="text" name="name" placeholder="Nombre del Producto" class="name" value="{{ item.name }}" required>
-        <textarea name="description" rows="5" placeholder="Descripcion del producto" class="description" required>{{ item.description }}</textarea>
+        <textarea name="description" rows="5" placeholder="Descripcion del producto" class="description"
+            required>{{ item.description }}</textarea>
         <select name="sex" data-style="btn-info" class="selects" selected="{{ item.sex }}" required>
             <option selected="true" disabled>Selecciona el sexo</option>
             <option value="chico">Caballero/Niño</option>

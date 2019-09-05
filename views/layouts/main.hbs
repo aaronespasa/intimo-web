@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700|Spectral:400,500&display=swap"
         rel="stylesheet">
     {{#if admin}}
+    <link rel="stylesheet" href="/styles/src/admin/dashboard-layout.css">
     <link rel="stylesheet" href="/styles/src/admin/admin.css">
     <link rel="stylesheet" href="/styles/src/admin/signin.css">
     <link rel="stylesheet" href="/styles/src/admin/new-product.css">
@@ -23,9 +24,13 @@
 
 <body>
     {{{ body }}}
-
+    {{#if admin}}
+    {{!-- Burger Menu Dashboard layout --}}
+    <script src="/js/src/burger-dashboard.js"></script>
+    {{else}}
     {{!-- Sticky Header --}}
     <script src="/js/src/hideHeader.js"></script>
+    {{/if}}
     {{!-- Font awesome --}}
     <script src="https://kit.fontawesome.com/9734b5363c.js"></script>
 </body>
