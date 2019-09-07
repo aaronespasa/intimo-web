@@ -273,9 +273,3 @@ header .menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
         padding: 0;
     }
 }
-
-/* <i class="fas fa-bars"></i> */
-
-@media screen and (max-width: 480px) {
-
-}

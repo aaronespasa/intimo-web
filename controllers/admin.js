@@ -1,104 +1,107 @@
-const Product = require("../models/Products");
-const SESS_NAME = require("../index").SESS_NAME;
-const { join } = require("path");
-const { unlinkSync } = require("fs");
+const { join } = require('path');
+const { unlinkSync } = require('fs');
+const Product = require('../models/Products');
+const { SESS_NAME } = require('../index');
+
 const users = [
-  { id: 1, email: "adri@adri.com", password: "1234" },
-  { id: 2, email: "aaron@aaron.com", password: "2345" },
-  { id: 3, email: "monica@monica.com", password: "3456" }
+  { id: 1, email: 'adri@adri.com', password: '1234' },
+  { id: 2, email: 'aaron@aaron.com', password: '2345' },
+  { id: 3, email: 'monica@monica.com', password: '3456' },
 ];
 
 const ctrl = {};
 
-//*****************************
-//ADMIN
-//*****************************
+//* ****************************
+// ADMIN
+//* ****************************
 
-ctrl.admin = async (req, res, next) => {
+ctrl.admin = async (req, res) => {
   if (!req.session.adminId) {
-    res.redirect("/admin/signin");
+    res.redirect('/admin/signin');
   } else {
     const items = await Product.find().sort({ created_at: -1 });
-    res.render("admin/admin", {
-      title: "Íntimo: Admin",
-      items: items,
-      admin: true
+    res.render('admin/dashboard-layout', {
+      title: 'Íntimo: Admin',
+      items,
+      admin: true,
+      adminDashboard: true,
     });
   }
 };
 
-ctrl.signin = (req, res, next) => {
+ctrl.signin = (req, res) => {
   if (req.session.adminId) {
-    res.redirect("/admin");
+    res.redirect('/admin');
   } else {
-    res.render("admin/signin", {
-      title: "Login",
-      admin: true
+    res.render('admin/signin', {
+      title: 'Login',
+      admin: true,
     });
   }
 };
 
-ctrl.login = (req, res, next) => {
+ctrl.login = (req, res) => {
   const { email, password } = req.body;
   if (email && password) {
     const user = users.find(
-      user => user.email === email && user.password === password
+      (user) => user.email === email && user.password === password,
     );
 
     if (user) {
       req.session.adminId = user.id;
-      res.redirect("/admin");
+      res.redirect('/admin');
     } else {
-      res.redirect("/admin/signin");
+      res.redirect('/admin/signin');
     }
   }
 };
 
-ctrl.logout = (req, res, next) => {
-  req.session.destroy(err => {
+ctrl.logout = (req, res) => {
+  req.session.destroy((err) => {
     if (err) {
-      return res.redirect("/admin");
+      return res.redirect('/admin');
     }
     res.clearCookie(SESS_NAME);
-    res.redirect("/");
+    res.redirect('/');
   });
 };
 
-ctrl.newProduct = (req, res, next) => {
+ctrl.newProduct = (req, res) => {
   if (!req.session.adminId) {
-    res.redirect("/admin/signin");
+    res.redirect('/admin/signin');
   } else {
-    res.render("admin/newProduct", {
-      title: "Íntimo: Crear Producto",
-      admin: true
+    res.render('admin/dashboard-layout', {
+      title: 'Íntimo: Crear Producto',
+      admin: true,
+      newProduct: true,
     });
   }
 };
 
 ctrl.editProduct = async (req, res) => {
   if (!req.session.adminId) {
-    res.redirect("/admin/signin");
+    res.redirect('/admin/signin');
   } else {
     const item = await Product.findById(req.params.id);
-    res.render("admin/editProduct", {
-      title: "Íntimo: Editar Producto",
-      item: item,
-      admin: true
+    res.render('admin/editProduct', {
+      title: 'Íntimo: Editar Producto',
+      item,
+      admin: true,
     });
   }
 };
 
-ctrl.deleteProduct = async (req, res, next) => {
+ctrl.deleteProduct = async (req, res) => {
   if (!req.session.adminId) {
-    res.redirect("/admin/signin");
+    res.redirect('/admin/signin');
   } else {
-    const id = req.params.id;
+    const { id } = req.params;
     const { path } = await Product.findByIdAndDelete(id);
-    const fullPath = join(__dirname + "/../public/" + path);
-    unlinkSync(fullPath, err => {
+    const fullPath = join(`${__dirname}/../public/${path}`);
+    unlinkSync(fullPath, (err) => {
       err && console.error(err);
     });
-    res.redirect("/admin");
+    res.redirect('/admin');
   }
 };
 
@@ -111,13 +114,13 @@ ctrl.uploadProduct = async (req, res) => {
   product.age = req.body.age;
   product.type = req.body.type;
   product.filename = req.file.filename;
-  product.path = "/images/products/" + req.file.filename;
+  product.path = `/images/products/${req.file.filename}`;
   product.originalname = req.file.originalname;
   console.log(product);
 
   await product.save();
 
-  res.redirect("/admin");
+  res.redirect('/admin');
 };
 
 ctrl.updateProduct = async (req, res) => {
@@ -129,10 +132,10 @@ ctrl.updateProduct = async (req, res) => {
     age: product.age,
     type: product.type,
     filename: req.file.filename,
-    path: "/images/products/" + req.file.filename,
-    originalname: req.file.originalname
+    path: `/images/products/${req.file.filename}`,
+    originalname: req.file.originalname,
   });
-  res.redirect("/admin");
+  res.redirect('/admin');
 };
 
 module.exports = ctrl;

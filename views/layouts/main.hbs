@@ -9,10 +9,11 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700|Spectral:400,500&display=swap"
         rel="stylesheet">
     {{#if admin}}
-    <link rel="stylesheet" href="/styles/src/admin/dashboard-layout.css">
-    <link rel="stylesheet" href="/styles/src/admin/admin.css">
     <link rel="stylesheet" href="/styles/src/admin/signin.css">
+    <link rel="stylesheet" href="/styles/src/admin/dashboard-layout.css">
+    {{#if newProduct}}
     <link rel="stylesheet" href="/styles/src/admin/new-product.css">
+    {{/if}}
     {{else}}
     <link rel="stylesheet" href="/styles/src/header.css">
     <link rel="stylesheet" href="/styles/src/frontpage.css">
@@ -26,7 +27,7 @@
     {{{ body }}}
     {{#if admin}}
     {{!-- Burger Menu Dashboard layout --}}
-    <script src="/js/src/burger-dashboard.js"></script>
+    <script src="/js/src/dashboard.js"></script>
     {{else}}
     {{!-- Sticky Header --}}
     <script src="/js/src/hideHeader.js"></script>

@@ -1,0 +1,38 @@
+<div class="new-product-container">
+    <p class="card-header">Crear Producto</p>
+    <div class="form-group">
+        <form action="/new-product" method="POST" enctype="multipart/form-data" class="card new-product-card">
+            <div class="new-product-text-container">
+                <input type="text" name="name" placeholder="Nombre del Producto"
+                    class="new-product-text new-product-name" required>
+                <textarea name="description" rows="5" placeholder="Descripcion del producto"
+                    class="new-product-text new-product-description" required></textarea>
+            </div>
+            <div class="new-product-selections-container">
+                <select name="sex" data-style="btn-info" class="new-product-btn" required>
+                    <option selected="true" disabled>Selecciona el sexo</option>
+                    <option value="man">Caballero/Niño</option>
+                    <option value="woman">Señora/Niña</option>
+                    <option value="unisex">Unisex</option>
+                </select>
+                <select name="age" data-style="btn-info" class="new-product-btn" required>
+                    <option selected="true" disabled>Selecciona la edad</option>
+                    <option value="niño">Niño</option>
+                    <option value="adulto">Adulto</option>
+                </select>
+                <select name="type" data-style="btn-info" class="new-product-btn" required>
+                    <option selected="true" disabled>Selecciona el tipo</option>
+                    <option value="pijama">Pijama</option>
+                    <option value="medias">Medias</option>
+                    <option value="lenceria">Lenceria</option>
+                    <option value="baño">Baño</option>
+                    <option value="conjuntos">Conjuntos de playa</option>
+                </select>
+                <input type="button" onclick="document.getElementById('uploadFile').click();" value="Seleccionar Imagen"
+                    class="new-product-select-image new-product-btn">
+                <input type="file" id="uploadFile" name="image" required>
+                <button type="submit" class="submit new-product-create new-product-btn">Crear producto</button>
+            </div>
+        </form>
+    </div>
+</div>

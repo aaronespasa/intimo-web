@@ -65,16 +65,17 @@
 
 .brands {
     grid-area: brands;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 130px));
     justify-content: space-between;
     list-style: none;
-    align-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
 }
 
 .brands li img {
-    width: 110px;
-    height: 30%;
+    width: 100px;
+    object-fit: contain;
 }
 
 .hero {
@@ -84,6 +85,7 @@
     padding-bottom: 25%;
     position: relative;
     left: -5%;
+    object-fit: cover;
 }
 
 .hero img {
@@ -147,6 +149,7 @@
 .features-list li img {
     width: 30%;
     height: 30%;
+    object-fit: contain;
 }
 
 .features-list li h4 {

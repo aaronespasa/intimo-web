@@ -1,23 +1,90 @@
-.form-group {
+.new-product-container {
+    margin: 0 20px;
+}
+
+.new-product-text-container,
+.new-product-selections-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+.new-product-card {
+    padding: 1em .5em;
+    display: block;
+}
+
+.new-product-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: .9em;
+    padding: .5em 1em;
+    outline: none;
+    border: none;
+    background: transparent;
+    border-bottom: 3px solid gray;
+    transition: border-bottom .4s ease;
+    width: 100%;
+}
+
+.new-product-text:focus {
+    border-bottom: 3px solid blue;
+}
+
+.new-product-text::placeholder {
+    color: black;
+
 
 }
 
-.name {
-    
+.new-product-text:nth-child(1) {
+    margin-bottom: 1em;
 }
 
-.file {
+#uploadFile {
+    display: none;
+}
+
+.new-product-btn {
+    font-family: 'Poppins', sans-serif;
+    font-size: .8em;
+    padding: .5em 1em;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin-bottom: .8em;
+    width: 80%;
+}
+
+.new-product-select-image {
+    border-left: 3px solid orange;
+}
+
+.new-product-create {
+    background-color: var(--btn-primary);
     color: white;
+    width: 40%;
 }
 
-.description {
+@media only screen and (min-width: 46.875em) {
+    .new-product-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 
+    .new-product-btn {
+        width: 60%;
+    }
+
+    .new-product-create {
+        width: 40%;
+    }
 }
 
-.selects {
-
-}
-
-.submit {
-
+@media only screen and (max-width: 46.875em) {
+    .new-product-text-container {
+        margin-bottom: 1.5rem;
+    }
 }

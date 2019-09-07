@@ -3,7 +3,6 @@
 	2. =HEADER
 	3. =SIDENAV
 	4. =MAIN
-	5. =FOOTER
 */
 
 :root {
@@ -21,32 +20,32 @@
     --white-bg: #EAEDF1;
     --orange: #E47E30;
     --green: #30AD63;
+
+    --btn-primary: #0074d9;
 }
 
 /* === GLOBAL === */
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 50px 1fr 50px;
-    grid-template-areas: 
-        "header"
-        "main"
-        "footer";
-    height: 100vh;
-    font-family: 'Poppins', sans-serif;
+body {
     background-color: var(--white-bg);
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px 1fr;
+    grid-template-areas: 
+        "header"
+        "main";
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
 /* === HEADER === */
-.header,
-.footer {
+.header {
     display: flex;
     align-items: center;
     padding: 0 16px;
     background-color: white;
-}
-
-.header {
     grid-area: header;
     justify-content: space-between;
 }
@@ -67,13 +66,53 @@
 
 .header-avatar {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    margin-right: 1.5em;
+}
+
+.header-avatar-settings {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.header-avatar-settings-icon {
+    font-size: 1em;
+    margin-right: .5em;
 }
 
 .header-avatar img {
     width: 31px;
     height: 31px;
     border-radius: 50%;
-    border: 1px solid white;
+}
+
+.header-avatar-list {
+    display: none;
+    list-style-type: none;
+    bottom: -50px;
+    left: -10px;
+    background: white;
+    position: absolute;
+    padding: .5em 1em;
+    border-radius: 0 0 5px 5px;
+    transition: display .4s ease-in-out;
+}
+
+.header-avatar-list-item input {
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    color: var(--dark-blue);
+    background: transparent;
+    cursor: pointer;
+}
+
+.header-avatar-settings-active {
+    display: block;
 }
 
 /* === SIDENAV === */
@@ -134,7 +173,6 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    border: 1px solid white;
 }
 
 .sidenav-profile-name {
@@ -346,13 +384,6 @@
 .card:nth-child(3) {
     height: 365px;
 } */
-
-/* === FOOTER === */
-.footer {
-    grid-area: footer;
-    justify-content: flex-end;
-}
-
 /* Non-mobile styles, 750px breakpoint */
 @media only screen and (min-width: 46.875em) {
     /* Show the sidenav */
@@ -361,7 +392,6 @@
         grid-template-areas: 
             "sidenav header"
             "sidenav main"
-            "sidenav footer";
     }
 
     .sidenav {

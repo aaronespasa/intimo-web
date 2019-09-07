@@ -1,0 +1,86 @@
+<div class="grid-container">
+    <div class="menu-icon">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <header class="header">
+        <input type="search" class="header-search" name="dashboard-search" placeholder="Buscar...">
+        <div class="header-avatar">
+            <div class="header-avatar-settings" id="header-avatar-settings">
+                <i class="fas fa-caret-down header-avatar-settings-icon"></i>
+                <img src="/images/profiles/profile-2.png" alt="Imagen de perfil">
+            </div>
+            <ul class="header-avatar-list" id="header-avatar-list">
+                <li class="header-avatar-list-item">
+                    <form action="/admin/logout" method="POST" class="logout">
+                        <input class="button" type="submit" value="Salir">
+                    </form>
+                </li>
+            </ul>
+        </div>
+
+    </header>
+
+    <aside class="sidenav">
+        <div class="sidenav-close-icon">
+            <i class="fas fa-times"></i>
+        </div>
+
+        <div class="sidenav-profile">
+            <figure class="sidenav-profile-pic">
+                <img src="/images/profiles/profile-2.png" alt="Imagen de perfil">
+            </figure>
+            <p class="sidenav-profile-name">Mónica O.</p>
+        </div>
+
+        <ul class="sidenav-list">
+            <li class="sidenav-list-item">
+                <a class="button" href="/admin">Productos</a>
+            </li>
+            <li class="sidenav-list-item">
+                <a class="button" href="/admin/new">Crear Producto</a>
+            </li>
+        </ul>
+    </aside>
+
+    <main class="main">
+        <div class="main-header">
+            <div class="main-header-heading">Bienvenida, <b>Mónica</b></div>
+            <div class="main-header-updates">
+                <p class="main-header-num">25</p>
+                <p class="main-header-products">Productos creados</p>
+            </div>
+        </div>
+
+        <div class="main-overview">
+            <div class="overviewcard">
+                <figure class="overviewcard-icon create-product">
+                    <img src="/images/icons/create-product.svg" alt="Crear Producto Contenido">
+                </figure>
+                <div class="overviewcard-desc">
+                    <div class="overviewcard-action">Crear Producto</div>
+                    <div class="overviewcard-definition">Añade su imagen y sus características</div>
+                </div>
+            </div>
+            <div class="overviewcard">
+                <figure class="overviewcard-icon change-content">
+                    <img src="/images/icons/change-content.svg" alt="Cambiar Contenido Icono">
+                </figure>
+                <div class="overviewcard-desc">
+                    <div class="overviewcard-action">Cambiar contenido</div>
+                    <div class="overviewcard-definition">Actualiza los textos de la web</div>
+                </div>
+            </div>
+
+        </div>
+
+        {{#if adminDashboard}}
+        {{> admin}}
+        {{/if}}
+
+        {{#if newProduct}}
+        {{> newProduct}}
+        {{/if}}
+
+    </main>
+</div>

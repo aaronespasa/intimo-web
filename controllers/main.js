@@ -1,7 +1,7 @@
-const { jsonReader, passHasher, passChecker } = require("../helpers/helpers");
-const SESS_NAME = require("../index").SESS_NAME;
-const ProductModel = require("../models/Products");
-const UserModel = require("../models/User");
+const { jsonReader, passHasher, passChecker } = require('../helpers/helpers');
+const { SESS_NAME } = require('../index');
+const ProductModel = require('../models/Products');
+const UserModel = require('../models/User');
 
 const ctrl = {};
 
@@ -46,67 +46,68 @@ const ctrl = {};
 // ]
 
 ctrl.home = async (req, res) => {
-  var logged = false;
+  let logged = false;
   if (req.session.userId) {
     logged = true;
   }
-  const config = await jsonReader("./config.json"); //Uses the json reader helper
+  const config = await jsonReader('./config.json'); // Uses the json reader helper
 
-  const ids = config.config.featured_id; //Gets the ids of the featured products
-  var items = [];
-  for (let i = 0; i < ids.length; i++) {
-    const item = await ProductModel.findById(ids[i]); //The data of the featured products are searched on the DB using the ids saved in config.json
+  const ids = config.config.featured_id; // Gets the ids of the featured products
+  const items = [];
+  for (let i = 0; i < ids.length; i += 1) {
+    // The data of the featured products are searched on the DB using the ids saved in config.json
+    const item = await ProductModel.findById(ids[i]);
     items.push(item);
   }
   // const items = products
-  res.render("main/frontpage", {
+  res.render('main/frontpage', {
     logged,
-    title: "Íntimo",
-    items: items,
-    admin: false
-  }); //We've had said where is index.hbs in the settings
+    title: 'Íntimo',
+    items,
+    admin: false,
+  }); // We've had said where is index.hbs in the settings
 };
 
 ctrl.products = async (req, res) => {
-  var logged = false;
+  let logged = false;
   if (req.session.userId) {
     logged = true;
   }
+  // eslint-disable-next-line no-console
   console.log(req.query.search);
-  var items;
-  if (req.params.filter === "all") {
+  let items;
+  if (req.params.filter === 'all') {
     items = await ProductModel.find().sort({ created_at: -1 });
   } else {
     items = await ProductModel.find({
-      sex: req.params.filter || "unisex"
+      sex: req.params.filter || 'unisex',
     }).sort({ created_at: -1 });
   }
-  res.render("main/productos", {
-    title: "Íntimo | Productos",
-    items: items,
+  res.render('main/productos', {
+    title: 'Íntimo | Productos',
+    items,
     admin: false,
-    logged
+    logged,
   });
 };
 
 ctrl.productSearch = async (req, res) => {
-  var logged = false;
+  let logged = false;
   if (req.session.userId) {
     logged = true;
   }
-  const search = req.query.search;
-  const items = await ProductModel.find({ name: { $regex: search, $options: "i" } })
-  console.log(items)
-  res.render("main/productos", {
-    title: "Íntimo | Productos",
-    items: items,
+  const { search } = req.query;
+  const items = await ProductModel.find({ name: { $regex: search, $options: 'i' } });
+  res.render('main/productos', {
+    title: 'Íntimo | Productos',
+    items,
     admin: false,
-    logged
+    logged,
   });
 };
 
 ctrl.viewProduct = async (req, res) => {
-  var logged = false;
+  let logged = false;
   if (req.session.userId) {
     logged = true;
   }
@@ -117,17 +118,17 @@ ctrl.viewProduct = async (req, res) => {
   //         item = product
   //     }
   // });
-  res.render("main/viewProduct", {
+  res.render('main/viewProduct', {
     title: `Íntimo | ${item.name}`,
-    item: item,
+    item,
     admin: false,
-    logged
+    logged,
   });
 };
 
 ctrl.signin = async (req, res) => {
   const { email, password, repeatPassword } = req.body;
-  const users = await UserModel.find({email});  
+  const users = await UserModel.find({ email });
   const errors = [];
   if (users.length > 0) {
     errors.push('Este correo electronico ya esta en uso, usa otro o inicia sesion');
@@ -136,7 +137,7 @@ ctrl.signin = async (req, res) => {
     errors.push('La contraseña debe tener al menos 4 caracteres');
   }
   if (password !== repeatPassword) {
-    errors.push("Las contraseñas no coinciden");
+    errors.push('Las contraseñas no coinciden');
   }
   if (errors.length > 0) {
     res.json(errors);
@@ -144,16 +145,16 @@ ctrl.signin = async (req, res) => {
     const hash = await passHasher(password);
     const newUser = new UserModel({
       email,
-      password: hash
+      password: hash,
     });
     await newUser.save();
-    res.send("Usuario creado correctamente, inicia sesion");
+    res.send('Usuario creado correctamente, inicia sesion');
   }
 };
 
 ctrl.login = async (req, res) => {
-  const {email, password} = req.body;
-  const user = await UserModel.findOne({email});
+  const { email, password } = req.body;
+  const user = await UserModel.findOne({ email });
   const errors = [];
   if (!user) {
     errors.push('No existe ningun usuario con ese correo electronico, crea una cuenta si no lo hiciste');
@@ -164,6 +165,7 @@ ctrl.login = async (req, res) => {
       errors.push('La contraseña es incorrecta');
       res.json(errors);
     } else {
+      // eslint-disable-next-line no-underscore-dangle
       req.session.userId = user._id;
       res.send('Sesion iniciada');
     }
@@ -171,12 +173,12 @@ ctrl.login = async (req, res) => {
 };
 
 ctrl.logout = async (req, res) => {
-  req.session.destroy(err => {
+  req.session.destroy((err) => {
     if (err) {
-      return res.redirect("/");
+      return res.redirect('/');
     }
     res.clearCookie(SESS_NAME);
-    res.json("sesion cerrada");
+    res.json('sesion cerrada');
   });
 };
 
