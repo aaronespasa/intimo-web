@@ -8,29 +8,29 @@
     {{!-- Google fonts --}}
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,700|Spectral:400,500&display=swap"
         rel="stylesheet">
-    {{#if admin}}
-    <link rel="stylesheet" href="/styles/src/admin/signin.css">
-    <link rel="stylesheet" href="/styles/src/admin/dashboard-layout.css">
-    {{#if newProduct}}
-    <link rel="stylesheet" href="/styles/src/admin/new-product.css">
+    {{#if admin }}
+    <link rel="stylesheet" href="/styles/admin/signin.css">
+    <link rel="stylesheet" href="/styles/admin/dashboard-layout.css">
+    {{#if newProduct }}
+    <link rel="stylesheet" href="/styles/admin/new-product.css">
     {{/if}}
     {{else}}
-    <link rel="stylesheet" href="/styles/src/header.css">
-    <link rel="stylesheet" href="/styles/src/frontpage.css">
-    <link rel="stylesheet" href="/styles/src/footer.css">
-    <link rel="stylesheet" href="/styles/src/products.css">
+    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/frontpage.css">
+    <link rel="stylesheet" href="/styles/footer.css">
+    <link rel="stylesheet" href="/styles/products.css">
     {{/if}}
     <title>{{ title }}</title>
 </head>
 
 <body>
     {{{ body }}}
-    {{#if admin}}
+    {{#if adminDashboard }}
     {{!-- Burger Menu Dashboard layout --}}
-    <script src="/js/src/dashboard.js"></script>
+    <script src="/js/dashboard.js"></script>
     {{else}}
     {{!-- Sticky Header --}}
-    <script src="/js/src/hideHeader.js"></script>
+    <script src="/js/hideHeader.js"></script>
     {{/if}}
     {{!-- Font awesome --}}
     <script src="https://kit.fontawesome.com/e590404f5d.js"></script>

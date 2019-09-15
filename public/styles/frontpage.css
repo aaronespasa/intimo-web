@@ -9,7 +9,7 @@
     font-size: 2.5rem;
     font-weight: 500;
     color: #1B1B56;
-    margin-bottom: 5%;
+    margin-bottom: 2rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -22,6 +22,7 @@
 .main-bg {
     height: 80vh;
     margin-top: 61px;
+    margin-bottom: 1rem;
     padding: 0 3%;
     width: 100%;
     background: url("/images/backgrounds/gradientbg3.png");
@@ -166,12 +167,10 @@
 
 .features-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 300px);
-    column-gap: 3em;
-    row-gap: 6em;
+    grid-template-columns: repeat(auto-fit, 300px);
     justify-content: center;
-    justify-items: center;
-    column-gap: 1em;
+    column-gap: 4rem;
+    row-gap: 6em;
     list-style: none;
 }
 
@@ -228,7 +227,7 @@
 /* === VIEW PRODUCT === */
 .view-product {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 3g00px);
+    grid-template-columns: repeat(auto-fit, 350px);
     grid-gap: 1.5rem;
     align-items: center;
     justify-content: center;
@@ -376,7 +375,15 @@
     transform: scale(0.9);
 }
 
-@media screen and (max-width: 768px) {}
+@media screen and (max-width: 768px) {
+    .product-details h3 {
+        font-size: 1.7rem;
+    }
+
+    .main-product {
+        width: 12rem;
+    }
+}
 
 /* === PROOFS === */
 .proofs {
@@ -402,9 +409,9 @@
     width: auto;
 }
 
-.proofs-list>.client-name {
+.proofs-list .client-name {
     margin: 0.3em 0 0.6em 0;
-    font-size: 0.8em;
+    font-size: 0.7em;
 }
 
 .proofs-list .client-proof {
