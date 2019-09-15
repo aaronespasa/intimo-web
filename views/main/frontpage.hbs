@@ -1,7 +1,9 @@
 {{> header }}
 <section class="main-bg">
     <h1 class="slogan">Dale a tu cuerpo el cariño que necesita</h1>
-    <button class="cta-btn">Comprar Lencería</button>
+    <button class="cta-btn">
+        <p>Comprar Lencería</p>
+    </button>
     <ul class="brands">
         <li><img src="/images/icons/ysabel-mora.png" alt="Logo Ysabel Mora"></li>
         <li><img src="/images/icons/blackspade-gray.png" alt="Logo Blackspade"></li>
@@ -15,7 +17,7 @@
 </section>
 <div class="container">
     <section class="features">
-        <h3>Queremos lo mejor para tí</h3>
+        <h3 class="section__title">Queremos lo mejor para tí</h3>
         <ul class="features-list">
             <li>
                 <img src="/images/icons/ok-hand.png" alt="Mano de OK">
@@ -49,7 +51,7 @@
     </section>
 
     <section class="novelties">
-        <h3 class="novelties-title">Novedades</h3>
+        <h3 class="section__title">Novedades</h3>
         <div class="products-container">
             {{#each items}}
             <a href="/products/view/{{ _id }}" class="products">
@@ -71,7 +73,7 @@
     {{> viewProduct}}
 
     <section class="proofs">
-        <h3>¿Qué opinan nuestros clientes?</h3>
+        <h3 class="section__title">¿Qué opinan nuestros clientes?</h3>
         <ul class="proofs-list">
             <li>
                 <img src="/images/profiles/profile-1.jpg" alt="Maricarmen">
@@ -95,27 +97,15 @@
     </section>
 
     <section class="location">
-        <h3>¿Dónde encontrarnos?</h3>
+        <h3 class="section__title">¿Dónde encontrarnos?</h3>
         <div class="map-container">
-            <div class="gmap_canvas">
-                <iframe width="300px" height="200px" class="gmap_canvas"
-                    src="https://maps.google.com/maps?q=INTIMO%20-%20MODA%20INTERIOR&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-            </div>
+            <iframe class="map-iframe"
+                src="https://maps.google.com/maps?q=INTIMO%20-%20MODA%20INTERIOR&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+
             <div class="map-details">
                 <a class="location-text">Calle Ezcurdia 71, Gijón</a>
                 <p class="phone">650 04 59 54</p>
-                <ul class="rrss">
-                    <li>
-                        <a href="https://www.instagram.com/modaintimo/" target="_blank">
-                            <i class="fab fa-instagram"></i></a><br>
-                    </li>
-                    <li>
-                        <a href="https://www.facebook.com/pg/Intimo-Moda-Interior-1636562006617362/about/?ref=page_internal"
-                            target="_blank">
-                            <i class="fab fa-facebook"></i></a>
-                    </li>
-                </ul>
             </div>
         </div>
     </section>

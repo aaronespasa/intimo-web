@@ -1,61 +1,77 @@
-/**
- * Custom Properties
- * aka CSS variables.
- *
- * @link: https://developer.mozilla.org/en-US/docs/Web/CSS/--*
- **/
+:root {
+    --section-margin-btm: 5rem;
+}
 
- /* :root {
-    
-} */
+/* === GLOBAL === */
+.section__title {
+    text-align: center;
+    font-family: 'Spectral', serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #1B1B56;
+    margin-bottom: 5%;
+}
+
+@media screen and (max-width: 768px) {
+    .section__title {
+        font-size: 2.1rem;
+    }
+}
 
 /* === MAIN === */
 .main-bg {
-    height: 100vh;
-    padding: 65px 2% 2% 5%;
+    height: 80vh;
+    margin-top: 61px;
+    padding: 0 3%;
     width: 100%;
     background: url("/images/backgrounds/gradientbg3.png");
-    background-position-y: -70px;
+    background-position: bottom;
     background-size: cover;
     background-repeat: no-repeat;
     display: grid;
-    grid-template-areas: "slogan slogan slogan slogan hero hero hero"
-                         "slogan slogan slogan slogan hero hero hero"
-                         "cta cta cta cta hero hero hero"
-                         "brands brands brands brands hero hero hero"
-                         "brands brands brands brands hero hero hero";
+    grid-template-areas:
+        "slogan hero"
+        "slogan hero"
+        "cta hero"
+        "brands hero"
+        "brands hero";
+    grid-template-columns: 1.5fr 1fr;
+    justify-content: center;
+    column-gap: 1rem;
 }
 
 .slogan {
     grid-area: slogan;
     color: #E6E6E6;
     font-family: 'Spectral', serif;
-    font-size: 3.4375em; /* 55px */
+    font-size: 3.4375rem;
+    /* 55px */
     font-weight: 500;
     text-shadow: 1px 1px 6px rgba(150, 150, 150, 1);
-    width: 600px;
+    width: 80%;
     text-align: center;
-    align-self: flex-end;
     justify-self: center;
-    padding-bottom: .6em;
+    align-self: flex-end;
 }
 
 .cta-btn {
     grid-area: cta;
     color: #FFF;
     font-family: 'Poppins', sans-serif;
-    font-size: 2.06em;
+    font-size: 2rem;
     font-weight: 500;
-    border: 3px solid #FFF;
+    border: none;
     background-color: rgba(105, 97, 198, 0.6);
-    width: 50%;
-    height: 55%;
-    border-radius: 40px;
+    min-width: 55%;
+    height: auto;
+    border-radius: 2.5rem;
     outline: none;
-    text-align: center;
-    justify-self: center;
     cursor: pointer;
-    transition: transform 0.3s ease-in-out; 
+    padding: .5rem 3rem;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 3px 8px 34px -17px black;
+    justify-self: center;
+    align-self: flex-end;
 }
 
 .cta-btn:hover {
@@ -66,84 +82,102 @@
 .brands {
     grid-area: brands;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 130px));
-    justify-content: space-between;
+    grid-template-columns: repeat(auto-fit, 100px);
+    column-gap: 1rem;
+    justify-content: center;
+    justify-items: center;
     list-style: none;
+    align-content: center;
     align-items: center;
-    margin-bottom: 2rem;
+    text-align: center;
+    margin-top: 1.5rem;
 }
 
 .brands li img {
-    width: 100px;
+    width: auto;
+    width: 100%;
     object-fit: contain;
 }
 
 .hero {
     grid-area: hero;
-    width: 65%;
-    align-self: center;
-    padding-bottom: 25%;
-    position: relative;
-    left: -5%;
+    width: 70%;
     object-fit: cover;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
 }
 
 .hero img {
     width: 90%;
 }
 
+@media screen and (max-width:1024px) {
+    .slogan {
+        font-size: 2.6rem;
+    }
+
+    .cta-btn {
+        font-size: 1.6rem;
+        padding: .7rem 2rem;
+    }
+}
+
 @media screen and (max-width:768px) {
     .main-bg {
-        grid-template-areas: "slogan"
-                             "hero"
-                             "brands"
-                             "cta";
+        grid-template-areas:
+            "slogan"
+            "hero"
+            "brands"
+            "cta";
+        grid-template-columns: 1fr;
+        height: 70vh;
     }
 
     .hero {
-        justify-self: center;
-    }
-
-    .hero img {
-        width: 60%;
+        width: 35%;
     }
 
     .slogan {
-        font-size: 2em;
-        width: 300px;
+        width: 100%;
+        font-size: 2.2rem;
+    }
+
+    .cta-btn {
+        font-size: 1.3rem;
+        margin-top: 0;
+        align-self: flex-start;
+    }
+
+    .brands {
+        margin-top: 0;
     }
 }
 
 /* === FEATURES === */
- .container {
-    width: 90%;
+.container {
+    width: 94%;
     margin: auto;
 }
 
 .features {
-    position: relative;
-    top: -50px;
-    margin-bottom: 5%;
-}
-
-.features h3 {
-    text-align: center;
-    font-family: 'Spectral', serif;
-    font-size: 50px;
-    font-weight: 500;
-    color: #1B1B56;
-    margin-bottom: 5%;
+    margin-bottom: var(--section-margin-btm);
 }
 
 .features-list {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    column-gap: 3em;
+    row-gap: 6em;
+    justify-content: center;
+    justify-items: center;
+    column-gap: 1em;
     list-style: none;
 }
 
 .features-list li {
     text-align: center;
-    width: 28%;
+    width: 100%;
 }
 
 .features-list li img {
@@ -165,223 +199,210 @@
     font-size: 20px;
 }
 
-/* === NOVELTIES === */
- .novelties {
-     margin-bottom: 5%;
- }
+@media screen and (max-width:768px) {
+    .features h3 {
+        font-size: 35px;
+    }
+}
 
- .novelties-title {
-    text-align: center;
-    font-family: 'Spectral', serif;
-    font-size: 3.125em; /* 50px */
-    font-weight: 500;
-    color: #1B1B56;
-    margin-bottom: 5%;
+/* === NOVELTIES === */
+.novelties {
+    margin-bottom: var(--section-margin-btm);
 }
 
 /* === MOVIE === */
- .movie {
-     background: #00021D;
-     height: 39vh;
-     box-shadow: 0px 0px 3.125em 0px rgba(0,0,0,0.75);
-     text-align: center;
-     margin-bottom: 10%;
+.movie {
+    background: #00021D;
+    height: 39vh;
+    box-shadow: 0px 0px 3.125em 0px rgba(0, 0, 0, 0.75);
+    text-align: center;
+    margin-bottom: var(--section-margin-btm);
 }
 
- .movie video {
-     width: 100%;
-     height: 100%; 
-     outline: none;
- }
+.movie video {
+    width: 100%;
+    height: 100%;
+    outline: none;
+}
 
 /* === VIEW PRODUCT === */
- .buy-product {
-     display: grid;
-     grid-template-columns: 1fr 3fr 4fr;
-     grid-gap: 5%;
-     padding: 0 15%;
-     margin-bottom: 15%;
- }
+.view-product {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 3g00px);
+    grid-gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--section-margin-btm);
+}
 
- .select-product {
-    align-self: center;
-    position: relative;
-    top: -4em;
- }
+.product-views {
+    display: grid;
+    grid-template-columns: .3fr 1fr;
+}
 
- .select-product > img{
-    width: 50%;
-    padding-bottom: 10%;
- }
+.select-product {
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+}
 
- .selected-product {
-     border: 3px solid #7A9DFF;
-     padding: 5px;
- }
+.select-product>img {
+    width: 3rem;
+    object-fit: contain;
+}
 
- .main-product {
-     width: 80%;
-     align-self: center;
-     position: relative;
-     top: -2em;
- }
+.selected-product {
+    border: 3px solid #7A9DFF;
+    padding: 5px;
+}
 
- .main-product img {
-     width: 80%;
- }
+.main-product {
+    width: 15rem;
+}
 
- .product-details {
-     text-align: center;
-     font-family: 'Poppins', sans-serif;
- }
+.main-product>img {
+    width: 100%;
+}
 
- .product-details h3 {
-    text-transform: capitalize;
-    color: #1B1B56;
-    font-size: 2em;
-    margin-bottom: 0.3em;
- }
-
- .product-price {
-     display: flex;
-     align-items: center;
- }
-
- .onsale {
-     background: #006EFF;
-     font-weight: 700;
-     color: #FFF;
-     font-size: 0.8em;
-     padding: 0.3em;
-     margin-left: 1.5em;
- }
-
- .current-price {
-     color: #666;
-     font-size: 1em;
-     font-weight: 700;
-     margin: 0 0.4em 0 0.8em;
- }
-
- .prev-price {
-     color: #666;
-     font-size: 0.9em;
-     font-weight: 700;
-     position: relative;
-     top: -0.2em;
-     text-decoration: line-through
- }
-
- .product-details hr {
-     border: 1px solid rgb(240, 240, 240);
-     margin: 2.5em 0 1em 0;
- }
-
- .product-options-form {
-     display: flex;
-     flex-direction: column;
- }
-
- .size {
-     text-transform: uppercase;
-     font-size: 1em;
- }
-
- .size-selector {
-     width: 70%;
-     padding: 0.5em 1em;
-     color: #333333;
-     font-size: 1em;
-     background: #F4F4F4;
-     margin: auto;
-     outline: none;
-     border: none;
- }
-
- .size-status {
-     margin: 1em 0 2em 0;
- }
-
- .add-to-whishes-btn {
-     color: #006EFF;
-     background: transparent;
-     border: 1px solid #006EFF;
-     border-radius: 2px;
-     text-transform: uppercase;
-     font-size: 1em;
-     padding: 0.6em 1em;
-     margin-bottom: 1em;
-     outline: none;
-     transition: transform 0.6s ease-in-out;
-     transition: background 0.4s ease-in-out;
-     cursor: pointer;
- }
-
- .add-to-whishes-btn:hover {
-     background: rgb(216, 236, 255);
- }
-
- .add-to-whishes-btn:active {
-     transform: scale(0.9);
- }
-
- .reserve-btn {
-     color: #FFF;
-     background: #006EFF;
-     border: none;
-     border-radius: 2px;
-     text-transform: uppercase;
-     font-size: 1em;
-     padding: 0.6em 1em;
-     margin-bottom: 1em;
-     transition: transform 0.6s ease-in-out;
-     transition: background 0.4s ease-in-out;
-     outline: none;
-     cursor: pointer;
- }
-
- .reserve-btn:hover {
-     background: rgb(50, 139, 255);
- }
-
- .reserve-btn:active {
-     transform: scale(0.9);
- }
-
-/* === PROOFS === */
-.proofs {
-    margin-bottom: 10%;
+.product-details {
+    text-align: center;
     font-family: 'Poppins', sans-serif;
 }
 
-.proofs h3 {
-    text-align: center;
-    font-family: 'Spectral', serif;
-    font-size: 50px;
-    font-weight: 500;
+.product-details h3 {
+    text-transform: capitalize;
     color: #1B1B56;
-    margin-bottom: 5%;
+    font-size: 2rem;
+    margin-bottom: 0.3em;
+}
+
+.product-price {
+    display: flex;
+    align-items: center;
+}
+
+.onsale {
+    background: #006EFF;
+    font-weight: 700;
+    color: #FFF;
+    font-size: 0.8em;
+    padding: 0.3em;
+    margin-left: 1.5em;
+}
+
+.current-price {
+    color: #666;
+    font-size: 1em;
+    font-weight: 700;
+    margin: 0 0.4em 0 0.8em;
+}
+
+.prev-price {
+    color: #666;
+    font-size: 0.9em;
+    font-weight: 700;
+    position: relative;
+    top: -0.2em;
+    text-decoration: line-through
+}
+
+.product-details hr {
+    border: 1px solid rgb(240, 240, 240);
+    margin: 2.5em 0 1em 0;
+}
+
+.product-options-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.size {
+    text-transform: uppercase;
+    font-size: 1em;
+}
+
+.size-selector {
+    width: 70%;
+    padding: 0.5em 1em;
+    color: #333333;
+    font-size: 1em;
+    background: #F4F4F4;
+    margin: auto;
+    outline: none;
+    border: none;
+}
+
+.size-status {
+    margin: 1em 0 2em 0;
+}
+
+.product-details-btn {
+    border-radius: 2px;
+    text-transform: uppercase;
+    font-size: 1em;
+    padding: 0.6em 1em;
+    margin-bottom: 1em;
+    outline: none;
+    transition: transform 0.6s ease-in-out;
+    transition: background 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+.add-to-whishes {
+    color: #006EFF;
+    background: transparent;
+    border: 1px solid #006EFF;
+}
+
+.add-to-whishes:hover {
+    background: rgb(216, 236, 255);
+}
+
+.add-to-whishes:active {
+    transform: scale(0.9);
+}
+
+.reserve {
+    color: #FFF;
+    background: #006EFF;
+    border: none;
+}
+
+.reserve:hover {
+    background: rgb(50, 139, 255);
+}
+
+.reserve:active {
+    transform: scale(0.9);
+}
+
+@media screen and (max-width: 768px) {}
+
+/* === PROOFS === */
+.proofs {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: var(--section-margin-btm);
 }
 
 .proofs-list {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    column-gap: 3rem;
+    row-gap: 1.5rem;
+    justify-content: center;
     list-style: none;
-    flex-wrap: wrap;
 }
 
 .proofs-list li {
     text-align: center;
-    width: 250px;
-    height: 200px;
 }
 
 .proofs-list li img {
-    height: 50%;
+    height: 7rem;
     width: auto;
 }
 
-.proofs-list .client-name {
+.proofs-list>.client-name {
     margin: 0.3em 0 0.6em 0;
     font-size: 0.8em;
 }
@@ -390,33 +411,27 @@
     font-size: 1em;
 }
 
-@media screen and (max-width:768px) { }
- /* === LOCATION === */
+/* === LOCATION === */
 .location {
-    margin-bottom: 5%;
-}
-
-.location h3 {
-    text-align: center;
-    font-family: 'Spectral', serif;
-    font-size: 50px;
-    font-weight: 500;
-    color: #1B1B56;
-    margin-bottom: 5%;
+    margin-bottom: var(--section-margin-btm);
 }
 
 .map-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    row-gap: 1.5rem;
     justify-content: center;
-    text-align: center;
+    align-items: center;
+}
+
+.map-iframe {
+    width: 80%;
+    height: auto;
+    margin: auto;
 }
 
 .map-details {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 3%;
-    flex-direction: column;
+    text-align: center;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -430,12 +445,5 @@
 
 .map-details .phone {
     margin: 1em 0;
-}
-
-.map-details .rrss {
-    list-style: none;
-}
-
-.map-details .rrss a {
-    color: #1B1B56;
+    text-decoration: underline;
 }
