@@ -4,8 +4,8 @@
   "description": "Web de lencería para la exposición de sus productos",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "set NODE_ENV=production&&node index",
+    "dev": "set DEBUG=app:* && nodemon index"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/aaronespasa/intimo-web#readme",
   "dependencies": {
     "bcrypt": "^3.0.6",
+    "dotenv": "^8.2.0",
     "express": "^4.16.4",
     "express-handlebars": "^3.1.0",
     "express-session": "^1.16.2",

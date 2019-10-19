@@ -1,10 +1,12 @@
 #Photoshop Files
 *.psd
 
-# Logs
+#Logs
 logs
 *.log
 
+#Environmental variables
+.env
 #Product icons
 #public/products/
 
