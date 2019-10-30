@@ -6,13 +6,15 @@ const admin = require('../controllers/admin');
 // PUBLIC VIEWS
 router.get('/', main.home);
 
-router.get('/products/:filter', main.products);
-
-router.get('/products?:search', main.productSearch);
+router.get('/products?:query', main.products);
 
 router.get('/products/view/:id', main.viewProduct);
 
-router.post('/signin', main.signin);
+router.get('/login', main.login);
+
+router.get('/signup', main.signup);
+
+router.post('/signup', main.signup);
 
 router.post('/login', main.login);
 

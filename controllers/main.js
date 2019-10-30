@@ -50,7 +50,7 @@ ctrl.home = async (req, res) => {
   if (req.session.userId) {
     logged = true;
   }
-  const config = await jsonReader('./config.json'); // Uses the json reader helper
+  const config = await jsonReader('./config/config.json'); // Uses the json reader helper
 
   const ids = config.config.featured_id; // Gets the ids of the featured products
   const items = [];
@@ -74,15 +74,23 @@ ctrl.products = async (req, res) => {
     logged = true;
   }
   // eslint-disable-next-line no-console
-  console.log(req.query.search);
-  let items;
-  if (req.params.filter === 'all') {
-    items = await ProductModel.find().sort({ created_at: -1 });
-  } else {
-    items = await ProductModel.find({
-      sex: req.params.filter || 'unisex',
-    }).sort({ created_at: -1 });
+  let query = {}
+  if(req.query.search) {
+    query.name = { $regex: req.query.search, $options: 'i' }
   }
+  if(req.query.sex) {
+    query.sex = req.query.sex;
+  }
+  console.log(query);
+  
+  const items = await ProductModel.find(query).sort({ created_at: -1 });
+  // if (!req.query.filter) {
+  //   items = await ProductModel.find().sort({ created_at: -1 });
+  // } else {
+  //   items = await ProductModel.find({
+  //     sex: req.query.filter.sex || 'unisex',
+  //   }).sort({ created_at: -1 });
+  // }
   res.render('main/productos', {
     title: 'Íntimo | Productos',
     items,
@@ -91,20 +99,20 @@ ctrl.products = async (req, res) => {
   });
 };
 
-ctrl.productSearch = async (req, res) => {
-  let logged = false;
-  if (req.session.userId) {
-    logged = true;
-  }
-  const { search } = req.query;
-  const items = await ProductModel.find({ name: { $regex: search, $options: 'i' } });
-  res.render('main/productos', {
-    title: 'Íntimo | Productos',
-    items,
-    admin: false,
-    logged,
-  });
-};
+// ctrl.productSearch = async (req, res) => {
+//   let logged = false;
+//   if (req.session.userId) {
+//     logged = true;
+//   }
+//   const { search } = req.query;
+//   const items = await ProductModel.find({ name: { $regex: search, $options: 'i' } });
+//   res.render('main/productos', {
+//     title: 'Íntimo | Productos',
+//     items,
+//     admin: false,
+//     logged,
+//   });
+// };
 
 ctrl.viewProduct = async (req, res) => {
   let logged = false;
@@ -126,7 +134,7 @@ ctrl.viewProduct = async (req, res) => {
   });
 };
 
-ctrl.signin = async (req, res) => {
+ctrl.signup = async (req, res) => {
   const { email, password, repeatPassword } = req.body;
   const users = await UserModel.find({ email });
   const errors = [];
