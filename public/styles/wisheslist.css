@@ -1,0 +1,14 @@
+:root {
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wish-container {
+    margin-top: 64px;
+    height: calc(100vh - 64px);
+}

@@ -6,6 +6,8 @@ const admin = require('../controllers/admin');
 // PUBLIC VIEWS
 router.get('/', main.home);
 
+router.get('/listadeseos', main.wisheslist)
+
 router.get('/products?:query', main.products);
 
 router.get('/products/view/:id', main.viewProduct);

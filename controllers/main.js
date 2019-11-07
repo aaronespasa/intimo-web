@@ -134,6 +134,12 @@ ctrl.viewProduct = async (req, res) => {
   });
 };
 
+ctrl.wisheslist = async (req, res) => {
+  res.render('main/wisheslist', {
+    title: `Íntimo | Lista de Deseos`,
+  });
+}
+
 ctrl.signup = async (req, res) => {
   const { email, password, repeatPassword } = req.body;
   const users = await UserModel.find({ email });
@@ -158,6 +164,9 @@ ctrl.signup = async (req, res) => {
     await newUser.save();
     res.send('Usuario creado correctamente, inicia sesion');
   }
+  // res.render('main/signup', {
+  //   title: `Íntimo | Registrarse`,
+  // });
 };
 
 ctrl.login = async (req, res) => {
@@ -178,6 +187,9 @@ ctrl.login = async (req, res) => {
       res.send('Sesion iniciada');
     }
   }
+  // res.render('main/signin', {
+  //   title: `Íntimo | Iniciar sesión`,
+  // });
 };
 
 ctrl.logout = async (req, res) => {

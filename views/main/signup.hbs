@@ -1,0 +1,26 @@
+{{> header }}
+<div class="signin-container">
+    <h1 class="login-title">registrarse</h1>
+    <div class="form-container">
+        <figure class="form-icon">
+            <img src="/images/icons/user.svg" alt="User Logo" width="70px">
+        </figure>
+        <form action="/signup" method="POST" name="FormAdminEntrar">
+            <div class="input-box">
+                <input type="text" class="form-control" name="email" placeholder="Nombre" required>
+            </div>
+            <div class="input-box">
+                <span class="email-icon"><img src="/images/icons/email.svg" alt="Cerradura" width="20px"></span>
+                <input type="email" class="form-control" name="email" placeholder="Correo" required>
+            </div>
+            <div class="input-box">
+                <span class="lock-icon"><img src="/images/icons/lock.svg" alt="User" width="20px"></span>
+                <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
+                <input type="password" class="form-control" name="password" placeholder="Confirmar contraseña" required>
+            </div>
+            <button class="btn-form" type="submit">Acceder</button>
+            <div class="return-home-opt"><a href="/">Regresar a Inicio</a></div>
+        </form>
+    </div>
+</div>
+{{> footer}}
