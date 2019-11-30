@@ -1,0 +1,19 @@
+{{> header }}
+    <div class="wish-container">
+        <h1>Hola {{user}}, tu lista de deseos es...</h1>
+        <ul id="wishlist">
+        {{#each items}}
+            <li class="wish">
+                <figure>
+                    <img src="" alt="">
+                </figure>
+                <a class="wish-name" href="">{{name}}</a>
+                <p class="wish-desc">{{description}}</p>
+                <p class="wish-price">{{price}}</p>
+            </li>
+        {{else}}
+        <h2>Todavía no has guardado ningun producto</h2>
+        {{/each}}
+        </ul>
+    </div>
+{{> footer}}

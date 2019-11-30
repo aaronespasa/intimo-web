@@ -5,27 +5,23 @@
             <a href="#" class="card-header-action">Ver todos</a>
         </div>
         <ul class="card-products">
+            {{#each items}}
             <li class="card-product">
                 <figure class="card-product-img">
-                    <img src="/images/products/product1.jpg" alt="Producto 1">
+                    <img src="{{path}}" alt="Producto 1">
                 </figure>
-                <p class="card-product-desc">Sujetador de marca</p>
+                <p class="card-product-desc">{{name}}</p>
+                <a href="">
+                    <figure class="overviewcard-icon change-content">
+                        <img src="/images/icons/change-content.svg" alt="Crear Producto Contenido">
+                    </figure>
+                </a>
+                <a href="">X</a>
             </li>
-            <li class="card-product">
-                <figure class="card-product-img">
-                    <img src="/images/products/product2.jpg" alt="Producto 2">
-                </figure>
-                <p class="card-product-desc">Boxers de marca</p>
-            </li>
-            <li class="card-product">
-                <figure class="card-product-img">
-                    <img src="/images/products/product3.jpg" alt="Producto 3">
-                </figure>
-                <p class="card-product-desc">Sujetador de marca</p>
-            </li>
+            {{/each}}
         </ul>
     </div>
-    <div class="card">
+    <!--<div class="card">
         <div class="card-header">
             <p class="card-header-title"><b>Reservas</b> recientes</p>
             <a href="#" class="card-header-action">Ver todos</a>
@@ -41,7 +37,7 @@
                 </div>
             </li>
         </ul>
-    </div>
+    </div>-->
     <div class="card">
         <div class="card-header">
             <p class="card-header-title"><b>Mensajes</b></p>

@@ -6,21 +6,25 @@ const admin = require('../controllers/admin');
 // PUBLIC VIEWS
 router.get('/', main.home);
 
-router.get('/listadeseos', main.wisheslist)
+router.get('/wishlist', main.wishlist);
 
 router.get('/products?:query', main.products);
 
 router.get('/products/view/:id', main.viewProduct);
 
-router.get('/login', main.login);
+router.get('/login', main.signin);
 
-router.get('/signup', main.signup);
+router.get('/signup', main.register);
+
+router.post('/add-to-wishlist',);
+
+router.post('/quit-wishlist',)
+
+router.post('/signin', main.login);
 
 router.post('/signup', main.signup);
 
-router.post('/login', main.login);
-
-router.post('/logout', main.logout);
+router.get('/logout', main.logout);
 
 // ADMIN VIEWS
 router.get('/admin', admin.admin);

@@ -6,6 +6,10 @@ const productSchema = new Schema({
   sex: { type: String, required: true },
   age: { type: String, required: true },
   type: { type: String, requires: true },
+  //Prices
+  defaultPrice: { type: Number, required: true },
+  onOffer: { type: Boolean, default: false},
+  offerPrice: { type: Number },
   // Image
   filename: { type: String, require },
   path: { type: String, required: true },

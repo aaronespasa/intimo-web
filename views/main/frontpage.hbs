@@ -49,11 +49,11 @@
 
         </ul>
     </section>
-
+    {{#if newItems}}
     <section class="novelties">
         <h3 class="section__title">Novedades</h3>
         <div class="products-container">
-            {{#each items}}
+            {{#each newItems}}
             <a href="/products/view/{{ _id }}" class="products">
                 <img src="{{ path }}" alt="{{ name }}">
                 <h3>{{ name }}</h3> <br>
@@ -61,6 +61,7 @@
             {{/each}}
         </div>
     </section>
+    {{/if}}
 </div>
 
 <section class="movie">
@@ -71,7 +72,11 @@
 </section>
 
 <div class="container">
-    {{> viewProduct}}
+    {{#if featuredItems}}
+    {{#each featuredItems}}
+        {{> viewProduct}}
+    {{/each}}
+    {{/if}}
 
     <section class="proofs">
         <h3 class="section__title">¿Qué opinan nuestros clientes?</h3>

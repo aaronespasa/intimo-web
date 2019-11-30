@@ -19,7 +19,7 @@ ctrl.admin = async (req, res) => {
   if (!req.session.adminId) {
     res.redirect('/admin/signin');
   } else {
-    const items = await Product.find().sort({ created_at: -1 });
+    const items = await Product.find().sort({ created_at: -1 }).limit(4);
     res.render('admin/dashboard-layout', {
       title: 'Íntimo: Admin',
       items,
@@ -113,11 +113,10 @@ ctrl.uploadProduct = async (req, res) => {
   product.sex = req.body.sex;
   product.age = req.body.age;
   product.type = req.body.type;
+  product.defaultPrice = req.body.price; 
   product.filename = req.file.filename;
   product.path = `/images/products/${req.file.filename}`;
   product.originalname = req.file.originalname;
-  console.log(product);
-
   await product.save();
 
   res.redirect('/admin');

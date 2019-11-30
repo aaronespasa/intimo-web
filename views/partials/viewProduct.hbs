@@ -1,30 +1,34 @@
 <section class="view-product">
     <div class="product-views">
-        <div class="select-product">
+        <!--<div class="select-product">
             <img class="selected-product" src="/images/products/product3.jpg" alt="Sujetador ej1">
             <img src="/images/products/product3.jpg" alt="Sujetador ej2">
-        </div>
+        </div>-->
         <figure class="main-product">
-            <img src="/images/products/product3.jpg" alt="Sujetador principal">
+            <img src="{{path}}" alt="Sujetador principal">
         </figure>
     </div>
     <div class="product-details">
-        <h3>sans complexe lift up gorge classique rojo</h3>
+        <h3>{{name}}</h3>
         <div class="product-price">
+            {{#if onOffer}}
             <p class="onsale">Oferta</p>
-            <p class="current-price">26'99€</p>
-            <p class="prev-price">30€</p>
+            <p class="current-price">{{offerPrice}}€</p>
+            <p class="prev-price">{{defaultPrice}}€</p>
+            {{else}}
+            <p class="current-price">{{defaultPrice}}€</p>
+            {{/if}}
         </div>
         <hr class="separator-line">
-        <form class="product-options-form" action="/listadeseos/add" method="POST" accept-charset="UTF-8"
+        <form class="product-options-form" action="/wishlist/add" method="POST" accept-charset="UTF-8"
             enctype="multipart/form-data">
-            <label class="size">talla</label>
+            <!--<label class="size">talla</label>
             <select name="size" id="size-selector" class="size-selector">
                 <option value="35cm" selected="selected">35cm</option>
             </select>
-            <p class="size-status">¡Tenemos disponible esta talla!</p>
+            <p class="size-status">¡Tenemos disponible esta talla!</p>-->
             <button class="add-to-whishes product-details-btn" type="submit">añadir a la lista de deseos</button>
-            <button class="reserve product-details-btn" type="submit">reservar durante 2 días</button>
+            <!--<button class="reserve product-details-btn" type="submit">reservar durante 2 días</button>-->
         </form>
     </div>
 </section>

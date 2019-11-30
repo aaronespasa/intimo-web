@@ -7,6 +7,7 @@ const { diskStorage } = require("multer")
 const uuid = require("uuid/v4")
 const session = require("express-session")
 const exphbs = require("express-handlebars") // Template engine middleware
+const { config } = require('./config/index');
 
 /*
  * Inicializations
@@ -19,7 +20,7 @@ require("./database")
  */
 const routes = require("./routes/index")
 
-app.set("port", process.env.PORT || 3000);
+app.set("port", config.port);
 // Define where's the views folder
 app.set("views", join(__dirname, "views"));
 app.engine(
