@@ -46,4 +46,10 @@ router.post('/new-product', admin.uploadProduct);
 
 router.post('/update/:id', admin.updateProduct);
 
+router.get('/delete/:id', admin.deleteProduct);
+
+router.get('/add-to-featured/:id', admin.addPrdToFeatured);
+
+router.get('/remove-from-featured/:id',admin.removePrdFromFeatured);
+
 module.exports = router;

@@ -11,6 +11,10 @@ module.exports = {
       console.error(error);
     }
   },
+  jsonWriter: async (filePath, data) => {
+    data = JSON.stringify(data, null, 2);
+    fs.writeFileSync(filePath, data);
+  },
   passHasher: (password) => {
     const saltRounds = 10;
     return bcrypt.hashSync(password, saltRounds);

@@ -1,13 +1,7 @@
 {
   "config": {
-    "featured_id": [
-      
-    ],
-    "offers_id": [
-
-    ],
-    "texts": {
-      
-    }
+    "featured_id": [],
+    "offers_id": [],
+    "texts": {}
   }
 }

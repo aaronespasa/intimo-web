@@ -46,7 +46,7 @@ const IN_PROD = NODE_ENV === "production";
 /*
  * Middlewars
  */
-app.use(morgan("dev")); //:status token -> Red: server error codes, Yellow: client error codes, Cyan: redirection codes
+//app.use(morgan("dev")); //:status token -> Red: server error codes, Yellow: client error codes, Cyan: redirection codes
 app.use(json());
 app.use(urlencoded({ extended: true }));
 
