@@ -20,8 +20,6 @@ module.exports = {
     return bcrypt.hashSync(password, saltRounds);
   },
   passChecker: (password, hash) => {
-    console.log(password, hash);
-
     return bcrypt.compareSync(password, hash);
   },
 };

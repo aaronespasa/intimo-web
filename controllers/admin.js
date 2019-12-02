@@ -164,7 +164,7 @@ ctrl.addPrdToFeatured = async (req, res) => {
   if (errors.length > 0) {
     res.redirect('/admin');
   }
-  if (errors.length < 1) {
+  if (errors.length === 0) {
     config.config.featured_id.push(req.params.id);
     await jsonWriter('./config/config.json', config);
     res.redirect('/admin');
@@ -180,7 +180,7 @@ ctrl.removePrdFromFeatured = async (req, res) => {
   if (errors.length > 0) {
     res.redirect('/admin');
   }
-  if (errors.length < 1) {
+  if (errors.length === 0) {
     config.config.featured_id.splice(config.config.featured_id.indexOf(req.params.id), 1);
     await jsonWriter('./config/config.json', config);
     res.redirect('/admin');

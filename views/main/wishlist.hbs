@@ -4,12 +4,13 @@
         <ul id="wishlist">
         {{#each items}}
             <li class="wish">
-                <figure>
-                    <img src="" alt="">
-                </figure>
+                {{!-- <figure>
+                    <img src="{{path}}" alt="Imagen de {{name}}">
+                </figure> --}}
                 <a class="wish-name" href="">{{name}}</a>
                 <p class="wish-desc">{{description}}</p>
                 <p class="wish-price">{{price}}</p>
+                <form action="/wishlist/quit/{{id}}" method="POST"><button type="submit">X</button></form>
             </li>
         {{else}}
         <h2>Todavía no has guardado ningun producto</h2>

@@ -121,17 +121,23 @@ ctrl.viewProduct = async (req, res) => {
 ctrl.wishlist = async (req, res) => {
   let logged = false;
   if (!req.session.userId) {
-    res.redirect('/login')
+    res.redirect('/login?origin=/wishlist')
   } else {
     logged = true;
   }
   const user = await UserModel.findById(req.session.userId);
+  console.log(user.wishList);
+  
+  const items = []
+  for (let i = 0; i < user.wishList.length; i++) {    
+    items.push(await ProductModel.findById(user.wishList[i]));
+  }
   res.render('main/wishlist', {
     title: `Ìntimo | Lista de Deseos`,
     admin: false,
     logged,
     user: user.name,
-    items: user.wishList,
+    items,
     url: `/wishlist`
   });
 }
@@ -175,6 +181,50 @@ ctrl.signin = (req, res) => {
 //*******************************
 
 //*******************************
+//Add product to wishlist
+//*******************************
+ctrl.addToWishList = async (req, res) => {
+  const {id} = req.params;
+  const {wishList} = await UserModel.findById(req.session.userId)
+  const errors = []
+  if (config.config.featured_id.length >= 25) {
+    errors.push('El numero máximo de productos destacados es 25');
+  }
+  if (wishList.includes(req.params.id)) {
+    errors.push('Ese producto ya se encuentra en la lista de deseos');
+  }
+  if (errors.length > 0) {
+    res.redirect(`/products/view/${id}`);
+  }
+  if (errors.length === 0) {
+    wishList.push(id);
+    await UserModel.findByIdAndUpdate(req.session.userId, {wishList}, {new: true});
+    res.redirect('/wishlist');
+  }
+}
+
+//*******************************
+//Remove product from wishlist
+//*******************************
+ctrl.removeFromWishList = async (req, res) => {
+  const {id} = req.params;
+  const {wishList} = await UserModel.findById(req.session.userId)
+  const errors = []
+  if (!wishList.includes(req.params.id)) {
+    errors.push('Ese producto no se encuentra en la lista de deseos');
+  }
+  if (errors.length > 0) {
+    res.redirect('/wishlist');
+  }
+  if (errors.length === 0) {
+    wishList.splice(wishList.indexOf(id), 1);
+    await UserModel.findByIdAndUpdate(req.session.userId, {wishList}, {new: true});
+    res.redirect('/wishlist');
+  }
+  
+}
+
+//*******************************
 //Signup
 //*******************************
 ctrl.signup = async (req, res) => {
@@ -191,7 +241,7 @@ ctrl.signup = async (req, res) => {
     errors.push('Las contraseñas no coinciden');
   }
   if (errors.length > 0) {
-    res.redirect('/signup');
+    res.redirect(`/signup?origin=${req.query.origin}`);
   } else {
     const hash = await passHasher(password);
     const newUser = new UserModel({
@@ -216,7 +266,7 @@ ctrl.login = async (req, res) => {
   const errors = [];
   if (!user) {
     errors.push('No existe ningun usuario con ese correo electronico, crea una cuenta si no lo hiciste');
-    res.redirect('/login');
+    res.redirect(`/login?origin=${req.query.origin}`);
   } else {
     const pass = await passChecker(password, user.password);
     if (!pass) {
@@ -239,7 +289,7 @@ ctrl.login = async (req, res) => {
 ctrl.logout = async (req, res) => {
   req.session.destroy((err) => {
     if (err) {
-      return res.redirect('/');
+      return res.redirect(req.query.origin);
     }
     res.clearCookie(SESS_NAME);
     res.redirect(req.query.origin);

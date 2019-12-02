@@ -16,9 +16,9 @@ router.get('/login?:query', main.signin);
 
 router.get('/signup?:query', main.register);
 
-router.post('/add-to-wishlist',);
+router.post('/wishlist/add/:id', main.addToWishList);
 
-router.post('/quit-wishlist',)
+router.post('/wishlist/quit/:id', main.removeFromWishList)
 
 router.post('/signin?:query', main.login);
 
