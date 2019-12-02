@@ -5,7 +5,7 @@
       <figure class="form-icon">
         <img src="/images/icons/user.svg" alt="User Logo" width="70px">
       </figure>
-      <form action="/signin" method="POST" name="FormAdminEntrar">
+      <form action="/signin?origin={{url}}" method="POST" name="FormAdminEntrar">
         <div class="input-box">
           <span class="email-icon"><img src="/images/icons/email.svg" alt="Cerradura" width="20px"></span>
           <input type="email" class="form-control" name="email" placeholder="Correo" required>
@@ -15,7 +15,7 @@
           <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
         </div>
         <button class="btn-form" type="submit">Acceder</button>
-        <div class="return-home-opt"><a href="/">Regresar a Inicio</a></div>
+        <div class="return-home-opt"><a href={{url}}>Atras</a></div>
       </form>
     </div>
   </div>

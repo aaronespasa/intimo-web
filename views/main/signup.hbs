@@ -5,7 +5,7 @@
         <figure class="form-icon">
             <img src="/images/icons/user.svg" alt="User Logo" width="70px">
         </figure>
-        <form action="/signup" method="POST" name="FormAdminEntrar">
+        <form action="/signup?origin={{url}}" method="POST" name="FormAdminEntrar">
             <div class="input-box">
                 <input type="text" class="form-control" name="name" placeholder="Nombre" required>
             </div>
@@ -19,7 +19,7 @@
                 <input type="password" class="form-control" name="repeatPassword" placeholder="Confirmar contraseña" required>
             </div>
             <button class="btn-form" type="submit">Crear</button>
-            <div class="return-home-opt"><a href="/">Regresar a Inicio</a></div>
+            <div class="return-home-opt"><a href={{url}}>Atras</a></div>
         </form>
     </div>
 </div>

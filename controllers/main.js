@@ -42,6 +42,7 @@ ctrl.home = async (req, res) => {
     newItems,
     featuredItems,
     admin: false,
+    url: "/"
   }); // We've had said where is index.hbs in the settings
 };
 
@@ -55,14 +56,24 @@ ctrl.products = async (req, res) => {
   }
   // eslint-disable-next-line no-console
   let query = {}
-  if(req.query.search) {
+  let url;
+  if (Object.keys(req.query).length === 0 && req.query.constructor === Object) { //Checks if the query object is empty
+    url = "/products"
+  } else {
+    var parameters = [];
+    for (var property in req.query) {
+      if (req.query.hasOwnProperty(property)) {
+        parameters.push(encodeURI(property + '=' + req.query[property]));
+      }
+    }    
+    url = `/products?${parameters.join('&')}` //Transforms the query object into an url string
+  }
+  if (req.query.search) {
     query.name = { $regex: req.query.search, $options: 'i' }
   }
-  if(req.query.sex) {
+  if (req.query.sex) {
     query.sex = req.query.sex;
-  }
-  console.log(query);
-  
+  }  
   const items = await ProductModel.find(query).sort({ created_at: -1 });
   // if (!req.query.filter) {
   //   items = await ProductModel.find().sort({ created_at: -1 });
@@ -76,23 +87,9 @@ ctrl.products = async (req, res) => {
     items,
     admin: false,
     logged,
+    url
   });
 };
-
-// ctrl.productSearch = async (req, res) => {
-//   let logged = false;
-//   if (req.session.userId) {
-//     logged = true;
-//   }
-//   const { search } = req.query;
-//   const items = await ProductModel.find({ name: { $regex: search, $options: 'i' } });
-//   res.render('main/productos', {
-//     title: 'Íntimo | Productos',
-//     items,
-//     admin: false,
-//     logged,
-//   });
-// };
 
 //*******************************
 //Product View
@@ -103,12 +100,6 @@ ctrl.viewProduct = async (req, res) => {
     logged = true;
   }
   const { id, name, description, onOffer, offerPrice, defaultPrice, path } = await ProductModel.findById(req.params.id);
-  // let item;
-  // products.forEach(function (product) {
-  //     if(product._id === req.params.id) {
-  //         item = product
-  //     }
-  // });
   res.render('main/viewProduct', {
     title: `Ìntimo | ${name}`,
     id,
@@ -120,6 +111,7 @@ ctrl.viewProduct = async (req, res) => {
     path,
     admin: false,
     logged,
+    url: `/products/view/${id}`
   });
 };
 
@@ -134,13 +126,13 @@ ctrl.wishlist = async (req, res) => {
     logged = true;
   }
   const user = await UserModel.findById(req.session.userId);
-
   res.render('main/wishlist', {
     title: `Ìntimo | Lista de Deseos`,
     admin: false,
     logged,
     user: user.name,
-    items: user.wishList
+    items: user.wishList,
+    url: `/wishlist`
   });
 }
 
@@ -155,7 +147,8 @@ ctrl.register = (req, res) => {
   res.render('main/signup', {
     title: 'Ìntimo | Crear Cuenta',
     admin: false,
-    logged
+    logged,
+    url: req.query.origin
   })
 }
 
@@ -170,7 +163,8 @@ ctrl.signin = (req, res) => {
   res.render('main/signin', {
     title: 'Ìntimo | Iniciar Sesión',
     admin: false,
-    logged
+    logged,
+    url: req.query.origin
   })
 }
 
@@ -185,8 +179,6 @@ ctrl.signin = (req, res) => {
 //*******************************
 ctrl.signup = async (req, res) => {
   const { name, email, password, repeatPassword } = req.body;
-  console.log(req.body);
-  
   const users = await UserModel.find({ email });
   const errors = [];
   if (users.length > 0) {
@@ -208,7 +200,7 @@ ctrl.signup = async (req, res) => {
       password: hash,
     });
     await newUser.save();
-    res.redirect('/');
+    res.redirect(req.query.origin);
   }
   // res.render('main/signup', {
   //   title: `Íntimo | Registrarse`,
@@ -233,7 +225,7 @@ ctrl.login = async (req, res) => {
     } else {
       // eslint-disable-next-line no-underscore-dangle
       req.session.userId = user._id;
-      res.redirect('/');
+      res.redirect(req.query.origin);
     }
   }
   // res.render('main/signin', {
@@ -250,7 +242,7 @@ ctrl.logout = async (req, res) => {
       return res.redirect('/');
     }
     res.clearCookie(SESS_NAME);
-    res.redirect('/');
+    res.redirect(req.query.origin);
   });
 };
 

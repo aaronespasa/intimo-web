@@ -1,6 +1,9 @@
 {
   "config": {
-    "featured_id": [],
+    "featured_id": [
+      "5de56143a695fa2ec0caf4d5",
+      "5de56166a695fa2ec0caf4d6"
+    ],
     "offers_id": [],
     "texts": {}
   }

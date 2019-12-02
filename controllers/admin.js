@@ -20,7 +20,7 @@ ctrl.admin = async (req, res) => {
   if (!req.session.adminId) {
     res.redirect('/admin/signin');
   } else {
-    const items = await ProductModel.find().sort({ created_at: -1 }).limit(4);
+    const items = await ProductModel.find().sort({ created_at: -1 }).limit(3);
     const config = await jsonReader('./config/config.json'); // Uses the json reader helper to get config data
     const ids = config.config.featured_id; // Gets the ids of the featured products
     const featuredItems = [];
