@@ -4,7 +4,7 @@ const ProductModel = require('../models/Products');
 const { SESS_NAME } = require('../index');
 const { jsonReader, jsonWriter } = require('../helpers/helpers');
 
-const users = [
+const users = [ //This is stupid :)
   { id: 1, email: 'adri@adri.com', password: '1234' },
   { id: 2, email: 'aaron@aaron.com', password: '2345' },
   { id: 3, email: 'monica@monica.com', password: '3456' },
@@ -21,14 +21,14 @@ ctrl.admin = async (req, res) => {
     res.redirect('/admin/signin');
   } else {
     const items = await ProductModel.find().sort({ created_at: -1 }).limit(3);
-    const config = await jsonReader('./config/config.json'); // Uses the json reader helper to get config data
-    const ids = config.config.featured_id; // Gets the ids of the featured products
+    const config = await jsonReader('./config/config.json'); //Uses the json reader helper to get config data
+    const ids = config.config.featured_id; //Gets the ids of the featured products
     const featuredItems = [];
     for (let i = 0; i < ids.length; i += 1) {
-    // The data of the featured products are searched on the DB using the ids saved in config.json
-    const featuredItem = await ProductModel.findById(ids[i]);
-    featuredItems.push(featuredItem);
-  }  
+      //The data of the featured products are searched on the DB using the ids saved in config.json
+      const featuredItem = await ProductModel.findById(ids[i]);
+      featuredItems.push(featuredItem);
+    }  
     res.render('admin/dashboard-layout', {
       title: 'Íntimo: Admin',
       items,

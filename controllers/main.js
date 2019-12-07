@@ -24,18 +24,18 @@ const ctrl = {};
 //*******************************
 ctrl.home = async (req, res) => {
   let logged = false;
-  if (req.session.userId) {
+  if (req.session.userId) { //Checks if the user is logged
     logged = true;
   }
-  const config = await jsonReader('./config/config.json'); // Uses the json reader helper to get config data
-  const ids = config.config.featured_id; // Gets the ids of the featured products
+  const config = await jsonReader('./config/config.json'); //Uses the json reader helper to get config data
+  const ids = config.config.featured_id; //Gets the ids of the featured products
   const featuredItems = [];
   for (let i = 0; i < ids.length; i += 1) {
-    // The data of the featured products are searched on the DB using the ids saved in config.json
+    //The data of the featured products are searched on the DB using the ids saved in config.json
     const featuredItem = await ProductModel.findById(ids[i]);
     featuredItems.push(featuredItem);
   }  
-  const newItems = await ProductModel.find().sort({ created_at: -1 }).limit(3)
+  const newItems = await ProductModel.find().sort({ created_at: -1 }).limit(3) //Limits the 'new products' list to 3 items
   res.render('main/frontpage', {
     logged,
     title: 'Ìntimo',
@@ -43,7 +43,7 @@ ctrl.home = async (req, res) => {
     featuredItems,
     admin: false,
     url: "/"
-  }); // We've had said where is index.hbs in the settings
+  });
 };
 
 //*******************************
@@ -51,7 +51,7 @@ ctrl.home = async (req, res) => {
 //*******************************
 ctrl.products = async (req, res) => {
   let logged = false;
-  if (req.session.userId) {
+  if (req.session.userId) { //Checks if the user is logged
     logged = true;
   }
   // eslint-disable-next-line no-console
@@ -65,16 +65,16 @@ ctrl.products = async (req, res) => {
       if (req.query.hasOwnProperty(property)) {
         parameters.push(encodeURI(property + '=' + req.query[property]));
       }
-    }    
+    }
     url = `/products?${parameters.join('&')}` //Transforms the query object into an url string
   }
   if (req.query.search) {
-    query.name = { $regex: req.query.search, $options: 'i' }
+    query.name = { $regex: req.query.search, $options: 'i' } //Sets the search query to be used in the db
   }
   if (req.query.sex) {
-    query.sex = req.query.sex;
+    query.sex = req.query.sex; 
   }  
-  const items = await ProductModel.find(query).sort({ created_at: -1 });
+  const items = await ProductModel.find(query).sort({ created_at: -1 }); //Search the items in the db
   // if (!req.query.filter) {
   //   items = await ProductModel.find().sort({ created_at: -1 });
   // } else {
@@ -96,7 +96,7 @@ ctrl.products = async (req, res) => {
 //*******************************
 ctrl.viewProduct = async (req, res) => {
   let logged = false;
-  if (req.session.userId) {
+  if (req.session.userId) { //Checks if the user is logged
     logged = true;
   }
   const { id, name, description, onOffer, offerPrice, defaultPrice, path } = await ProductModel.findById(req.params.id);
@@ -120,16 +120,15 @@ ctrl.viewProduct = async (req, res) => {
 //*******************************
 ctrl.wishlist = async (req, res) => {
   let logged = false;
-  if (!req.session.userId) {
-    res.redirect('/login?origin=/wishlist')
+  if (!req.session.userId) { //Checks if the user is logged
+    res.redirect('/login?origin=/wishlist') //Redirects to login if user is not logged
   } else {
     logged = true;
   }
-  const user = await UserModel.findById(req.session.userId);
-  console.log(user.wishList);
-  
+  const user = await UserModel.findById(req.session.userId); //Gets the user info from the db
   const items = []
-  for (let i = 0; i < user.wishList.length; i++) {    
+  for (let i = 0; i < user.wishList.length; i++) {
+    //The data of the featured products are searched on the DB using the ids saved in config.json
     items.push(await ProductModel.findById(user.wishList[i]));
   }
   res.render('main/wishlist', {
@@ -147,8 +146,8 @@ ctrl.wishlist = async (req, res) => {
 //*******************************
 ctrl.register = (req, res) => {
   let logged = false;
-  if (req.session.userId) {
-    res.redirect('/');
+  if (req.session.userId) {//Checks if the user is logged
+    res.redirect('/'); //If it is, redirects to main page
   }
   res.render('main/signup', {
     title: 'Ìntimo | Crear Cuenta',
@@ -163,8 +162,8 @@ ctrl.register = (req, res) => {
 //*******************************
 ctrl.signin = (req, res) => {
   let logged = false;
-  if (req.session.userId) {
-    res.redirect('/');
+  if (req.session.userId) { //Checks if the user is logged
+    res.redirect('/'); //If it is, redirects to main page
   }
   res.render('main/signin', {
     title: 'Ìntimo | Iniciar Sesión',
@@ -184,10 +183,10 @@ ctrl.signin = (req, res) => {
 //Add product to wishlist
 //*******************************
 ctrl.addToWishList = async (req, res) => {
-  const {id} = req.params;
-  const {wishList} = await UserModel.findById(req.session.userId)
+  const {id} = req.params; //Gets the product id from url params
+  const {wishList} = await UserModel.findById(req.session.userId); //Gets the user wishlist from db
   const errors = []
-  if (config.config.featured_id.length >= 25) {
+  if (wishlist.length >= 25) {
     errors.push('El numero máximo de productos destacados es 25');
   }
   if (wishList.includes(req.params.id)) {
@@ -197,8 +196,8 @@ ctrl.addToWishList = async (req, res) => {
     res.redirect(`/products/view/${id}`);
   }
   if (errors.length === 0) {
-    wishList.push(id);
-    await UserModel.findByIdAndUpdate(req.session.userId, {wishList}, {new: true});
+    wishList.push(id); //Pushes the item id to wishlist array
+    await UserModel.findByIdAndUpdate(req.session.userId, {wishList}, {new: true}); //Updates the user's wishlist and adds the new item
     res.redirect('/wishlist');
   }
 }
@@ -207,8 +206,8 @@ ctrl.addToWishList = async (req, res) => {
 //Remove product from wishlist
 //*******************************
 ctrl.removeFromWishList = async (req, res) => {
-  const {id} = req.params;
-  const {wishList} = await UserModel.findById(req.session.userId)
+  const {id} = req.params; //Gets the product id from url params
+  const {wishList} = await UserModel.findById(req.session.userId); //Gets the user wishlist from db
   const errors = []
   if (!wishList.includes(req.params.id)) {
     errors.push('Ese producto no se encuentra en la lista de deseos');
@@ -217,8 +216,8 @@ ctrl.removeFromWishList = async (req, res) => {
     res.redirect('/wishlist');
   }
   if (errors.length === 0) {
-    wishList.splice(wishList.indexOf(id), 1);
-    await UserModel.findByIdAndUpdate(req.session.userId, {wishList}, {new: true});
+    wishList.splice(wishList.indexOf(id), 1);  //Removes the item id from wishlist array
+    await UserModel.findByIdAndUpdate(req.session.userId, {wishList}, {new: true});  //Updates the user's wishlist and removes the item
     res.redirect('/wishlist');
   }
   
@@ -228,8 +227,8 @@ ctrl.removeFromWishList = async (req, res) => {
 //Signup
 //*******************************
 ctrl.signup = async (req, res) => {
-  const { name, email, password, repeatPassword } = req.body;
-  const users = await UserModel.find({ email });
+  const { name, email, password, repeatPassword } = req.body; //Gets the user info from url body
+  const users = await UserModel.find({ email }); //Search existing users using the sended email
   const errors = [];
   if (users.length > 0) {
     errors.push('Este correo electronico ya esta en uso, usa otro o inicia sesion');
@@ -243,44 +242,38 @@ ctrl.signup = async (req, res) => {
   if (errors.length > 0) {
     res.redirect(`/signup?origin=${req.query.origin}`);
   } else {
-    const hash = await passHasher(password);
-    const newUser = new UserModel({
+    const hash = await passHasher(password); //Hashes the password with the script in helper file
+    const newUser = new UserModel({ //Creates a new user using the user model
       name,
       email,
       password: hash,
     });
-    await newUser.save();
+    await newUser.save(); //Saves the new user in db
     res.redirect(req.query.origin);
   }
-  // res.render('main/signup', {
-  //   title: `Íntimo | Registrarse`,
-  // });
 };
 
 //*******************************
 //Login
 //*******************************
 ctrl.login = async (req, res) => {
-  const { email, password } = req.body;
-  const user = await UserModel.findOne({ email });
+  const { email, password } = req.body; //Gets the user info from url body
+  const user = await UserModel.findOne({ email }); //Search existing users using the sended email
   const errors = [];
   if (!user) {
     errors.push('No existe ningun usuario con ese correo electronico, crea una cuenta si no lo hiciste');
     res.redirect(`/login?origin=${req.query.origin}`);
   } else {
-    const pass = await passChecker(password, user.password);
+    const pass = await passChecker(password, user.password); //Hashes the password an compares it with hashed user's password in db
     if (!pass) {
       errors.push('La contraseña es incorrecta');
       res.redirect('/login');
     } else {
       // eslint-disable-next-line no-underscore-dangle
-      req.session.userId = user._id;
+      req.session.userId = user._id; //Assigns the user id to session id
       res.redirect(req.query.origin);
     }
   }
-  // res.render('main/signin', {
-  //   title: `Íntimo | Iniciar sesión`,
-  // });
 };
 
 //*******************************
@@ -291,9 +284,8 @@ ctrl.logout = async (req, res) => {
     if (err) {
       return res.redirect(req.query.origin);
     }
-    res.clearCookie(SESS_NAME);
+    res.clearCookie(SESS_NAME); //Destroys the session cookie
     res.redirect(req.query.origin);
   });
 };
-
 module.exports = ctrl;
