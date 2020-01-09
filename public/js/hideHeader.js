@@ -8,6 +8,8 @@ function hideHeader () {
   const currentScrollpos = window.pageYOffset 
   if (currentScrollpos > prevScrollpos) {
     header.classList.add('vanish-header')
+  } else if (currentScrollpos == 0) {
+    header.classList.remove('vanish-header')
   } else {
     header.classList.remove('vanish-header')
   }
