@@ -185,8 +185,10 @@ ctrl.signin = (req, res) => {
 ctrl.addToWishList = async (req, res) => {
   const {id} = req.params; //Gets the product id from url params
   const {wishList} = await UserModel.findById(req.session.userId); //Gets the user wishlist from db
+  console.log(wishList.length);
+  
   const errors = []
-  if (wishlist.length >= 25) {
+  if (wishList.length >= 25) {
     errors.push('El numero máximo de productos destacados es 25');
   }
   if (wishList.includes(req.params.id)) {

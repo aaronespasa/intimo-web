@@ -8,7 +8,9 @@ const uuid = require("uuid/v4")
 const session = require("express-session");
 const SessionStore = require("connect-mongo")(session);
 const exphbs = require("express-handlebars") // Template engine middleware
+
 const { config } = require('./config/index');
+const routes = require("./routes/index");
 
 /*
  * Inicializations
@@ -19,10 +21,7 @@ const db = require("./database").connection
 /*
  * Settings
  */
-const routes = require("./routes/index")
-//const db = mongoose.connection;
-console.log(db);
-
+app.disable('x-powered-by');
 app.set("port", config.port); //Sets the server port with the value of thee .env file
 app.set("views", join(__dirname, "views")); // Define where's the views folder
 app.engine(".hbs", exphbs({
@@ -34,14 +33,8 @@ app.engine(".hbs", exphbs({
   })
 );
 app.set("view engine", ".hbs"); // Configure the template engine
-const TIME = 1000 * 60 * 60 * 2;
-const {
-  NODE_ENV = "development",
-  SESS_LIFETIME = TIME,
-  SESS_NAME = "sid",
-  SESS_SECRET = "ssh!quiet, it'a secret"
-} = process.env;
-const IN_PROD = NODE_ENV === "production";
+const TIME_TO_EXPIRE = 1000 * 60 * 60 * 2; //2 hours in ms"
+const IN_PROD = process.env.NODE_ENV == 'production';//Checks if server is in production mode
 
 /*
  * Middlewars
@@ -64,11 +57,16 @@ const storage = diskStorage({
 app.use(multer({ storage: storage }).single("image")); //Allows for images uploading
 app.use(
   session({
-    name: SESS_NAME,
+    name: config.sess_name,
+    secret: config.sess_secret,
     store: new SessionStore({ mongooseConnection: db }),
     resave: false,
-    saveUninitialized: true,
-    secret: SESS_SECRET
+    saveUninitialized: false,
+    cookie: {
+      resave: IN_PROD,
+      httpOnly: true,
+      expires: TIME_TO_EXPIRE
+    }
   })
 );
 //Routes
