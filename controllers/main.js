@@ -27,11 +27,11 @@ ctrl.home = async (req, res) => {
   if (req.session.userId) { //Checks if the user is logged
     logged = true;
   }
-  const config = await jsonReader('./config/config.json'); //Uses the json reader helper to get config data
+  const config = await jsonReader('./config/Config.json'); //Uses the json reader helper to get config data
   const ids = config.config.featured_id; //Gets the ids of the featured products
   const featuredItems = [];
   for (let i = 0; i < ids.length; i += 1) {
-    //The data of the featured products are searched on the DB using the ids saved in config.json
+    //The data of the featured products are searched on the DB using the ids saved in Config.json
     const featuredItem = await ProductModel.findById(ids[i]);
     featuredItems.push(featuredItem);
   }  
@@ -128,7 +128,7 @@ ctrl.wishlist = async (req, res) => {
   const user = await UserModel.findById(req.session.userId); //Gets the user info from the db
   const items = []
   for (let i = 0; i < user.wishList.length; i++) {
-    //The data of the featured products are searched on the DB using the ids saved in config.json
+    //The data of the featured products are searched on the DB using the ids saved in Config.json
     items.push(await ProductModel.findById(user.wishList[i]));
   }
   res.render('main/wishlist', {

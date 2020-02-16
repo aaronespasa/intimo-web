@@ -21,7 +21,7 @@ ctrl.admin = async (req, res) => {
     res.redirect('/admin/signin');
   } else {
     const items = await ProductModel.find().sort({ created_at: -1 }).limit(3);
-    const config = await jsonReader('./config/config.json'); //Uses the json reader helper to get config data
+    const config = await jsonReader('./config/Config.json'); //Uses the json reader helper to get config data
     const ids = config.config.featured_id; //Gets the ids of the featured products
     const featuredItems = [];
     for (let i = 0; i < ids.length; i += 1) {
@@ -107,14 +107,14 @@ ctrl.deleteProduct = async (req, res) => {
   } else {
     const { id } = req.params;
     const { path } = await ProductModel.findByIdAndDelete(id);
-    const config = await jsonReader('./config/config.json');
+    const config = await jsonReader('./config/Config.json');
     const fullPath = join(`${__dirname}/../public/${path}`);
     unlinkSync(fullPath, (err) => {
       err && console.error(err);
     });
     if (config.config.featured_id.includes(id)) {
       config.config.featured_id.splice(config.config.featured_id.indexOf(id), 1);
-      await jsonWriter('./config/config.json', config);
+      await jsonWriter('./config/Config.json', config);
     }
     res.redirect('/admin');
   }
@@ -153,7 +153,7 @@ ctrl.updateProduct = async (req, res) => {
 };
 
 ctrl.addPrdToFeatured = async (req, res) => {
-  const config = await jsonReader('./config/config.json');
+  const config = await jsonReader('./config/Config.json');
   const errors = []
   if (config.config.featured_id.length >= 4) {
     errors.push('El numero máximo de productos destacados es 4');
@@ -166,13 +166,13 @@ ctrl.addPrdToFeatured = async (req, res) => {
   }
   if (errors.length === 0) {
     config.config.featured_id.push(req.params.id);
-    await jsonWriter('./config/config.json', config);
+    await jsonWriter('./config/Config.json', config);
     res.redirect('/admin');
   }
 }
 
 ctrl.removePrdFromFeatured = async (req, res) => {
-  const config = await jsonReader('./config/config.json');
+  const config = await jsonReader('./config/Config.json');
   const errors = []
   if (!config.config.featured_id.includes(req.params.id)) {
     errors.push('Ese producto no se encuentra en la lista de destacados');
@@ -182,7 +182,7 @@ ctrl.removePrdFromFeatured = async (req, res) => {
   }
   if (errors.length === 0) {
     config.config.featured_id.splice(config.config.featured_id.indexOf(req.params.id), 1);
-    await jsonWriter('./config/config.json', config);
+    await jsonWriter('./config/Config.json', config);
     res.redirect('/admin');
   }
 }

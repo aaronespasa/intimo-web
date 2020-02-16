@@ -1,10 +1,18 @@
 {{> header}}
-<section>
+<section class="products-grid">
+    <div class="products-filter">
+        <p class="filter-title">Filtros <i class="filter-arrow up"></i></p>
+        <form>
+            <div class="checkbox"><input type="checkbox" name="check_woman" id="check_woman"><label for="check_woman">Mujer</label></div>
+            <div class="checkbox"><input type="checkbox" name="check_man" id="check_man"><label for="check_man">Hombre</label></div>
+            <div class="checkbox"><input type="checkbox" name="check_child" id="check_child"><label for="check_child">Niño</label></div>
+        </form>
+    </div>
     <div class="products-container">
         {{#each items}}
         <a href="/products/view/{{ _id }}" class="products">
-            <h3>{{ name }}</h3> <br>
             <img src="{{ path }}" alt="{{ name }}">
+            <h3>{{ name }}</h3> <br>
         </a>
         {{/each}}
     </div>
