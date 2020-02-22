@@ -1,6 +1,5 @@
 .products-grid {
     margin-top: 61px;
-    padding: 5% 5% 0 5%;
     font-family: 'Poppins', sans-serif;
     color: #00021D;
     display: grid;
@@ -13,6 +12,11 @@
  */
 .products-filter {
     grid-area: filters;
+    background-color: rgb(247, 247, 247);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4em;
 }
 .filter-title {
     font-size: 35px;
@@ -20,9 +24,9 @@
     margin-bottom: .7em;
 }
 .filter-arrow {
+    display: none;
     border: solid black;
     border-width: 0 3px 3px 0;
-    display: inline-block;
     padding: 8px;
     cursor: pointer;
 }
@@ -51,6 +55,7 @@
     grid-template-columns: repeat( auto-fit, minmax(250px, 1fr));
     justify-content: center;
     flex-wrap: nowrap;
+    padding: 4em 2em 0 2em;
 }
 
 .products {
@@ -72,4 +77,14 @@
     font-size: 20px;
     font-weight: 700;
     color: #1B1B56;
+}
+
+@media (max-width: 600px) {
+    .products-grid {
+        grid-template-areas:
+            "filters products products products"
+    }
+    .filter-arrow {
+        display: inline-block;
+    }
 }

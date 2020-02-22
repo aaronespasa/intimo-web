@@ -1,6 +1,10 @@
 {{> header }}
     <div class="wish-container">
-        <h1>Hola {{user}}, tu lista de deseos es...</h1>
+        {{#if items}}
+        <h1>Hola {{user}}, éstos son los productos de tu lista de deseos...</h1>
+        {{else}}
+        <h1>Hola {{user}}, aún no has añadido productos a tu lista de deseos</h1>
+        {{/if}}
         <ul id="wishlist">
         {{#each items}}
             <li class="wish">
@@ -12,8 +16,6 @@
                 <p class="wish-price">{{price}}</p>
                 <form action="/wishlist/quit/{{id}}" method="POST"><button type="submit">X</button></form>
             </li>
-        {{else}}
-        <h2>Todavía no has guardado ningun producto</h2>
         {{/each}}
         </ul>
     </div>
