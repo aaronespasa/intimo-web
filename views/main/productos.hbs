@@ -2,17 +2,20 @@
 <section class="products-grid">
     <div class="products-filter">
         <p class="filter-title">Filtros <i class="filter-arrow up" id="filter-arrow"></i></p>
-        <form>
-            <div class="checkbox"><input type="checkbox" name="check_woman" id="check_woman"><label for="check_woman">Mujer</label></div>
-            <div class="checkbox"><input type="checkbox" name="check_man" id="check_man"><label for="check_man">Hombre</label></div>
-            <div class="checkbox"><input type="checkbox" name="check_child" id="check_child"><label for="check_child">Niño</label></div>
+        <form class="filter-products">
+            <div class="checkbox"><input type="checkbox" name="sex" id="check_man" value="man"><label for="check_man">Hombre</label></div>
+            <div class="checkbox"><input type="checkbox" name="sex" id="check_woman" value="woman"><label for="check_woman">Mujer</label></div>
+            <div class="checkbox"><input type="checkbox" name="sex" id="check_child" value="child"><label for="check_child">Niño</label></div>
+            <button type="submit" class="apply-filters-btn">Aplicar filtros</button>
+            <button type="submit" class="erase-filters-btn" onsubmit="erase_filters()">Borrar filtros</button>
         </form>
     </div>
     <div class="products-container">
         {{#each items}}
         <a href="/products/view/{{ _id }}" class="products">
             <img src="{{ path }}" alt="{{ name }}">
-            <h3>{{ name }}</h3> <br>
+                <h3>{{ name }}</h3>
+                <p class="price">15€</p><br>
         </a>
         {{/each}}
     </div>

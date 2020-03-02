@@ -4,7 +4,8 @@
     color: #00021D;
     display: grid;
     grid-template-areas:
-                    "filters products products products products"
+                    "filters products";
+    grid-template-columns: 1fr 3fr;
 }
 
 /*
@@ -12,14 +13,19 @@
  */
 .products-filter {
     grid-area: filters;
-    background-color: rgb(247, 247, 247);
+     background: rgb(231, 231, 231);
+     background: -moz-linear-gradient(90deg, rgba(231, 231, 231, 1) 0%, rgba(248, 248, 248, 1) 65%, rgba(255, 255, 255, 1) 100%);
+     background: -webkit-linear-gradient(90deg, rgba(231, 231, 231, 1) 0%, rgba(248, 248, 248, 1) 65%, rgba(255, 255, 255, 1) 100%);
+     background: linear-gradient(90deg, rgba(231, 231, 231, 1) 0%, rgba(248, 248, 248, 1) 65%, rgba(255, 255, 255, 1) 100%);
+     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e7e7e7", endColorstr="#ffffff", GradientType=1);
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 4em;
 }
 .filter-title {
-    font-size: 35px;
+    color: #00021D;
+    font-size: 2em;
     font-weight: 500;
     margin-bottom: .7em;
 }
@@ -38,13 +44,48 @@
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
 }
-.products-filter form {
+.filter-products {
     display: flex;
     flex-direction: column;
 }
+.checkbox {
+    margin-left: 3em;
+    cursor: pointer;
+}
+.hidden {
+    display: none;
+}
 .checkbox input{
     margin-right: 2em;
-    
+    cursor: pointer;
+}
+.apply-filters-btn,
+.erase-filters-btn {
+    padding: .3em .5em;
+    font-size: .8em;
+    border-radius: 3%;
+    border: 0;
+    color: white;
+    cursor: pointer;
+    width: 15em;
+    font-family: 'Poppins', sans-serif;
+}
+.apply-filters-btn {
+    margin: 3em 0 .8em 0;
+    background-color: rgb(130, 169, 253);
+    transition: background-color .4s ease-in-out;
+}
+.apply-filters-btn:hover {
+    background-color: rgb(101, 150, 255);
+}
+.erase-filters-btn {
+    background-color: rgb(255, 132, 142);
+    margin-bottom: 1.5em;
+    transition: background-color .4s ease-in-out;
+}
+.erase-filters-btn:hover {
+    background-color: rgb(255, 104, 117);
+    margin-bottom: 1.5em;
 }
 /*
  * Products Container
@@ -52,8 +93,8 @@
 .products-container {
     grid-area: products;
     display: grid;
-    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr));
-    justify-content: center;
+    grid-template-columns: repeat( auto-fit, minmax(300px, 350px));
+    justify-items: center;
     flex-wrap: nowrap;
     padding: 4em 2em 0 2em;
 }
@@ -61,28 +102,42 @@
 .products {
     text-align: center;
     text-decoration: none;
-    width: 40%;
+    width: 55%;
 }
 
 .products img {
     border-radius: 2%;
-    width: 40%;
+    width: 70%;
     height: 50%;
     padding: 0 auto;
     margin-bottom: 10%;
 }
 
-.products h3 {
+
+.products h3,
+.products .price {
     font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 1.1em;
     color: #1B1B56;
+    vertical-align: middle;
+}
+.products h3 {
+    font-weight: 500;
 }
 
 @media (max-width: 600px) {
     .products-grid {
         grid-template-areas:
-            "filters products products products"
+                            "filters"
+                            "products";
+        grid-template-columns: none;
+    }
+    .products-filter {
+           background: rgb(231, 231, 231);
+           background: -moz-linear-gradient(180deg, rgba(231, 231, 231, 1) 0%, rgba(243, 243, 243, 1) 88%, rgba(255, 255, 255, 1) 100%);
+           background: -webkit-linear-gradient(180deg, rgba(231, 231, 231, 1) 0%, rgba(243, 243, 243, 1) 88%, rgba(255, 255, 255, 1) 100%);
+           background: linear-gradient(180deg, rgba(231, 231, 231, 1) 0%, rgba(243, 243, 243, 1) 88%, rgba(255, 255, 255, 1) 100%);
+           filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e7e7e7", endColorstr="#ffffff", GradientType=1);
     }
     .filter-arrow {
         display: inline-block;
