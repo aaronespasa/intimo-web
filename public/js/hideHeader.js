@@ -1,20 +1,24 @@
-const header = document.getElementById('header')
-let prevScrollpos = window.pageYOffset // Get the previous offset position of the navbar
+const header = document.getElementById('header');
+let prevScrollpos = window.pageYOffset; // Get the previous offset position of the navbar
 
 /**
  * Auto hide header on scroll
  */
 function hideHeader () {
-  const currentScrollpos = window.pageYOffset 
-  if (currentScrollpos > prevScrollpos) {
-    header.classList.add('vanish-header')
-  } else if (currentScrollpos == 0) {
-    header.classList.remove('vanish-header')
+  let currentScrollpos = window.pageYOffset;
+  if (currentScrollpos < 20) {
+      // Scroll to the top
+      // The < 20 prevents to hide the header automatically on mobile
+      header.classList.remove('vanish-header');
+  } else if (currentScrollpos > prevScrollpos) {
+      // Scroll down
+      header.classList.add('vanish-header');
   } else {
-    header.classList.remove('vanish-header')
+      // Scroll up
+      header.classList.remove('vanish-header');
   }
 
-  prevScrollpos = currentScrollpos
+  prevScrollpos = currentScrollpos;
 }
 
-window.addEventListener('scroll', hideHeader)
+window.addEventListener('scroll', hideHeader);

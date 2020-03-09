@@ -1,14 +1,131 @@
 :root {
-
+    --dark-blue: #00021D;
 }
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+.wishlist-container {
+    margin-top: calc(64px + 1.1em);
+    min-height: calc(85vh - 64px);
+}
 
-.wish-container {
-    margin-top: 64px;
-    height: calc(100vh - 64px);
+/* Main Text of the wishlist*/
+.default-title-wishlist,
+.success-title-wishlist {
+    text-align: center;
+    font-size: 2em;
+    font-family: 'Spectral', serif;
+    color: var(--dark-blue);
+    margin-bottom: 1em;
+}
+.default-title-wishlist {
+
+}
+.success-title-wishlist {
+
+}
+
+/* List of the products */
+#wishlist {
+    margin: auto;
+    text-align: center;
+    width: 45%;
+    margin: auto;
+    list-style: none;
+}
+.wish {
+    width: 100%;
+    padding: 0 1em;
+    margin-bottom: 1.4em;
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+}
+.wish-pic {
+    width: 100%;
+}
+.wish-pic img {
+    width: 150px;
+    height: 170px;
+    border-radius: 5%;
+}
+.wish-info-container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background: rgb(250, 250, 250);
+    background: -moz-radial-gradient(circle, rgba(250, 250, 250, 1) 65%, rgba(255, 255, 255, 1) 88%);
+    background: -webkit-radial-gradient(circle, rgba(250, 250, 250, 1) 65%, rgba(255, 255, 255, 1) 88%);
+    background: radial-gradient(circle, rgba(250, 250, 250, 1) 65%, rgba(255, 255, 255, 1) 88%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fafafa", endColorstr="#ffffff", GradientType=1);
+    border-radius: 2%;
+    position: relative;
+}
+.wish-details {
+    margin-top: 1em;
+}
+.wish-name {
+    text-decoration: none;
+    color: var(--dark-blue);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5em;
+}
+.wish-desc {
+    font-family: 'Spectral', serif;
+}
+.wish-price {
+
+}
+.remove-wish {
+    position: absolute;
+    top: .7em;
+    right: .7em;
+}
+.remove-wish-btn {
+    border: none;
+    border-radius: 5%;
+    padding: .2em .4em;
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(243, 240, 240);
+    font-size: .8em;
+}
+
+/* Media queries */
+@media screen and (max-width: 1080px) {
+    #wishlist {
+        width: 60%;
+    }
+}
+@media screen and (max-width: 760px) {
+    .default-title-wishlist,
+    .success-title-wishlist {
+        font-size: 1.7em;
+        width: 70%;
+        margin: 1.2em auto;
+    }
+    #wishlist {
+        width: 80%;
+    }
+    .wish {
+        column-gap: 10px;
+    }
+    .wish-pic img {
+        width: 100px;
+        height: 115px;
+    }
+    .wish-name {
+        font-size: 1.2em;
+    }
+    .wish-desc {
+        font-size: .8em;
+    }
+    .remove-wish {
+        top: .1em;
+        right: .1em;
+    }
+    .remove-wish-btn {
+        padding: .1em .25em;
+        font-size: .55em;
+    }
 }

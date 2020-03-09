@@ -1,15 +1,12 @@
 .view-product {
     display: grid;
+    margin-top: 64px;
+    padding-top: 2em;
     grid-template-columns: repeat(auto-fit, 350px);
     grid-gap: 1.5rem;
     align-items: center;
     justify-content: center;
     margin-bottom: var(--section-margin-btm);
-}
-
-.product-views {
-    display: grid;
-    grid-template-columns: .3fr 1fr;
 }
 
 .select-product {
@@ -51,6 +48,7 @@
 .product-price {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .onsale {
@@ -155,5 +153,6 @@
 
     .main-product {
         width: 12rem;
+        margin: auto;
     }
 }

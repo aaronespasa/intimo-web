@@ -1,22 +1,28 @@
 {{> header }}
-    <div class="wish-container">
+    <section class="wishlist-container">
         {{#if items}}
-        <h1>Hola {{user}}, éstos son los productos de tu lista de deseos...</h1>
+        <h1 class="success-title-wishlist">Hola {{user}}, éstos son los productos de tu lista de deseos</h1>
         {{else}}
-        <h1>Hola {{user}}, aún no has añadido productos a tu lista de deseos</h1>
+        <h1 class="default-title">Hola {{user}}, aún no has añadido productos a tu lista de deseos</h1>
         {{/if}}
         <ul id="wishlist">
         {{#each items}}
             <li class="wish">
-                {{!-- <figure>
-                    <img src="{{path}}" alt="Imagen de {{name}}">
-                </figure> --}}
-                <a class="wish-name" href="/products/view/{{id}}">{{name}}</a>
-                <p class="wish-desc">{{description}}</p>
-                <p class="wish-price">{{price}}</p>
-                <form action="/wishlist/quit/{{id}}" method="POST"><button type="submit">X</button></form>
+                    <figure class="wish-pic">
+                        <img src="{{path}}" alt="Imagen de {{name}}">
+                    </figure>
+                <div class="wish-info-container">
+                    <div class="wish-details">
+                        <a class="wish-name" href="/products/view/{{id}}">{{name}}</a>
+                        <p class="wish-desc">{{description}}</p>
+                        <p class="wish-price">{{price}}</p>
+                    </div>
+                    <form class="remove-wish" action="/wishlist/quit/{{id}}" method="POST">
+                        <button class="remove-wish-btn" type="submit">Eliminar</button>
+                    </form>
+                </div>
             </li>
         {{/each}}
         </ul>
-    </div>
+    </section>
 {{> footer}}
